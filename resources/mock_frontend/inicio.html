@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recepción de Pacientes - Sagrado Corazón</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  </head>
+  <body class="bg-gray-100 min-h-screen flex">
+    <!-- Barra lateral -->
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+      <div>
+        <div class="p-6 text-center border-b border-white">
+          <h2 class="text-xl font-bold">Dr. Felipe Torres</h2>
+          <p class="text-sm text-red-200">Administrador</p>
+        </div>
+        <nav class="mt-6 space-y-2 px-4">
+          <a href="inicio.html" class="block py-2 px-4 rounded hover:bg-red-700">Inicio</a>
+          <a href="pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+          <a href="ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+          <a href="evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+          <a href="empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+          <a href="correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+        </nav>
+      </div>
+      <div class="p-4 border-t border-white">
+        <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700">Cerrar Sesión</a>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+        <h1 class="text-2xl font-bold">
+            <span class="text-gray-700">Servicios Médicos</span>
+            <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+        </h1>
+        <p class="text-gray-600 mt-1">Bienvenido al Sistema de Salud Ocupacional</p>
+        </header>
+
+
+      <!-- Tabla de citas -->
+      <section class="bg-white shadow rounded p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-gray-700 uppercase">Recepción de Pacientes para Salud Ocupacional</h2>
+          <a href="nueva_cita.html" class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+            Nuevo
+          </a>
+        </div>
+
+        <!-- Tabla vacía -->
+        <table class="w-full border border-gray-300 text-sm">
+          <thead class="bg-gray-100 text-gray-700 uppercase">
+            <tr>
+              <th class="border px-2 py-2">N°</th>
+              <th class="border px-2 py-2">DNI</th>
+              <th class="border px-2 py-2">Apellidos y Nombres</th>
+              <th class="border px-2 py-2">Cargo</th>
+              <th class="border px-2 py-2">Empresa</th>
+              <th class="border px-2 py-2">Historia Clínica</th>
+              <th class="border px-2 py-2">Hoja de Ruta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí se agregarán dinámicamente las citas -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
