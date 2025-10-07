@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hoja de Ruta del Paciente</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <h1 class="text-2xl font-bold text-red-800 mb-4">Hoja de Ruta del Paciente</h1>
+    <div id="datosPaciente" class="mb-6 text-gray-700"></div>
+
+    <table class="w-full border border-gray-300 text-sm mb-6">
+      <thead class="bg-gray-100 text-gray-700 uppercase">
+        <tr>
+          <th class="border px-2 py-2">Evaluaciones</th>
+          <th class="border px-2 py-2">Lugar</th>
+          <th class="border px-2 py-2">Hora Ingreso</th>
+          <th class="border px-2 py-2">Hora Salida</th>
+          <th class="border px-2 py-2">Encargado</th>
+          <th class="border px-2 py-2">Observaciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaEvaluaciones"></tbody>
+    </table>
+
+    <div class="flex justify-end">
+      <button id="guardarBtn" class="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition">
+        Guardar Cambios
+      </button>
+      <a href="inicio.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const dni = new URLSearchParams(location.search).get("dni");
+    const rutas = JSON.parse(localStorage.getItem("rutas") || "{}");
+    const hoja = rutas[dni];
+
+    if (!hoja) {
+      document.body.innerHTML = "<p class='text-center text-red-600 font-bold'>Hoja de ruta no encontrada.</p>";
+    } else {
+      document.getElementById("datosPaciente").innerHTML = `
+        <p><strong>Nombre Completo:</strong> ${hoja.nombre}</p>
+        <p><strong>DNI:</strong> ${hoja.dni}</p>
+        <p><strong>Cargo:</strong> ${hoja.cargo}</p>
+        <p><strong>Empresa:</strong> ${hoja.empresa}</p>
+      `;
+
+      const tbody = document.getElementById("tablaEvaluaciones");
+      hoja.evaluaciones.forEach((eval, i) => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td class="border px-2 py-2">${eval.area}</td>
+          <td class="border px-2 py-2">${eval.piso}</td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaIngreso}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaSalida}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.encargado}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.observaciones}" class="w-full border rounded px-2" /></td>
+        `;
+        tbody.appendChild(fila);
+      });
+
+      document.getElementById("guardarBtn").addEventListener("click", () => {
+        const filas = document.querySelectorAll("#tablaEvaluaciones tr");
+        hoja.evaluaciones = Array.from(filas).map(tr => ({
+          area: tr.children[0].textContent,
+          piso: tr.children[1].textContent,
+          horaIngreso: tr.children[2].querySelector("input").value,
+          horaSalida: tr.children[3].querySelector("input").value,
+          encargado: tr.children[4].querySelector("input").value,
+          observaciones: tr.children[5].querySelector("input").value
+        }));
+
+        rutas[dni] = hoja;
+        localStorage.setItem("rutas", JSON.stringify(rutas));
+        alert("✅ Cambios guardados correctamente");
+      });
+    }
+  </script>
+</body>
+</html>
