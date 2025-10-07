@@ -8,8 +8,11 @@
 <body class="bg-gray-100 min-h-screen p-6">
   <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-8">
     <h1 class="text-2xl font-bold text-red-800 mb-4">Hoja de Ruta del Paciente</h1>
+
+    <!-- DATOS DEL PACIENTE -->
     <div id="datosPaciente" class="mb-6 text-gray-700"></div>
 
+    <!-- TABLA DE EVALUACIONES -->
     <table class="w-full border border-gray-300 text-sm mb-6">
       <thead class="bg-gray-100 text-gray-700 uppercase">
         <tr>
@@ -24,15 +27,16 @@
       <tbody id="tablaEvaluaciones"></tbody>
     </table>
 
-    <div class="flex justify-end">
+    <!-- BOTONES -->
+    <div class="flex justify-end space-x-4">
       <button id="guardarBtn" class="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition">
         Guardar Cambios
       </button>
       <a href="inicio.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
-      </div>
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
     const dni = new URLSearchParams(location.search).get("dni");
     const rutas = JSON.parse(localStorage.getItem("rutas") || "{}");
@@ -41,27 +45,32 @@
     if (!hoja) {
       document.body.innerHTML = "<p class='text-center text-red-600 font-bold'>Hoja de ruta no encontrada.</p>";
     } else {
+      // Mostrar datos del paciente + hora + tipo de evaluación
       document.getElementById("datosPaciente").innerHTML = `
         <p><strong>Nombre Completo:</strong> ${hoja.nombre}</p>
         <p><strong>DNI:</strong> ${hoja.dni}</p>
         <p><strong>Cargo:</strong> ${hoja.cargo}</p>
         <p><strong>Empresa:</strong> ${hoja.empresa}</p>
+        <p><strong>Hora de Ingreso:</strong> ${hoja.horaIngresoGeneral || "No registrada"}</p>
+        <p><strong>Tipo de Evaluación:</strong> ${hoja.tipoEvaluacion?.length ? hoja.tipoEvaluacion.join(", ").toUpperCase() : "No marcada"}</p>
       `;
 
+      // Mostrar tabla editable
       const tbody = document.getElementById("tablaEvaluaciones");
       hoja.evaluaciones.forEach((eval, i) => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
           <td class="border px-2 py-2">${eval.area}</td>
           <td class="border px-2 py-2">${eval.piso}</td>
-          <td class="border px-2 py-2"><input type="time" value="${eval.horaIngreso}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="time" value="${eval.horaSalida}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" value="${eval.encargado}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" value="${eval.observaciones}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaIngreso || ''}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaSalida || ''}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.encargado || ''}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.observaciones || ''}" class="w-full border rounded px-2" /></td>
         `;
         tbody.appendChild(fila);
       });
 
+      // Guardar cambios
       document.getElementById("guardarBtn").addEventListener("click", () => {
         const filas = document.querySelectorAll("#tablaEvaluaciones tr");
         hoja.evaluaciones = Array.from(filas).map(tr => ({
