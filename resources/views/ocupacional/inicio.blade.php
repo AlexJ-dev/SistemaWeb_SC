@@ -9,7 +9,7 @@
         <div class="mt-8 bg-white rounded-lg shadow p-6">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl font-semibold text-[#4C4C4C]">Recepción de Pacientes para Salud Ocupacional</h2>
-                <a href="{{ route('pacientes.crear') }}" class="bg-[#9C1C2A] text-white px-4 py-2 rounded hover:bg-[#FF9C9C] transition">
+                <a href="{{ route('pacientes.crear') }}" class="bg-[#9C1C2A] text-white px-4 py-2 rounded hover:bg-[#b91c1c] transition">
                     Nuevo
                 </a>
             </div>
@@ -27,21 +27,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($atenciones as $index => $atencion)
-                    <tr>
+                    @foreach ($rutas as $index => $ruta)
+                    <tr class="text-[#4C4C4C]">
                         <td class="px-4 py-2">{{ $index + 1 }}</td>
-                        <td class="px-4 py-2">{{ $atencion->paciente->documento }}</td>
-                        <td class="px-4 py-2">{{ $atencion->paciente->apellidos }}, {{ $atencion->paciente->nombres }}</td>
-                        <td class="px-4 py-2">{{ $atencion->paciente->cargo }}</td>
-                        <td class="px-4 py-2">{{ $atencion->paciente->empresa }}</td>
+                        <td class="px-4 py-2">{{ $ruta->documento }}</td>
+                        <td class="px-4 py-2">{{ $ruta->apellidos }}, {{ $ruta->nombres }}</td>
+                        <td class="px-4 py-2">{{ $ruta->cargo }}</td>
+                        <td class="px-4 py-2">{{ $ruta->empresa }}</td>
                         <td class="px-4 py-2 text-center">
-                            <a href="#" class="text-[#9C1C2A] underline">Ver</a>
+                            <button onclick="alert('Formulario de historia clínica para {{ $ruta->documento }}')" class="text-[#9C1C2A] underline">
+                                Ver
+                            </button>
                         </td>
+
                         <td class="px-4 py-2 text-center">
-                            <a href="#" class="text-[#9C1C2A] underline">Ruta</a>
+                            <a href="{{ route('ruta.ver', ['dni' => $ruta->documento]) }}" class="text-[#9C1C2A] underline">Ruta</a>
                         </td>
+
                     </tr>
                     @endforeach
+
                 </tbody>
 
 

@@ -6,6 +6,7 @@ $navItems = [
 ['label' => 'Evaluaciones', 'route' => 'evaluaciones'],
 ['label' => 'Empresa', 'route' => 'empresa'],
 ['label' => 'Correos', 'route' => 'correos'],
+['label' => 'Mantenimiento', 'route' => 'mantenimiento'],
 ];
 @endphp
 
@@ -32,19 +33,20 @@ $navItems = [
         @php
         $isActive = request()->routeIs($item['route']);
         $baseClasses = 'block px-4 py-2 rounded transition';
-        $activeClasses = $isActive ? 'bg-[#FF9C9C] text-white' : 'hover:bg-[#FF9C9C] text-white';
+        $activeClasses = $isActive ? 'bg-[#b91c1c] text-white' : 'hover:bg-[#b91c1c] text-white';
         @endphp
         <a href="{{ route($item['route']) }}" class="{{ $baseClasses }} {{ $activeClasses }}">
             {{ $item['label'] }}
         </a>
         @endforeach
     </nav>
+    
 
     <!-- Cerrar sesión -->
     <div class="px-4 py-4 border-t border-white/20">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="w-full text-left px-4 py-2 rounded hover:bg-[#FF9C9C] transition text-white">
+            <button type="submit" class="w-full text-left px-4 py-2 rounded hover:bg-[#b91c1c] transition text-white">
                 Cerrar Sesión
             </button>
         </form>

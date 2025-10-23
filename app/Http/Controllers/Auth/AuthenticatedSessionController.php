@@ -14,8 +14,22 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        if (Auth::check()) {
+            // Verifica si la sesión aún está marcada como válida
+            if (!session()->has('login_verified')) {
+                // Cierra sesión si la cookie existe pero la sesión no
+                Auth::logout();
+                session()->invalidate();
+                session()->regenerateToken();
+
+                return redirect()->route('login')->with('error', 'Tu sesión expiró. Por favor, inicia sesión nuevamente.');
+            }
+
+            return redirect()->route('inicio');
+        }
+
         return view('auth.login');
     }
 
@@ -28,6 +42,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Marca la sesión como verificada
+        session(['login_verified' => true]);
+
         return redirect()->intended(route('inicio', absolute: false));
     }
 
@@ -39,9 +56,8 @@ class AuthenticatedSessionController extends Controller
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
     }
 }

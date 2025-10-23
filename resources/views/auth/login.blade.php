@@ -7,6 +7,15 @@
                 <div class="w-32 h-32 mb-4 bg-white flex items-center justify-center">
                     <img src="{{ asset('assets/aplication-logo-2.png') }}" alt="Logo Sagrado Corazón" class="w-full h-full object-contain" />
                 </div>
+                <!-- Mensaje de sesión expirada -->
+                @if (session('error'))
+                <div class="mb-4 w-full text-center">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">¡Atención!</strong>
+                        <span class="block sm:inline">{{ session('error') }}</span>
+                    </div>
+                </div>
+                @endif
 
                 <!-- Texto institucional -->
                 <div class="text-center">
@@ -45,19 +54,19 @@
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-                <!-- Recordarme 
+                <!-- Recordarme -->
                 <div class="block mb-4">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox" name="remember"
                             class="rounded border-gray-300 text-[#9C1C2A] shadow-sm focus:ring-[#9C1C2A]" />
                         <span class="ms-2 text-sm text-[#4C4C4C]">Recordarme</span>
                     </label>
-                </div>-->
+                </div>
 
                 <!-- Botón y recuperación -->
-                 <!-- Botón -->
+                <!-- Botón -->
                 <div class="flex justify-center">
-                    <x-primary-button >
+                    <x-primary-button>
                         {{ __('Login') }}
                     </x-primary-button>
                 </div>
@@ -71,7 +80,8 @@
                 </div>
                 @endif
 
-                
+
+
 
             </form>
         </div>
