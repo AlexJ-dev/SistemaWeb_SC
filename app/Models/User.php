@@ -2,31 +2,30 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Atributos que pueden asignarse masivamente.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
-        'email',
         'password',
+        'password_visible',
+        'personal_id',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Atributos ocultos para serialización.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -34,7 +33,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Atributos con casting automático.
      *
      * @return array<string, string>
      */
@@ -44,5 +43,34 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Relación: el usuario pertenece a un rol institucional.
+     */
+    public function rol()
+    {
+        return $this->personal?->rol;
+    }
+
+
+    /**
+     * Relación: el usuario está vinculado a un registro de personal.
+     */
+    public function personal()
+    {
+        return $this->belongsTo(Personal::class);
+    }
+
+    /**
+     * Accesor: nombre completo del personal vinculado.
+     */
+    public function getNombreCompletoAttribute()
+    {
+        if ($this->personal) {
+            return "{$this->personal->apellido} {$this->personal->nombre}";
+        }
+
+        return null;
     }
 }

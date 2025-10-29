@@ -9,6 +9,10 @@ use App\Http\Controllers\RutaMedicaController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\MantenimientoController;
 use App\Http\Controllers\EspecialidadOcupacionalController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\AreaOcupacionalController;
 
 // Redirección inicial al login
 Route::get('/', function () {
@@ -61,7 +65,36 @@ Route::middleware('auth')->group(function () {
     Route::delete('/especialidades/{especialidad}', [EspecialidadOcupacionalController::class, 'destroy'])
         ->name('ocupacional.mantenimiento.especialidades.destroy');
 
+    Route::prefix('ocupacional/mantenimiento')->name('ocupacional.mantenimiento.')->group(function () {
+        Route::prefix('personal')->name('personal.')->group(function () {
+            Route::get('/', [PersonalController::class, 'index'])->name('index');
+            Route::post('/', [PersonalController::class, 'store'])->name('store');
+            Route::put('/{personal}', [PersonalController::class, 'update'])->name('update');
+            Route::delete('/{personal}', [PersonalController::class, 'destroy'])->name('destroy');
+        });
+    });
+    Route::prefix('ocupacional/mantenimiento')->name('ocupacional.mantenimiento.')->group(function () {
+        Route::get('roles', [RolesController::class, 'index'])->name('roles.index');
+        Route::post('roles', [RolesController::class, 'store'])->name('roles.store');
+        Route::put('roles/{rol}', [RolesController::class, 'update'])->name('roles.update');
+        Route::delete('roles/{rol}', [RolesController::class, 'destroy'])->name('roles.destroy');
+    });
 
+
+    Route::prefix('ocupacional/mantenimiento')->name('ocupacional.mantenimiento.')->group(function () {
+        Route::get('usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+        Route::post('usuarios', [UsuariosController::class, 'store'])->name('usuarios.store');
+        Route::put('usuarios/{user}', [UsuariosController::class, 'update'])->name('usuarios.update');
+        Route::delete('usuarios/{user}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+    });
+
+
+    Route::prefix('ocupacional/mantenimiento')->name('areas.')->group(function () {
+        Route::get('/areas', [AreaOcupacionalController::class, 'index'])->name('index');
+        Route::post('/areas', [AreaOcupacionalController::class, 'store'])->name('store');
+        Route::put('/areas/{area}', [AreaOcupacionalController::class, 'update'])->name('update');
+        Route::delete('/areas/{area}', [AreaOcupacionalController::class, 'destroy'])->name('destroy');
+    });
 
 
     // Vistas clínicas

@@ -18,12 +18,15 @@ $navItems = [
                 <img src="{{ asset('assets/aplication-logo-2.png') }}" alt="Logo Sagrado Corazón" class="w-16 h-16 object-contain" />
             </div>
             @if(Auth::check())
-            <div class="px-4 py-2 border-b border-white/20 text-white text-sm">
+            <div class="px-4 py-2 border-b border-white/20 text-white text-sm text-center">
                 <span class="font-semibold">{{ Auth::user()->name }}</span>
+                <br>
+                <span class="text-xs text-white/80">
+                    {{ Auth::user()->personal->rol->nombre ?? 'Sin rol asignado' }}
+                </span>
             </div>
             @endif
 
-            <p class="text-center text-xs">Administrador</p>
         </div>
     </div>
 
@@ -40,7 +43,7 @@ $navItems = [
         </a>
         @endforeach
     </nav>
-    
+
 
     <!-- Cerrar sesión -->
     <div class="px-4 py-4 border-t border-white/20">
