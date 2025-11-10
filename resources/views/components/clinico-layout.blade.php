@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Sagrado Corazón') }}</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/modal-registro.js', 'resources/js/modal-editar.js', 'resources/js/usuarios.js', 'resources/js/ruta.js', 'resources/js/historiaClinica.js', 'resources/js/antecedenteMedico.js'])
 </head>
+
 <body class="bg-gray-100 font-sans antialiased">
     <div class="flex min-h-screen">
         <x-sidebar-clinico />
@@ -15,5 +17,8 @@
             {{ $slot }}
         </main>
     </div>
+    @yield('scripts')
+
 </body>
+
 </html>

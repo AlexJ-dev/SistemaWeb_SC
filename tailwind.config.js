@@ -18,6 +18,7 @@ export default {
                 primary: '#DFEEFA',   // 
                 secondary: '#F59E0B', // Amarillo
                 danger: '#DC2626',    // Rojo
+                clinico: '#9C1C2A',
             },
 
         },

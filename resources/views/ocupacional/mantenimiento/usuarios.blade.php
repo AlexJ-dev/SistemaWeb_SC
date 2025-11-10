@@ -6,14 +6,23 @@
             Registrar nuevo usuario del sistema
         </p>
 
-
-
-        <form method="POST" action="{{ route('ocupacional.mantenimiento.usuarios.store') }}" class="bg-white rounded-lg shadow p-4 space-y-4 mb-4 mt-4">
+        <form id="form-usuario" method="POST" action="{{ route('ocupacional.mantenimiento.usuarios.store') }}"
+            class="bg-white rounded-lg shadow p-4 space-y-4 mb-4 mt-4">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <x-input-clinico label="Nombre de usuario" name="name" value="" />
-                <x-input-clinico label="Contraseña" name="password" type="text" value="" />
-                <x-select-clinico name="personal_id" label="Personal asociado">
+                <!-- Nombre de usuario -->
+                <div class="relative">
+                    <x-input-clinico label="Nombre de usuario" name="name" id="name" value="" />
+                    <p id="name-error" class="absolute text-red-500 text-sm -top-0 left-36 hidden"></p>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="relative">
+                    <x-input-clinico label="Contraseña" name="password" id="password" type="text" value="" maxlength="6" />
+                    <p id="password-error" class="absolute text-red-500 text-sm -top-0 left-24 hidden"></p>
+                </div>
+
+                <x-select-clinico name="personal_id" label="Personal asociado" id="personal_id">
                     <option value="">-- Seleccionar --</option>
                     @foreach ($personal as $p)
                     <option value="{{ $p->id }}">{{ $p->apellido }}, {{ $p->nombre }}</option>
@@ -21,9 +30,12 @@
                 </x-select-clinico>
             </div>
             <div class="flex justify-end space-x-4 pt-2">
+                <button type="button" id="cancelar-btn"
+                    class="px-4 py-2 rounded bg-gray-300 text-[#4C4C4C] hover:bg-gray-400">Cancelar</button>
                 <x-boton-clinico>Guardar</x-boton-clinico>
             </div>
         </form>
+
 
         {{-- Tabla de usuarios --}}
         <div class="mt-4 bg-white rounded-lg shadow p-6">
@@ -85,15 +97,5 @@
             </table>
         </div>
     </div>
-
-    {{-- Script para copiar credenciales --}}
-    <script>
-        function copiarCredenciales(usuario, contraseña) {
-            const texto = `${usuario} / ${contraseña}`;
-            navigator.clipboard.writeText(texto).then(() => {
-                console.log("Credenciales copiadas:", texto);
-            });
-        }
-    </script>
 
 </x-clinico-layout>

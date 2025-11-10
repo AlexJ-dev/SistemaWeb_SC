@@ -26,7 +26,15 @@ class Personal extends Model
         'especialidad_id',
         'rol_id',
     ];
+    public function setApellidoAttribute($value)
+    {
+        $this->attributes['apellido'] = strtoupper($value);
+    }
 
+    public function setNombreAttribute($value)
+    {
+        $this->attributes['nombre'] = strtoupper($value);
+    }
     // Relación con usuario
     public function usuario()
     {

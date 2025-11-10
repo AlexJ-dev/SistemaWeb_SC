@@ -13,6 +13,10 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\AreaOcupacionalController;
+use App\Http\Controllers\HistoriaClinicaController;
+use App\Models\Personal;
+use App\Http\Controllers\AntecedentesFamiliaresController;
+use App\Http\Controllers\AntecedentesMedicosController;
 
 // Redirección inicial al login
 Route::get('/', function () {
@@ -40,20 +44,18 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 // Rutas protegidas por autenticación
 Route::middleware('auth')->group(function () {
     Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
-
+    Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes');
     // Ruta médica
+    Route::get('/ruta-medica/crear', [RutaMedicaController::class, 'create'])->name('ruta.crear');
     Route::post('/ruta-medica', [RutaMedicaController::class, 'store'])->name('ruta.store');
     Route::get('/ruta-medica/{dni}', [RutaMedicaController::class, 'ver'])->name('ruta.ver');
+    Route::get('/verificar-paciente/{dni}', [RutaMedicaController::class, 'verificarPaciente'])->name('ruta.verificar');
+
 
     // Perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Pacientes
-    Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacientes.store');
-    Route::get('/pacientes/crear', [PacienteController::class, 'create'])->name('pacientes.crear');
-    Route::view('/pacientes', 'ocupacional.pacientes')->name('pacientes');
 
     //Mantenimiento -> Especialidades Ocupacionales
     Route::get('/especialidades', [EspecialidadOcupacionalController::class, 'index'])
@@ -97,6 +99,10 @@ Route::middleware('auth')->group(function () {
     });
 
 
+    // Historia Clínica + Antecedentes Médicos + Familiares (unificados)
+    Route::get('/historia/{dni}/editar', [HistoriaClinicaController::class, 'editar'])->name('historiaClinica.editar');
+    Route::post('/historia/{dni}/actualizar', [HistoriaClinicaController::class, 'actualizar'])->name('historiaClinica.actualizar');
+
     // Vistas clínicas
     Route::view('/ficha', 'ocupacional.ficha')->name('ficha.ocupacional');
     Route::view('/evaluaciones', 'ocupacional.evaluaciones')->name('evaluaciones');
@@ -104,6 +110,13 @@ Route::middleware('auth')->group(function () {
     Route::view('/correos', 'ocupacional.correos')->name('correos');
     Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento');
 });
+Route::get('/verificar-dni/{dni}', function ($dni) {
+    return response()->json(Personal::where('dni', $dni)->exists());
+});
+Route::get('/verificar-dni-editar/{dni}/{id}', [PersonalController::class, 'verificarDniEditar']);
+
+Route::get('/verificar-usuario/{name}/{password}', [UsuariosController::class, 'verificarUsuario']);
+
 
 // Rutas de autenticación generadas por Breeze/Fortify
 require __DIR__ . '/auth.php';

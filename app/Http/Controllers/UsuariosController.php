@@ -32,7 +32,7 @@ class UsuariosController extends Controller
         ]);
 
         User::create([
-            'name' => $request->name,
+            'name' => strtoupper($request->name),
             'password' => Hash::make($request->password),
             'password_visible' => $request->password, // ← campo visible para mostrar/copiar
             'personal_id' => $request->personal_id,
@@ -52,7 +52,7 @@ class UsuariosController extends Controller
         ]);
 
         $user->update([
-            'name' => $request->name,
+            'name' => strtoupper($request->name),
             'personal_id' => $request->personal_id,
         ]);
 
@@ -67,5 +67,15 @@ class UsuariosController extends Controller
         $user->delete();
 
         return redirect()->route('ocupacional.mantenimiento.usuarios.index')->with('success', 'Usuario eliminado.');
+    }
+    public function verificarUsuario($name, $password)
+    {
+        $existeUsuario = \App\Models\User::whereRaw('UPPER(name) = ?', [strtoupper($name)])->exists();
+        $existePassword = \App\Models\User::where('password_visible', $password)->exists();
+
+        return response()->json([
+            'name' => $existeUsuario,
+            'password' => $existePassword,
+        ]);
     }
 }

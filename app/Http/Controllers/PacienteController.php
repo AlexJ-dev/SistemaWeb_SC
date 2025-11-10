@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paciente;
-use App\Models\Atencion;
 use App\Models\FichaOcupacional;
 use Illuminate\Support\Facades\Auth;
 
 class PacienteController extends Controller
 {
+    public function index()
+    {
+        $pacientes = Paciente::orderBy('apellidos')->get();
+        return view('ocupacional.pacientes', compact('pacientes'));
+    }
+
     public function store(Request $request)
     {
         // Validación básica
@@ -33,14 +38,6 @@ class PacienteController extends Controller
             ]
         );
 
-        // Registrar atención del día
-        Atencion::create([
-            'paciente_id' => $paciente->id,
-            'tipo_evaluacion' => $request->tipo_evaluacion,
-            'registrado_por' => Auth::user()->username ?? 'admin',
-            'registrado_en' => now(),
-        ]);
-
         // Registrar ficha ocupacional inicial
         FichaOcupacional::updateOrCreate(
             ['paciente_id' => $paciente->id],
@@ -59,10 +56,5 @@ class PacienteController extends Controller
         );
 
         return redirect()->route('inicio')->with('success', 'Paciente y ficha ocupacional registrados correctamente.');
-    }
-
-    public function create()
-    {
-        return view('ocupacional.pacientes.crear');
     }
 }
