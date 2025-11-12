@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Dermatología</p>
+        </header>
+        <form class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg space-y-6 p-4">
+            <div class="border border-gray-300 rounded-lg p-4 space-y-6">
+                <h3 class="text-lg font-semibold mb-4 text-red-800">1. PARA EL TRABAJADOR:</h3>
+
+                <!-- Pregunta 1 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            a) ¿Sufre Ud. de enfermedades de la piel?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="sufre_piel" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="sufre_piel" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="enfermedad_piel" class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Qué diagnóstico tiene?" />
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            b) Actualmente tiene alguna lesión (ampollas, escamas, rascados, etc) en la piel?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesion_piel" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesion_piel" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="actual_lesion" class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Donde se localiza?" />
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            c) ¿Presenta algún cambio de coloración de piel?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="cambio_coloracion" value="Si"
+                                    class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="cambio_coloracion" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            c) ¿Estas lesiones se repiten varias veces al año?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesiones_repetidas" value="Si"
+                                    class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesiones_repetidas" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            d) ¿Ud. tiene enrojecimiento en alguna zona del cuerpo?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="enrojecimiento" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="enrojecimiento" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="localizacion_enrojecimiento"
+                        class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Dónde se localiza?" />
+                </div>
+
+                <!-- Pregunta 6 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            e) ¿Tiene comezón?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="comezon" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="comezon" value="No" class="accent-red-600 h-4 w-4" checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="localizacion_comezon"
+                        class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Dónde se localiza?" />
+                </div>
+
+                <!-- Pregunta 7 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            f) ¿Presenta hinchazón en parte de su cuerpo?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="hinchazon" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="hinchazon" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="localizacion_hinchazon"
+                        class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Dónde se localiza?" />
+                </div>
+
+                <!-- Pregunta 8 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            c) ¿Sufre de Rinitis Alérgica o Asma?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="rinitis_asma" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="rinitis_asma" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 9 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            f) ¿Usa EPP?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="epp" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="epp" value="No" class="accent-red-600 h-4 w-4" checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="text" name="usa_epp" class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                        placeholder="Si responde que sí, ¿Que tipo de protección usa?" />
+                </div>
+
+                <!-- Pregunta 10 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            c) ¿Presenta cambios en las uñas de pies a manos?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="cambios_unas" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="cambios_unas" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 11 -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            f) ¿Está tomando alguna medicación para lesiones de la piel, cabello o uñas?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="medicacion" value="Si" class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="medicacion" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <label class="text-base">
+                            Describa en caso de tener alguna respuesta positiva:
+                        </label>
+                    </div>
+                    <input type="text" name="descripcion_respuesta_positiva"
+                        class="w-full border border-gray-500 p-1 rounded-md mt-2" placeholder="Decripción" />
+                </div>
+
+                <h3 class="text-lg font-semibold mb-4 text-gray-800">TODA INFORMACIÓN QUE HE PROPORCIONADO A LOS
+                    SERVICIOS MÉDICOS SAGRADO CORAZÓN ES VERDADERA, NO HABIENDO OMITIDO NINGÚN DATO EN FORMA VOLUNTARIA.
+                </h3>
+            </div>
+            <div class="border border-gray-300 rounded-lg p-4 space-y-6">
+
+                <h3 class="text-lg font-semibold mb-4 text-red-800">2. PARA EL MÉDICO</h3>
+
+                <!-- Preguntas -->
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            a) ¿El paciente al examen físico presenta lesión sugerente a dermatopatía?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesion_dermatopatia" value="Si"
+                                    class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="lesion_dermatopatia" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <label class="text-base">
+                            b) ¿El paciente necesita ser evaluado por médico dermatólogo para la realización de pruebas:
+                            sensibilidad mucocutánea, luz de Wood y maniobra de Niklsky?
+                        </label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="evaluacion_dermatologo" value="Si"
+                                    class="accent-red-600 h-4 w-4" />
+                                <span>Sí</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="evaluacion_dermatologo" value="No"
+                                    class="accent-red-600 h-4 w-4" checked />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+
+
+    </main>
+
+
+</body>
+
+</html>

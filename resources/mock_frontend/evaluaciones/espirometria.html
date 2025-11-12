@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Espirometría</p>
+        </header>
+        <form class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+            <div class="overflow-x-auto">
+                <table class="table-auto w-full text-center border border-black">
+                    <!-- Primera sección: CRITERIOS DE EXCLUSIÓN -->
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="border border-black w-12 px-2 py-2 font-bold">N°</th>
+                            <th class="border border-black px-2 py-2 text-left font-bold">A. Criterios de exclusión</th>
+                            <th class="border border-black w-16 font-bold">SI</th>
+                            <th class="border border-black w-16 font-bold">NO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-black text-center align-middle">1</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Tuvo desprendimiento de retina en los
+                                últimos 3 meses?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio1" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio1" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">2</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Ha tenido infarto al corazón en los
+                                últimos 3 meses?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio2" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio2" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">3</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Ha estado hospitalizado por algún
+                                problema del corazón durante los 3 últimos meses?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio3" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio3" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">4</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Está usando medicamentos para la
+                                tuberculosis en este momento?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio4" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio4" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">5</td>
+                            <td class="border border-black px-2 py-2 text-left">En caso de ser Mujer, ¿Está embarazada
+                                actualmente?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio5" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio5" value="No" class="accent-red-600 h-4 w-4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">6</td>
+                            <td class="border border-black px-2 py-2 text-left">¿En las últimas 3 semanas tuvo un
+                                diagnostico positivo a COVID-19?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio6" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="criterio6" value="No" class="accent-red-600 h-4 w-4" />
+                            </td>
+                        </tr>
+
+                        <!-- Segunda sección: ENFERMEDAD EN EL HOSPITAL -->
+                        <tr class="bg-gray-200">
+                            <td class="border border-black px-2 py-2 text-left font-bold" colspan="4">Enfermedad en el
+                                hospital</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">7</td>
+                            <td class="border border-black px-2 py-2 text-left">Hemoptisis</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad7" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad7" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">8</td>
+                            <td class="border border-black px-2 py-2 text-left">Pneumotorax</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad8" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad8" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">9</td>
+                            <td class="border border-black px-2 py-2 text-left">Traqueostomía</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad9" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad9" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">10</td>
+                            <td class="border border-black px-2 py-2 text-left">Sonda Pleural</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad10" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad10" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">11</td>
+                            <td class="border border-black px-2 py-2 text-left">Aneurisma Cerebral, Abdomen, Tórax</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad11" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad11" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">12</td>
+                            <td class="border border-black px-2 py-2 text-left">Embolia Pulmonar</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad12" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad12" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">13</td>
+                            <td class="border border-black px-2 py-2 text-left">Infarto Reciente</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad13" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad13" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">14</td>
+                            <td class="border border-black px-2 py-2 text-left">Inestabilidad CV</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad14" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad14" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">15</td>
+                            <td class="border border-black px-2 py-2 text-left">Fiebre, Náuseas, Vómitos</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad15" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad15" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">16</td>
+                            <td class="border border-black px-2 py-2 text-left">Embarazo Avanzado</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad16" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad16" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">17</td>
+                            <td class="border border-black px-2 py-2 text-left">Embarazo Complicado</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad17" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad17" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">18</td>
+                            <td class="border border-black px-2 py-2 text-left">Amenaza de Aborto</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad18" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="enfermedad18" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Nueva tabla: ENTREVISTADO QUE NO TIENE CRITERIOS DE EXCLUSIÓN -->
+            <div class="overflow-x-auto mt-6">
+                <table class="table-auto w-full text-center border border-black">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="border border-black w-12 px-2 py-2 font-bold">N°</th>
+                            <th class="border border-black px-2 py-2 text-left font-bold">B. Entrevistado que no tiene
+                                criterios de exclusión</th>
+                            <th class="border border-black w-16 px-2 py-2 font-bold">SI</th>
+                            <th class="border border-black w-16 px-2 py-2 font-bold">NO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-black text-center align-middle">1</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Tuvo una infección respiratoria en las
+                                últimas 3 semanas?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista1" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista1" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">2</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Tuvo alguna infección en el oído en la
+                                última semana?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista2" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista2" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">3</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Utilizó nebulizadores con
+                                broncodilatadores en las últimas 3 horas?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista3" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista3" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">4</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Ha utilizado algún medicamento
+                                broncodilatador en las últimas 8 horas?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista4" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista4" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">5</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Fumó cigarrillo en las últimas 2 horas?
+                                ¿Cuántos?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista5" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista5" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">6</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Realizó algún ejercicio físico fuerte
+                                (gimnasia o trote) en la última hora?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista6" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista6" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-black text-center align-middle">7</td>
+                            <td class="border border-black px-2 py-2 text-left">¿Cómió en la última hora?</td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista7" value="Si" class="accent-red-600 h-4 w-4" />
+                            </td>
+                            <td class="border border-black align-middle">
+                                <input type="radio" name="entrevista7" value="No" class="accent-red-600 h-4 w-4"
+                                    checked />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="flex flex-col space-y-1">
+                <label for="conclusion" class="font-medium">C. De haber marcado "Sí" en la encuesta B,
+                    especifique:</label>
+                <!--Agregar funcion de crear mas inputs-->
+                <input type="text" id="conclusion" name="conclusion"
+                    class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="overflow-x-auto">
+                <h3 class="text-lg font-semibold mb-4">D. Análisis de los datos</h3>
+
+                <div class="max-w-2xl mx-auto">
+                    <table class="table-auto w-full text-center border border-black">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-black px-3 py-2 font-bold w-2/6">PARÁMETRO</th>
+                                <th class="border border-black px-3 py-2 font-bold w-1/6">PRE</th>
+                                <th class="border border-black px-3 py-2 font-bold w-1/6">% REF</th>
+                                <th class="border border-black px-3 py-2 font-bold w-1/6">REF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-black px-3 py-2">FVC</td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fvc_pre" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fvc_porcentaje" value="0"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fvc_ref" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-black px-3 py-2">FEV1</td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_pre" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_porcentaje" value="0"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_ref" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-black px-3 py-2">FEV1/FVC</td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_fvc_pre" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_fvc_porcentaje" value="0"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fev1_fvc_ref" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-black px-3 py-2">FEF 25-75%</td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fef_pre" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fef_porcentaje" value="0"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-3 py-2">
+                                    <input type="text" name="fef_ref" value="0.00"
+                                        class="w-16 text-center border-none bg-transparent focus:outline-none" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

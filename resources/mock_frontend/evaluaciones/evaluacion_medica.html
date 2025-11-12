@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Selección de Área de Evaluación</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+  <aside class="w-64 bg-red-800 text-white flex flex-col">
+    <div>
+      <div class="p-6 text-center border-b border-white">
+        <h2 class="text-xl font-bold">Admin</h2>
+        <p class="w-40 text-red-200">Administrador</p>
+      </div>
+      <nav class="mt-6 space-y-2 px-4">
+        <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+        <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+        <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+        <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones
+          Vitales</a>
+        <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
+        <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación
+          Médica</a>
+        <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
+        <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+        <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+        <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+        <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+        <a href="electrocardiograma.html"
+          class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+        <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+        <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+        <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+        <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+        <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología
+          y Odontología</a>
+        <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de
+          Placas</a>
+        <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+        <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+      </nav>
+    </div>
+    <div class="p-4 border-t border-white">
+      <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+    </div>
+  </aside>
+
+  <main class="flex-1 p-8">
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold">
+        <span class="text-gray-700">Servicios Médicos</span>
+        <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+      </h1>
+      <p class="text-gray-600 mt-1">Bienvenido a Evaluación Médica</p>
+    </header>
+
+    <form class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+      <div class="flex flex-col lg:flex-row gap-4">
+        <div class="lg:w-1/2 p-4 border border-gray-300 rounded">
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2">
+              <label for="anillos_linguinales" class="w-52">Anillos Linguinales:</label>
+              <input type="text" id="anillos_linguinales" name="anillos_linguinales"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="hernias" class="w-52">Hernias:</label>
+              <input type="text" id="hernias" name="hernias" class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="varices" class="w-52">Varices:</label>
+              <input type="text" id="varices" name="varices" class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="organos_genitales" class="w-52">Órganos Genitales:</label>
+              <input type="text" id="organos_genitales" name="organos_genitales"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="ganglios" class="w-52">Ganglios:</label>
+              <input type="text" id="ganglios" name="ganglios" class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2 space-y-2 p-4 border border-gray-300 rounded">
+          <div>
+            <label for="lenguaje_atencion" class="block mb-1">Lenguaje, atención, Memoria, Orientación,
+              Inteligencia, Afectividad</label>
+            <input type="text" id="lenguaje_atencion" name="lenguaje_atencion"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <label for="reacciones_serologicas" class="block mb-1 font-semibold">Reacciones Serológicas</label>
+          <div class="flex items-center gap-4 mb-1">
+            <label class="flex items-center gap-1 font-semibold">A lues:</label>
+
+            <label class="flex items-center gap-1">
+              <input type="radio" id="a_lues_negativo" name="a_lues" value="negativo"
+                class="accent-red-600 h-4 w-4" />Negativo</label>
+
+            <label class="flex items-center gap-1">
+              <input type="radio" id="a_lues_positivo" name="a_lues" value="positivo"
+                class="accent-red-600 h-4 w-4" />Positivo</label>
+
+            <label class="flex items-center gap-1">
+              <input type="radio" id="a_lues_no_corresponde" name="a_lues" value="no_corresponde"
+                class="accent-red-600 h-4 w-4" />No corresponde</label>
+          </div>
+
+        </div>
+      </div>
+      <div class="space-y-2 p-4 border border-gray-300 rounded">
+    <h3 class="text-lg font-semibold text-red-800 mb-4">
+        4to Bloque: EXPOSICIÓN EN EL TRABAJO
+    </h3>
+    <div class="grid grid-cols-4 gap-x-6 gap-y-3">
+
+        <div class="flex items-center space-x-2">
+            <label for="ruido" class="w-40">Ruido</label>
+            <input type="checkbox" id="ruido" name="exposicion_ruido"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="cancerigenos" class="w-40">Cancerígenos</label>
+            <input type="checkbox" id="cancerigenos" name="exposicion_cancerigenos"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="temperatura" class="w-40">Temperatura</label>
+            <input type="checkbox" id="temperatura" name="exposicion_temperatura"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="cargas" class="w-40">Cargas</label>
+            <input type="checkbox" id="cargas" name="exposicion_cargas"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <label for="polvo" class="w-40">Polvo</label>
+            <input type="checkbox" id="polvo" name="exposicion_polvo"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="mutagenicos" class="w-40">Mutagénicos</label>
+            <input type="checkbox" id="mutagenicos" name="exposicion_mutagenicos"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="biologico" class="w-40">Biológico</label>
+            <input type="checkbox" id="biologico" name="exposicion_biologico"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="mov_repet" class="w-40">Mov. Repet.</label>
+            <input type="checkbox" id="mov_repet" name="exposicion_mov_repet"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <label for="vid_segment" class="w-40">Vid. Segment.</label>
+            <input type="checkbox" id="vid_segment" name="exposicion_vid_segment"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="solventes" class="w-40">Solventes</label>
+            <input type="checkbox" id="solventes" name="exposicion_solventes"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="posturas" class="w-40">Posturas</label>
+            <input type="checkbox" id="posturas" name="exposicion_posturas"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="pvd" class="w-40">PVD</label>
+            <input type="checkbox" id="pvd" name="exposicion_pvd"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <label for="vid_total" class="w-40">Vid. Total</label>
+            <input type="checkbox" id="vid_total" name="exposicion_vid_total"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="metales_pesados" class="w-40">Metales pesados</label>
+            <input type="checkbox" id="metales_pesados" name="exposicion_metales_pesados"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="turnos" class="w-40">Turnos</label>
+            <input type="checkbox" id="turnos" name="exposicion_turnos"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+        <div class="flex items-center space-x-2">
+            <label for="otros" class="w-40">Otros</label>
+            <input type="checkbox" id="otros" name="exposicion_otros"
+                class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+        </div>
+
+    </div>
+</div>
+    </form>
+  </main>
+</body>
+
+</html>

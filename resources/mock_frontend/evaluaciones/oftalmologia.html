@@ -1,0 +1,71 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Selección de Área de Evaluación</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 min-h-screen flex">
+        
+        <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+            <div>
+                <div class="p-6 text-center border-b border-white">
+                    <h2 class="text-xl font-bold">Admin</h2>
+                    <p class="text-sm text-red-200">Administrador</p>
+                </div>
+                <nav class="mt-6 space-y-2 px-4">
+                    <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                    <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+                    <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                    <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                    <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
+                    <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                    <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
+                    <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                    <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                    <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                    <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                    <a href="electrocardiograma.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                    <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                    <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                    <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                    <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                    <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                    <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
+                    <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                    <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-white">
+                <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <header class="mb-6">
+        <h1 class="text-2xl font-bold">
+          <span class="text-gray-700">Servicios Médicos</span>
+          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+        </h1>
+        <p class="text-gray-600 mt-1">Bienvenido a Oftalmología</p>
+      </header>
+        </main>
+
+        <script>
+            document.getElementById('toggleAreas').addEventListener('click', function() {
+                const menu = document.getElementById('menuAreas');
+                const arrow = document.getElementById('arrow');
+                
+                // Alternar las clases para abrir/cerrar
+                menu.classList.toggle('dropdown-open');
+                
+                // Rotar la flecha
+                if (menu.classList.contains('dropdown-open')) {
+                    arrow.classList.add('rotate-180');
+                } else {
+                    arrow.classList.remove('rotate-180');
+                }
+            });
+        </script>
+    </body>
+    </html>
