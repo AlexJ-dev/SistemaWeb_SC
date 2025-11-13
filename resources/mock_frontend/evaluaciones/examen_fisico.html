@@ -318,21 +318,24 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded">
           <div>
+            <!-- Fila con label Pulmones y radios -->
             <div class="flex items-center gap-4 mb-1">
-              <label class=" w-16">Pulmones:</label>
+              <!-- Label independiente con ancho fijo -->
+              <label class="w-20">Pulmones:</label>
 
-              <label class="flex items-center gap-1 ">
+              <!-- Radios alineados a la derecha del label -->
+              <label class="flex items-center gap-1">
                 <input type="radio" id="pulmones_normal" name="pulmones" value="normal"
-                  class="accent-red-600 h-4 w-4" />Normal</label>
-
-              <label class="flex items-center gap-1 ">
+                  class="accent-red-600 h-4 w-4" />Normal
+              </label>
+              <label class="flex items-center gap-1">
                 <input type="radio" id="pulmones_anormal" name="pulmones" value="anormal"
                   class="accent-red-600 h-4 w-4" />Anormal
               </label>
             </div>
 
-            <input type="text" name="pulmones_descripcion"
-              class="w-full border border-gray-500 p-1 rounded-md " />
+            <!-- Input de descripción debajo -->
+            <input type="text" name="pulmones_descripcion" class="w-full border border-gray-500 p-1 rounded-md" />
           </div>
 
           <div>
@@ -342,8 +345,7 @@
 
           <div>
             <label for="reflejos" class="block  mb-1">Reflejos Ósteo-Tendinosos:</label>
-            <input type="text" id="reflejos" name="reflejos"
-              class="w-full border border-gray-500 p-1 rounded-md " />
+            <input type="text" id="reflejos" name="reflejos" class="w-full border border-gray-500 p-1 rounded-md " />
           </div>
 
           <div>
@@ -354,8 +356,7 @@
 
           <div>
             <label for="abdomen" class="block  mb-1">Abdomen:</label>
-            <input type="text" id="abdomen" name="abdomen"
-              class="w-full border border-gray-500 p-1 rounded-md " />
+            <input type="text" id="abdomen" name="abdomen" class="w-full border border-gray-500 p-1 rounded-md " />
           </div>
 
           <div>
