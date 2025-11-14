@@ -72,22 +72,24 @@
                 <!-- Pregunta 1 -->
                 <div>
                     <div class="flex flex-col sm:flex-row gap-10">
-                        <label class="text-base">
+                        <label for="sufre_piel" class="text-base">
                             a) ¿Sufre Ud. de enfermedades de la piel?
                         </label>
                         <div class="flex items-center gap-6">
                             <label class="flex items-center gap-2">
-                                <input type="radio" name="sufre_piel" value="Si" class="accent-red-600 h-4 w-4" />
+                                <input type="radio" id="sufre_piel_si" name="sufre_piel" value="Si"
+                                    class="accent-red-600 h-4 w-4" />
                                 <span>Sí</span>
                             </label>
                             <label class="flex items-center gap-2">
-                                <input type="radio" name="sufre_piel" value="No" class="accent-red-600 h-4 w-4"
-                                    checked />
+                                <input type="radio" id="sufre_piel_no" name="sufre_piel" value="No"
+                                    class="accent-red-600 h-4 w-4" checked />
                                 <span>No</span>
                             </label>
                         </div>
                     </div>
-                    <input type="text" name="enfermedad_piel" class="w-full border border-gray-500 p-1 rounded-md mt-2"
+                    <input type="text" id="detalle_piel" name="enfermedad_piel"
+                        class="w-full border border-gray-500 p-1 rounded-md mt-2"
                         placeholder="Si responde que sí, ¿Qué diagnóstico tiene?" />
                 </div>
 
@@ -305,11 +307,11 @@
                 </div>
                 <div>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <label class="text-base">
+                        <label for="descripcion_respuesta_positiva" class="text-base">
                             Describa en caso de tener alguna respuesta positiva:
                         </label>
                     </div>
-                    <input type="text" name="descripcion_respuesta_positiva"
+                    <input type="text" id="descripcion_respuesta_positiva" name="descripcion_respuesta_positiva"
                         class="w-full border border-gray-500 p-1 rounded-md mt-2" placeholder="Decripción" />
                 </div>
 

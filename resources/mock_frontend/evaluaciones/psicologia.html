@@ -208,148 +208,146 @@
                         </div>
                     </div>
                     <div class="mb-6">
-                    <h2 class="text-lg font-semibold">
-                        CONCLUSIONES
-                    </h2>
-                    <div class="flex items-center space-y-2">
-                        <label class="w-40">Área Cognitiva :</label>
-                        <input type="text" name="area_cognitiva"
-                            class="w-full border border-gray-500 p-1 rounded-md" />
-                    </div>
+                        <h2 class="text-lg font-semibold">
+                            CONCLUSIONES
+                        </h2>
+                        <div class="flex items-center space-y-2">
+                            <label for="area_cognitiva" class="w-40">Área Cognitiva :</label>
+                            <input type="text" id="area_cognitiva" name="area_cognitiva"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
 
-                    <!-- Coordinación Visomotriz -->
-                    <div class="flex items-center space-y-2">
-                        <label class="w-40">Área Emocional :</label>
-                        <input type="text" name="area_emocional"
-                            class="w-full border border-gray-500 p-1 rounded-md" />
-                    </div>
+                        <div class="flex items-center space-y-2">
+                            <label for="area_emocional" class="w-40">Área Emocional :</label>
+                            <input type="text" id="area_emocional" name="area_emocional"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
                     </div>
                     <div class="mb-6">
-                    <h2 class="text-lg font-semibold">
-                        RECOMENDACIONES
-                    </h2>
-                    <div class="flex items-center space-y-2">
-                        <input type="text" name="recomendaciones"
-                            class="w-full border border-gray-500 p-1 rounded-md" />
-                    </div>
+                        <div class="flex flex-col space-y-1">
+                            <label for="recomendaciones" class="text-lg font-semibold">RECOMENDACIONES</label>
+                            <!--Agregar funcion para crear mas input-->
+                            <input type="text" id="recomendaciones" name="recomendaciones"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
                     </div>
                 </div>
 
                 <!-- Columna Derecha: Resultado de Evaluación -->
-                <div class=" lg:w-1/2 space-y-2 p-4 border border-gray-300 rounded">
-                        <h2 class="text-xl font-bold text-red-800 mb-6">
-                            RESULTADO DE EVALUACIÓN
-                        </h2>
+                <div class="lg:w-1/2 space-y-2 p-4 border border-gray-300 rounded">
+                    <h2 class="text-xl font-bold text-red-800 mb-6">
+                        RESULTADO DE EVALUACIÓN
+                    </h2>
 
-                        <div class="space-y-2">
-                            <!-- Nivel Intelectual -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Nivel Intelectual :</label>
-                                <input type="text" name="nivel_intelectual"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                    <div class="space-y-2">
+                        <!-- Nivel Intelectual -->
+                        <div class="flex items-center space-x-2">
+                            <label for="nivel_intelectual" class="w-72">Nivel Intelectual :</label>
+                            <input type="text" id="nivel_intelectual" name="nivel_intelectual"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Coordinación Visomotriz -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Coordinación Visomotriz :</label>
-                                <input type="text" name="coordinacion_visomotriz"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Coordinación Visomotriz -->
+                        <div class="flex items-center space-x-2">
+                            <label for="coordinacion_visomotriz" class="w-72">Coordinación Visomotriz :</label>
+                            <input type="text" id="coordinacion_visomotriz" name="coordinacion_visomotriz"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Nivel de Memoria -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Nivel de Memoria :</label>
-                                <input type="text" name="nivel_memoria"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Nivel de Memoria -->
+                        <div class="flex items-center space-x-2">
+                            <label for="nivel_memoria" class="w-72">Nivel de Memoria :</label>
+                            <input type="text" id="nivel_memoria" name="nivel_memoria"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Personalidad -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Personalidad :</label>
-                                <input type="text" name="personalidad"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Personalidad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="personalidad" class="w-72">Personalidad :</label>
+                            <input type="text" id="personalidad" name="personalidad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Medividad -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Medividad :</label>
-                                <input type="text" name="medividad" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Medividad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="medividad" class="w-72">Medividad :</label>
+                            <input type="text" id="medividad" name="medividad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Altura -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Altura :</label>
-                                <input type="text" name="altura" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Altura -->
+                        <div class="flex items-center space-x-2">
+                            <label for="altura" class="w-72">Altura :</label>
+                            <input type="text" id="altura" name="altura"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Estrés -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Estrés :</label>
-                                <input type="text" name="estres" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Estrés -->
+                        <div class="flex items-center space-x-2">
+                            <label for="estres" class="w-72">Estrés :</label>
+                            <input type="text" id="estres" name="estres"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Ansiedad -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Ansiedad :</label>
-                                <input type="text" name="ansiedad" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Ansiedad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="ansiedad" class="w-72">Ansiedad :</label>
+                            <input type="text" id="ansiedad" name="ansiedad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Depresión -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Depresión :</label>
-                                <input type="text" name="depresion" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Depresión -->
+                        <div class="flex items-center space-x-2">
+                            <label for="depresion" class="w-72">Depresión :</label>
+                            <input type="text" id="depresion" name="depresion"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Fatiga -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Fatiga :</label>
-                                <input type="text" name="fatiga" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Fatiga -->
+                        <div class="flex items-center space-x-2">
+                            <label for="fatiga" class="w-72">Fatiga :</label>
+                            <input type="text" id="fatiga" name="fatiga"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Somnolencia -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Somnolencia :</label>
-                                <input type="text" name="somnolencia"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Somnolencia -->
+                        <div class="flex items-center space-x-2">
+                            <label for="somnolencia" class="w-72">Somnolencia :</label>
+                            <input type="text" id="somnolencia" name="somnolencia"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Espacios Confinados -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Espacios Confinados :</label>
-                                <input type="text" name="espacios_confinados"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Espacios Confinados -->
+                        <div class="flex items-center space-x-2">
+                            <label for="espacios_confinados" class="w-72">Espacios Confinados :</label>
+                            <input type="text" id="espacios_confinados" name="espacios_confinados"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Fobias -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Fobias :</label>
-                                <input type="text" name="fobias" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Fobias -->
+                        <div class="flex items-center space-x-2">
+                            <label for="fobias" class="w-72">Fobias :</label>
+                            <input type="text" id="fobias" name="fobias"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Minisiquiatrico -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Minisiquiatrico :</label>
-                                <input type="text" name="minisiquiatrico"
-                                    class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
-                            </div>
+                        <!-- Minisiquiatrico -->
+                        <div class="flex items-center space-x-2">
+                            <label for="minisiquiatrico" class="w-72">Minisiquiatrico :</label>
+                            <input type="text" id="minisiquiatrico" name="minisiquiatrico"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
 
-                            <!-- Audit -->
-                            <div class="flex items-center space-x-2">
-                                <label class="w-72">Audit :</label>
-                                <input type="text" name="audit" class="w-full border border-gray-500 p-1 rounded-md"
-                                    value="No corresponde" />
-                            </div>
+                        <!-- Audit -->
+                        <div class="flex items-center space-x-2">
+                            <label for="audit" class="w-72">Audit :</label>
+                            <input type="text" id="audit" name="audit"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 flex justify-end">
+            </div>
+            <div class="mt-8 flex justify-end">
                 <button type="submit"
                     class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
                     <span>Guardar</span>
