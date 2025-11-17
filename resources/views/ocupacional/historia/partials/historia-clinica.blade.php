@@ -81,7 +81,7 @@ $paciente = $historia->paciente;
                 <select
                     id="departamento"
                     data-old="{{ old('historia.lugar_nacimiento_departamento', $historia->lugar_nacimiento_departamento) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>
@@ -102,7 +102,7 @@ $paciente = $historia->paciente;
                 <select
                     id="provincia"
                     data-old="{{ old('historia.lugar_nacimiento_provincia', $historia->lugar_nacimiento_provincia) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>
@@ -122,7 +122,7 @@ $paciente = $historia->paciente;
                 <select
                     id="distrito"
                     data-old="{{ old('historia.lugar_nacimiento_distrito', $historia->lugar_nacimiento_distrito) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>
@@ -159,7 +159,7 @@ $paciente = $historia->paciente;
                 <select
                     id="domicilio_departamento"
                     data-old="{{ old('historia.domicilio_departamento', $historia->domicilio_departamento) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>
@@ -179,7 +179,7 @@ $paciente = $historia->paciente;
                 <select
                     id="domicilio_provincia"
                     data-old="{{ old('historia.domicilio_provincia', $historia->domicilio_provincia) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>
@@ -199,7 +199,7 @@ $paciente = $historia->paciente;
                 <select
                     id="domicilio_distrito"
                     data-old="{{ old('historia.domicilio_distrito', $historia->domicilio_distrito) }}"
-                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-white ">
+                    class="border border-gray-300 focus:border-[#9C1C2A] focus:ring-[#9C1C2A] rounded-md h-[42px] w-[42px] cursor-pointer bg-gray-300 mt-2">
                     <option value="">▼</option>
                 </select>
             </div>

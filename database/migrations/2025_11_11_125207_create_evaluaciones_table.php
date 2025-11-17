@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('evaluaciones', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('ruta_medica_id')->constrained('ruta_medica')->onDelete('cascade');
+            $table->foreignId('area_ocupacional_id')->constrained('areas_ocupacionales')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->timestamp('hora_ingreso')->nullable();
+            $table->timestamp('hora_salida')->nullable();
+            $table->text('observaciones')->nullable();
+            $table->enum('estado', ['pendiente', 'en_progreso', 'finalizado'])->default('pendiente');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('evaluaciones');
+    }
+};

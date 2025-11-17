@@ -1,45 +1,46 @@
 <x-clinico-layout>
     <x-encabezado-clinico />
 
-    <div class="mt-8 px-6">
-        <h2 class="text-2xl font-bold text-[#4C4C4C] mb-6">Pacientes Registrados</h2>
+    <div class="container mx-auto px-4 mt-6">
+        <h1 class="text-2xl font-bold mb-4">Pacientes Registrados</h1>
 
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-[#9C1C2A] text-white">
-                    <tr>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Documento</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Nombres</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Apellidos</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Sexo</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Edad</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold">Acciones</th>
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+            <thead class="bg-red-800 text-white">
+                <tr>
+                    <th class="px-4 py-2">Nombres</th>
+                    <th class="px-4 py-2">Apellidos</th>
+                    <th class="px-4 py-2">Documento</th>
+                    <th class="px-4 py-2">Empresa</th>
+                    <th class="px-4 py-2">Tipo Evaluación</th>
+                    <th class="px-4 py-2">Estado Ruta</th>
+                    <th class="px-4 py-2">Progreso</th>
+                    <th class="px-4 py-2 text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($rutas as $ruta)
+                    @php
+                        $total = $ruta->evaluaciones->count();
+                        $completadas = $ruta->evaluaciones->whereIn('estado', ['completada','no_aplica'])->count();
+                        $progreso = $total > 0 ? round(($completadas / $total) * 100) : 0;
+                    @endphp
+                    <tr class="border-b">
+                        <td class="px-4 py-2">{{ $ruta->nombres }}</td>
+                        <td class="px-4 py-2">{{ $ruta->apellidos }}</td>
+                        <td class="px-4 py-2">{{ $ruta->documento }}</td>
+                        <td class="px-4 py-2">{{ $ruta->empresa }}</td>
+                        <td class="px-4 py-2">{{ $ruta->tipo_evaluacion }}</td>
+                        <td class="px-4 py-2 capitalize">{{ $ruta->estado }}</td>
+                        <td class="px-4 py-2">{{ $progreso }}%</td>
+                        <td class="px-4 py-2 text-center">
+                            <a href="{{ route('ruta.ver', $ruta->id) }}"
+                               class="px-3 py-1 bg-red-700 text-white rounded shadow hover:bg-red-600">
+                               Ver Flujo
+                            </a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-100">
-                    @forelse ($pacientes as $paciente)
-                        <tr>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $paciente->documento }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $paciente->nombres }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $paciente->apellidos }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $paciente->sexo }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $paciente->edad ?? '—' }}</td>
-                            <td class="px-4 py-2">
-                                <a href="{{ route('historiaClinica.editar', ['dni' => $paciente->documento, 'from' => 'pacientes']) }}"
-                                   class="inline-block bg-[#9C1C2A] text-white text-sm px-4 py-1 rounded hover:bg-[#7C1A24]">
-                                    Ver Historia Clínica
-                                </a>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="6" class="px-4 py-4 text-center text-sm text-gray-500">
-                                No hay pacientes registrados.
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </x-clinico-layout>

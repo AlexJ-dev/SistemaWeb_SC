@@ -59,15 +59,17 @@
                 </div>
 
                 <div class="mt-6 flex justify-end space-x-4">
+                    <!-- Botón cancelar dinámico -->
+                    <a href="{{ $from === 'inicio' ? route('inicio') : route('pacientes') }}"
+                        class="bg-gray-300 text-[#4C4C4C] px-6 py-2 rounded shadow hover:bg-gray-500">
+                        Cancelar
+                    </a>
+
                     <button type="submit" class="bg-[#9C1C2A] text-white px-6 py-2 rounded shadow hover:bg-[#7C1A24]">
                         Guardar todo
                     </button>
 
-                    <!-- Botón cancelar dinámico -->
-                    <a href="{{ $from === 'inicio' ? route('inicio') : route('pacientes') }}"
-                        class="bg-gray-400 text-white px-6 py-2 rounded shadow hover:bg-gray-500">
-                        Cancelar
-                    </a>
+
                 </div>
             </form>
         </div>

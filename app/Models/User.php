@@ -12,8 +12,6 @@ class User extends Authenticatable
 
     /**
      * Atributos que pueden asignarse masivamente.
-     *
-     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -23,9 +21,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Atributos ocultos para serialización.
-     *
-     * @var array<int, string>
+     * Atributos ocultos.
      */
     protected $hidden = [
         'password',
@@ -33,9 +29,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Atributos con casting automático.
-     *
-     * @return array<string, string>
+     * Casts automáticos.
      */
     protected function casts(): array
     {
@@ -46,20 +40,22 @@ class User extends Authenticatable
     }
 
     /**
-     * Relación: el usuario pertenece a un rol institucional.
-     */
-    public function rol()
-    {
-        return $this->personal?->rol;
-    }
-
-
-    /**
-     * Relación: el usuario está vinculado a un registro de personal.
+     * Relación: el usuario pertenece a un registro de personal.
      */
     public function personal()
     {
         return $this->belongsTo(Personal::class);
+    }
+
+    /**
+     * Relación REAL hacia el rol del usuario.
+     *
+     * Esta no es una relación de base de datos directa, 
+     * pero funciona para acceder al rol desde auth()->user()->rol
+     */
+    public function getRolAttribute()
+    {
+        return $this->personal?->rol;
     }
 
     /**

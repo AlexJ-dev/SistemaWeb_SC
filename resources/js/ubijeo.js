@@ -1,57 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-    //  Calcular edad automáticamente
-    const fechaInput = document.getElementById('fecha_nacimiento');
-    const edadInput = document.getElementById('edad');
-
-    if (fechaInput && edadInput) {
-        fechaInput.addEventListener('change', function() {
-            const fechaNacimiento = new Date(this.value);
-            const hoy = new Date();
-
-            if (!isNaN(fechaNacimiento)) {
-                let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-                const mes = hoy.getMonth() - fechaNacimiento.getMonth();
-                if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-                    edad--;
-                }
-                edadInput.value = edad >= 0 ? edad : '';
-            } else {
-                edadInput.value = '';
-            }
-        });
-    }
-});
-
-//  Validar que el teléfono solo tenga números
-document.addEventListener('DOMContentLoaded', function() {
-    const telefonoInput = document.getElementById('telefono');
-    if (telefonoInput) {
-        telefonoInput.addEventListener('input', function() {
-            this.value = this.value.replace(/[^0-9]/g, '');
-        });
-    }
-});
-
-//  Cargar datos de Ubigeo (Departamentos, Provincias, Distritos)
 document.addEventListener("DOMContentLoaded", async () => {
-    const grupos = [
-        {
-            selectDep: "departamento",
-            selectProv: "provincia",
-            selectDist: "distrito",
-            inputDep: "input_departamento",
-            inputProv: "input_provincia",
-            inputDist: "input_distrito"
-        },
-        {
-            selectDep: "domicilio_departamento",
-            selectProv: "domicilio_provincia",
-            selectDist: "domicilio_distrito",
-            inputDep: "input_domicilio_departamento",
-            inputProv: "input_domicilio_provincia",
-            inputDist: "input_domicilio_distrito"
-        }
-    ];
+    const grupos = [{
+        selectDep: "departamento",
+        selectProv: "provincia",
+        selectDist: "distrito",
+        inputDep: "input_departamento",
+        inputProv: "input_provincia",
+        inputDist: "input_distrito"
+    }];
 
     try {
         const [departamentos, provincias, distritos] = await Promise.all([
@@ -74,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const provSaved = provSelect?.dataset.old || "";
             const distSaved = distSelect?.dataset.old || "";
 
-            // Llenar departamentos
+            // Cargar departamentos
             departamentos.forEach(dep => {
                 const opt = document.createElement("option");
                 opt.value = dep.name;
@@ -87,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             inputProv.value = provSaved;
             inputDist.value = distSaved;
 
-            // Cargar provincias y distritos guardados
+            // Cargar provincias si ya hay un departamento
             if (depSaved) {
                 const depId = departamentos.find(d => d.name === depSaved)?.id;
                 const provinciasFiltradas = provincias.filter(p => p.department_id === depId);
@@ -100,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     provSelect.appendChild(opt);
                 });
 
+                // Cargar distritos si ya hay una provincia
                 if (provSaved) {
                     const provId = provincias.find(p => p.name === provSaved && p.department_id === depId)?.id;
                     const distritosFiltrados = distritos.filter(d => d.province_id === provId);
@@ -155,6 +111,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
     } catch (error) {
-        console.error(" Error cargando datos de ubigeo:", error);
+        console.error("Error cargando datos de ubigeo:", error);
     }
 });

@@ -1,16 +1,27 @@
 @php
+$userRol = Auth::user()?->personal?->rol?->nombre;
+
 $navItems = [
-['label' => 'Inicio', 'route' => 'inicio'],
-['label' => 'Pacientes', 'route' => 'pacientes'],
-['label' => 'Ficha Ocupacional', 'route' => 'ficha.ocupacional'],
-['label' => 'Evaluaciones', 'route' => 'evaluaciones'],
-['label' => 'Empresa', 'route' => 'empresa'],
-['label' => 'Correos', 'route' => 'correos'],
-['label' => 'Mantenimiento', 'route' => 'mantenimiento'],
+    ['label' => 'Inicio', 'route' => 'inicio'],
+    //['label' => 'Pacientes', 'route' => 'pacientes'],
+    ['label' => 'Evaluaciones', 'route' => 'evaluaciones'],
+    ['label' => 'Ficha Ocupacional', 'route' => 'ficha_ocupacional'],
+    
 ];
+
+// Empresa visible solo para ADMINISTRADOR y RECEPCION
+if (in_array($userRol, ['ADMINISTRADOR', 'RECEPCION'])) {
+    $navItems[] = ['label' => 'Empresa', 'route' => 'empresa'];
+}
+
+// Mantenimiento visible solo para ADMINISTRADOR
+if ($userRol === 'ADMINISTRADOR') {
+    $navItems[] = ['label' => 'Mantenimiento', 'route' => 'mantenimiento'];
+}
 @endphp
 
-<div class="w-64 bg-[#9C1C2A] text-white flex flex-col justify-between min-h-screen">
+
+<div class="w-64 bg-[#9C1C2A] text-white flex flex-col justify-between h-screen sticky top-0">
     <!-- Logo y perfil -->
     <div class="px-6 py-4 border-b border-white/20">
         <div class="flex flex-col items-center">

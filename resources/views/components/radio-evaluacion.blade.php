@@ -4,7 +4,12 @@
     'options' => [
         'inicio' => 'Inicio',
         'periodico' => 'Periódico',
-        'retiro' => 'Retiro'
+        'retiro' => 'Retiro',
+        'reubicacion' => 'Reubicación',
+        'P.Serologica' => 'P.Serológica',
+        'P.Molecular' => 'P.Molecular',
+        'P.Antigenica' => 'P.Antigénica',
+        'P.Cuantitativa' => 'P.Cuantitativa'
     ]
 ])
 

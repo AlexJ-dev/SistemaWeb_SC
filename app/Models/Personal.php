@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\EspecialidadOcupacional;
 use App\Models\User;
+use App\Models\Rol;
 
 class Personal extends Model
 {
@@ -26,6 +27,10 @@ class Personal extends Model
         'especialidad_id',
         'rol_id',
     ];
+
+    /**
+     * Mutadores para convertir nombre y apellido en mayúsculas
+     */
     public function setApellidoAttribute($value)
     {
         $this->attributes['apellido'] = strtoupper($value);
@@ -35,19 +40,28 @@ class Personal extends Model
     {
         $this->attributes['nombre'] = strtoupper($value);
     }
-    // Relación con usuario
+
+    /**
+     * Relación: un personal tiene un usuario.
+     */
     public function usuario()
     {
         return $this->hasOne(User::class);
     }
 
-    // Relación con especialidad (si aplica)
+    /**
+     * Relación con especialidad ocupacional.
+     */
     public function especialidad()
     {
         return $this->belongsTo(EspecialidadOcupacional::class, 'especialidad_id');
     }
+
+    /**
+     * Relación directa hacia Rol.
+     */
     public function rol()
     {
-        return $this->belongsTo(Rol::class);
+        return $this->belongsTo(Rol::class, 'rol_id');
     }
 }

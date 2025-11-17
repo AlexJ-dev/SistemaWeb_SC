@@ -45,7 +45,7 @@ class AuthenticatedSessionController extends Controller
         // Marca la sesión como verificada
         session(['login_verified' => true]);
 
-        return redirect()->intended(route('inicio', absolute: false));
+        return redirect()->intended(route('inicio'));
     }
 
     /**
@@ -60,4 +60,6 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->route('login');
     }
+
+   
 }
