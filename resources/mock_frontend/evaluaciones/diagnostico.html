@@ -1,73 +1,251 @@
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Selección de Área de Evaluación</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>
+<html lang="es">
 
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <body class="bg-gray-100 min-h-screen flex">
-        
-        <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
-            <div>
-                <div class="p-6 text-center border-b border-white">
-                    <h2 class="text-xl font-bold">Admin</h2>
-                    <p class="text-sm text-red-200">Administrador</p>
+<body class="bg-gray-100 min-h-screen flex">
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Diagnóstico</p>
+        </header>
+        <form class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg space-y-6 p-4">
+            <!-- Sección Aptitud Laboral -->
+            <div class="bg-white rounded-lg border border-gray-400 p-4">
+                <h3 class="text-xl font-bold text-red-800 mb-6">APTITUD LABORAL:</h3>
+                <div class="grid grid-cols-[minmax(120px,auto)_minmax(250px,auto)_1fr] gap-x-6 gap-y-3 items-center">
+                    <!-- Columna 1 - Más compacta -->
+                    <div class="flex items-center">
+                        <input type="radio" id="apto" name="aptitud_laboral" value="apto"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="apto" class="ml-2">Apto</label>
+                    </div>
+
+                    <!-- Columna 2 -->
+                    <div class="flex items-center">
+                        <input type="radio" id="apto_restricciones" name="aptitud_laboral" value="apto_restricciones"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="apto_restricciones" class="ml-2">Apto con restricciones</label>
+                    </div>
+
+                    <!-- Columna 3 -->
+                    <div class="flex items-center">
+                        <input type="radio" id="continuar_labor" name="aptitud_laboral" value="continuar_labor"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="continuar_labor" class="ml-2">Puede continuar con su labor</label>
+                    </div>
+
+                    <!-- Segunda fila -->
+                    <div class="flex items-center">
+                        <input type="radio" id="no_apto" name="aptitud_laboral" value="no_apto"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="no_apto" class="ml-2">No apto</label>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="radio" id="satisfactorio" name="aptitud_laboral" value="satisfactorio"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="satisfactorio" class="ml-2">Satisfactorio</label>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="radio" id="no_satisfactorio" name="aptitud_laboral" value="no_satisfactorio"
+                            class="accent-red-600 h-4 w-4" />
+                        <label for="no_satisfactorio" class="ml-2">No satisfactorio</label>
+                    </div>
                 </div>
-                <nav class="mt-6 space-y-2 px-4">
-                    <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
-                    <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
-                    <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
-                    <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
-                    <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
-                    <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
-                    <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
-                    <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
-                    <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
-                    <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
-                    <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
-                    <a href="electrocardiograma.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
-                    <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
-                    <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
-                    <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
-                    <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
-                    <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
-                    <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
-                    <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
-                    <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
-                </nav>
             </div>
-            <div class="p-4 border-t border-white">
-                <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+
+            <!-- Sección Diagnóstico -->
+            <div class="bg-white rounded-lg">
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full text-center border border-black">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="border border-black px-4 py-2 font-bold">Diagnóstico</th>
+                                <th class="border border-black px-2 py-2 font-bold whitespace-nowrap">Presuntivo</th>
+                                <th class="border border-black px-2 py-2 font-bold whitespace-nowrap">Definitivo</th>
+                                <th class="border border-black px-2 py-2 font-bold whitespace-nowrap">Repetitivo</th>
+                                <th class="border border-black px-2 py-2 font-bold w-32">CIE-10</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Fila 1 -->
+                            <tr>
+                                <td class="border border-black px-4 py-2">
+                                    <input type="text" name="diagnostico_1"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="presuntivo_1" name="tipo_diagnostico_1" value="presuntivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="definitivo_1" name="tipo_diagnostico_1" value="definitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="repetitivo_1" name="tipo_diagnostico_1" value="repetitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-32">
+                                    <input type="text" name="cie10_1"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                            </tr>
+                            <!--Agregar funcion para crear mas filas para la tabla, por mientras se pondran a mano-->
+
+                            <!-- Fila 2 -->
+                            <tr>
+                                <td class="border border-black px-4 py-2">
+                                    <input type="text" name="diagnostico_2"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="presuntivo_2" name="tipo_diagnostico_2" value="presuntivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="definitivo_2" name="tipo_diagnostico_2" value="definitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="repetitivo_2" name="tipo_diagnostico_2" value="repetitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-32">
+                                    <input type="text" name="cie10_2"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                            </tr>
+                            <!-- Fila 3 -->
+                            <tr>
+                                <td class="border border-black px-4 py-2">
+                                    <input type="text" name="diagnostico_3"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="presuntivo_3" name="tipo_diagnostico_3" value="presuntivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="definitivo_3" name="tipo_diagnostico_3" value="definitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-24">
+                                    <input type="radio" id="repetitivo_3" name="tipo_diagnostico_3" value="repetitivo"
+                                        class="accent-red-600 h-4 w-4 mx-auto" />
+                                </td>
+                                <td class="border border-black px-2 py-2 align-middle w-32">
+                                    <input type="text" name="cie10_3"
+                                        class="w-full border-none text-center focus:outline-none" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </aside>
 
-        <main class="flex-1 p-8">
-            <header class="mb-6">
-        <h1 class="text-2xl font-bold">
-          <span class="text-gray-700">Servicios Médicos</span>
-          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
-        </h1>
-        <p class="text-gray-600 mt-1">Bienvenido a Diagnóstico</p>
-      </header>
-        </main>
+            <div class="space-y-2 p-4 border border-gray-300 rounded">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded">
 
-        <script>
-            document.getElementById('toggleAreas').addEventListener('click', function() {
-                const menu = document.getElementById('menuAreas');
-                const arrow = document.getElementById('arrow');
-                
-                // Alternar las clases para abrir/cerrar
-                menu.classList.toggle('dropdown-open');
-                
-                // Rotar la flecha
-                if (menu.classList.contains('dropdown-open')) {
-                    arrow.classList.add('rotate-180');
-                } else {
-                    arrow.classList.remove('rotate-180');
-                }
-            });
-        </script>
-    </body>
-    </html>
+                    <div>
+                        <label for="recomendaciones" class="block mb-1">Recomendaciones:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="recomendaciones" name="recomendaciones"
+                            class="w-full border border-gray-500 p-1 rounded-md " />
+                    </div>
+
+                    <div>
+                        <label for="restricciones" class="block mb-1">Restricciones:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="restricciones" name="restricciones"
+                            class="w-full border border-gray-500 p-1 rounded-md " />
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border border-gray-300 rounded">
+                <h2 class="text-xl font-bold text-red-800 mb-6">
+                    CERTIFICADO DE APTITUD</h2>
+                <div class="space-y-2">
+                    <div class="flex flex-col space-y-1">
+                        <label for="conclusiones" class="text-lg font-semibold">Conclusiones:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="conclusiones" name="conclusiones"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <label for="mensaje" class="text-lg font-semibold">Mensaje:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="mensaje" name="mensaje"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

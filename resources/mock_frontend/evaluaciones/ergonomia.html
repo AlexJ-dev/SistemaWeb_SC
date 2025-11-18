@@ -1,72 +1,2073 @@
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Selección de Área de Evaluación</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="es">
 
-    <body class="bg-gray-100 min-h-screen flex">
-        
-        <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
-            <div>
-                <div class="p-6 text-center border-b border-white">
-                    <h2 class="text-xl font-bold">Admin</h2>
-                    <p class="text-sm text-red-200">Administrador</p>
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Ergonomía</p>
+        </header>
+        <form class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg space-y-6 p-4">
+            <div class="bg-white rounded-lg border border-gray-400 p-4">
+                <h2 class="text-xl font-bold text-red-800 mb-6">EVALUACIÓN ERGONÓMICA</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Columna Izquierda - Preguntas 1 al 6 -->
+                    <div class="space-y-3">
+                        <!-- 1. Síntomas que manifiesta -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">1. Síntomas que manifiesta:</label>
+                            <input type="text" name="sintomas" class="w-full border border-gray-500 rounded px-2 py-1">
+                        </div>
+
+                        <!-- 2. Tiempo y Forma de Inicio -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">2. Tiempo y Forma de Inicio:</label>
+                            <input type="text" name="tiempo_inicio"
+                                class="w-full border border-gray-500 rounded px-2 py-1">
+                        </div>
+
+                        <!-- 3. Descripción de Postura -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">3. Descripción de Postura:</label>
+                            <input type="text" name="descripcion_postura"
+                                class="w-full border border-gray-500 rounded px-2 py-1">
+                        </div>
+
+                        <!-- 4. Patrón de Marcha -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">4. Patrón de Marcha:</label>
+                            <input type="text" name="patron_marcha"
+                                class="w-full border border-gray-500 rounded px-2 py-1">
+                        </div>
+
+                        <!-- 5. Prueba de Esfuerzo Mecánico -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">5. Prueba de Esfuerzo Mecánico:</label>
+                            <input type="text" name="prueba_esfuerzo"
+                                class="w-full border border-gray-500 rounded px-2 py-1">
+                        </div>
+
+                        <!-- 6. Evaluación de la Piel -->
+                        <div class="flex flex-col space-y-1">
+                            <label class="font-medium">6. Evaluación de la Piel:</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="piel_normal" name="evaluacion_piel" value="normal"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="piel_normal">Normal</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="piel_eterna" name="evaluacion_piel" value="eterna"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="piel_eterna">Eterna</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="piel_infeccion" name="evaluacion_piel" value="infeccion"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="piel_infeccion">Infección</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="piel_tumerfaccion" name="evaluacion_piel"
+                                        value="tumerfaccion" class="accent-red-600 h-4 w-4">
+                                    <label for="piel_tumerfaccion">Tumerfacción</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- 7. Antecedentes de Enfermedades Músculo esquelética -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">7. Antecedentes de Enfermedades Músculo esquelética:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="antecedentes_si" name="antecedentes_musculoesqueletica"
+                                        value="si" class="accent-red-600 h-4 w-4">
+                                    <label for="antecedentes_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="antecedentes_no" name="antecedentes_musculoesqueletica"
+                                        value="no" class="accent-red-600 h-4 w-4">
+                                    <label for="antecedentes_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Tratamientos Previos a la Evaluación -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">8. Tratamientos Previos a la Evaluación:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="tratamientos_si" name="tratamientos_previos" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="tratamientos_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="tratamientos_no" name="tratamientos_previos" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="tratamientos_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- 9. Presencia de Dolor -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">9. Presencia de Dolor:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="dolor_si" name="presencia_dolor" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="dolor_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="dolor_no" name="presencia_dolor" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="dolor_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 10. Antecedente de Trabajo Forzado -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">10. Antecedente de Trabajo Forzado:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="trabajo_forzado_si" name="trabajo_forzado" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="trabajo_forzado_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="trabajo_forzado_no" name="trabajo_forzado" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="trabajo_forzado_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 11. Capacitación en levantamiento de carga -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">11. Capacitación en levantamiento de carga:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="capacitacion_si" name="capacitacion_carga" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="capacitacion_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="capacitacion_no" name="capacitacion_carga" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="capacitacion_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12. Técnica de Levantamiento de Carga -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">12. Técnica de Levantamiento de Carga:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="tecnica_si" name="tecnica_levantamiento" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="tecnica_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="tecnica_no" name="tecnica_levantamiento" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="tecnica_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 13. Uso Faja Lumbar -->
+                        <div class="flex flex-col space-y-2">
+                            <label class="font-medium">13. Uso Faja Lumbar:</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="faja_si" name="uso_faja_lumbar" value="si"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="faja_si">SI</label>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="radio" id="faja_no" name="uso_faja_lumbar" value="no"
+                                        class="accent-red-600 h-4 w-4">
+                                    <label for="faja_no">NO</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <nav class="mt-6 space-y-2 px-4">
-                    <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
-                    <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
-                    <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
-                    <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
-                    <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
-                    <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
-                    <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
-                    <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
-                    <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
-                    <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
-                    <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
-                    <a href="electrocardiograma.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
-                    <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
-                    <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
-                    <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
-                    <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
-                    <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
-                    <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
-                    <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
-                    <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
-                </nav>
             </div>
-            <div class="p-4 border-t border-white">
-                <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+            <!-- Sección Examen Físico - Funcional -->
+            <div class="p-4 border border-gray-300 rounded mt-6">
+                <h2 class="text-xl font-bold text-red-800 mb-2">EXAMEN FÍSICO - FUNCIONAL</h2>
+
+                <!-- Tabla -->
+                <div class="overflow-x-auto">
+                    <table class="w-full border border-gray-400">
+                        <!-- Encabezado principal -->
+                        <thead>
+                            <tr>
+                                <th colspan="5"
+                                    class="border border-gray-400 bg-gray-200 px-4 py-2 font-bold text-center">
+                                    CABEZA Y CUELLO
+                                </th>
+                            </tr>
+                            <!-- Encabezados de columnas -->
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-400 px-4 py-2 font-bold text-center">Movimiento</th>
+                                <th class="border border-gray-400 px-4 py-2 font-bold text-center">Rango Normal</th>
+                                <th class="border border-gray-400 px-4 py-2 font-bold text-center">Rango Articular</th>
+                                <th class="border border-gray-400 px-4 py-2 font-bold text-center">Fuerza Muscular</th>
+                                <th class="border border-gray-400 px-4 py-2 font-bold text-center">Dolor al Movimiento
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Fila Flexión -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Flexión</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                            <!-- Fila Extensión -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Extensión</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                            <!-- Fila Rotación Derecha -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Rotación Derecha</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                            <!-- Fila Rotación Izquierda -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Rotación Izquierda</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                            <!-- Fila Inclinación Derecha -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Inclinación Derecha</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                            <!-- Fila Inclinación Izquierda -->
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">Inclinación Izquierda</td>
+                                <td class="border border-gray-400 px-4 py-2 text-center">
+                                    <input type="checkbox" class="accent-red-600 h-4 w-4" checked>
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="100 %"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="number" value="4" min="0" max="5"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                                <td class="border border-gray-400 px-4 py-2">
+                                    <input type="text" value="NO"
+                                        class="w-full border-none text-center rounded focus:outline-none px-2 py-1">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </aside>
+            <div class="overflow-x-auto">
+                <table class="w-full border border-gray-400">
+                    <!-- Encabezado principal -->
+                    <thead>
+                        <tr>
+                            <th colspan="3"
+                                class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                IZQUIERDO
+                            </th>
+                            <th rowspan="2"
+                                class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                HOMBRO
+                            </th>
+                            <th colspan="3"
+                                class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                DERECHO
+                            </th>
+                        </tr>
+                        <!-- Encabezados de columnas -->
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">
+                                R.A.<sup>a</sup></th>
 
-        <main class="flex-1 p-8">
-            <header class="mb-6">
-        <h1 class="text-2xl font-bold">
-          <span class="text-gray-700">Servicios Médicos</span>
-          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
-        </h1>
-        <p class="text-gray-600 mt-1">Bienvenido a Ergonomía</p>
-      </header>
-        </main>
+                            <!-- Centro (Hombro) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">
+                                R.A.<sup>a</sup></th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
 
-        <script>
-            document.getElementById('toggleAreas').addEventListener('click', function() {
-                const menu = document.getElementById('menuAreas');
-                const arrow = document.getElementById('arrow');
-                
-                // Alternar las clases para abrir/cerrar
-                menu.classList.toggle('dropdown-open');
-                
-                // Rotar la flecha
-                if (menu.classList.contains('dropdown-open')) {
-                    arrow.classList.add('rotate-180');
-                } else {
-                    arrow.classList.remove('rotate-180');
-                }
-            });
-        </script>
-    </body>
-    </html>
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-180°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">0°-45°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Abducción -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Abducción</span>
+                                <span class="ml-6">0°-180°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Aducción -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Aducción</span>
+                                <span class="ml-6">0°-45°</span>
+                            </td>
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación Interna -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación Interna</span>
+                                <span class="ml-6">0°-90°</span>
+                            </td>
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación Externa -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación Externa</span>
+                                <span class="ml-6">0°-90°</span>
+                            </td>
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- Encabezado principal -->
+                    <thead>
+                        <!-- Encabezados de columnas -->
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">CODO
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-140°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">0°-180°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Supinación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Supinación</span>
+                                <span class="ml-6">0°-90°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Pronación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Pronación</span>
+                                <span class="ml-6">0°-85°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <!-- Encabezados de columnas -->
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-1 py-2 font-bold text-center w-3/12">
+                                MUÑECA
+                            </th>
+                            <!-- Centro (Muñeca) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-180°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">0°-45°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Desviación Cubital -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Desv. Cub.</span>
+                                <span class="ml-6">0°-40°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Desviación Radial -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Desv. Rad.</span>
+                                <span class="ml-6">0°-20°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- Encabezado principal -->
+                    <thead>
+                        <!-- Encabezados de columnas -->
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                CADERA
+                            </th>
+                            <!-- Centro (Cadera) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-120°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">0°-55°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Abducción -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Abducción</span>
+                                <span class="ml-6">0°-30°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Aducción -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Aducción</span>
+                                <span class="ml-6">0°-25°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación Interna -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación Interna</span>
+                                <span class="ml-6">0°-45°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación Externa -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación Externa</span>
+                                <span class="ml-6">0°-60°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                RODILLA
+                            </th>
+                            <!-- Centro (Rodilla) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-130°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">180°-0°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                TOBILLO
+                            </th>
+                            <!-- Centro (Tobillo) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión Plantar -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-20°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">0°-45°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                DORSAL
+                            </th>
+                            <!-- Centro (Dorsal) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-10°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">10°-0°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación</span>
+                                <span class="ml-6">0°-30°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Inclinación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Inclinación</span>
+                                <span class="ml-6">0°-20°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <!-- Izquierdo -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 bg-gray-200 px-2 py-2 font-bold text-center w-3/12">
+                                LUMBAR
+                            </th>
+                            <!-- Centro (Lumbar) -->
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">R.A.<sup>a</sup>
+                            </th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">F.M.</th>
+                            <th class="border border-gray-400 px-1 py-2 font-bold text-center w-1/12">DOLOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Flexión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1 text-sm">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Flexión</span>
+                                <span class="ml-6">0°-90°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Extensión -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Extensión</span>
+                                <span class="ml-6">25°-0°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Rotación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Rotación</span>
+                                <span class="ml-6">0°-180°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Inclinación -->
+                        <tr>
+                            <!-- Izquierdo -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+
+                            <!-- Centro -->
+                            <td class="border border-gray-400 px-3 py-2 text-center">
+                                <span>Inclinación</span>
+                                <span class="ml-6">0°-450°</span>
+                            </td>
+
+                            <!-- Derecho -->
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="100%"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="number" value="4" min="0" max="5"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" value="NO"
+                                    class="w-full border-none text-center rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Tabla Alteraciones de la Columna -->
+            <div class="overflow-x-auto mt-6">
+                <h2 class="text-xl font-bold text-red-800 mb-2">EVALUACIÓN DE COLUMNA VERTEBRAL</h2>
+                <table class="w-full border border-gray-400">
+                    <!-- Encabezados de columnas -->
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-4/12">ALTERACIONES DE LA
+                                COLUMNA</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">SI</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">NO</th>
+                            <th class="border border-gray-400 px-4 py-2 font-bold text-center">DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Cifosis -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Cifosis</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="cifosis" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="cifosis" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Escoliosis -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Escoliosis</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="escoliosis" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="escoliosis" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Lordosis -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Lordosis</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="lordosis" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="lordosis" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Desviación Mixta -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Desviación Mixta</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="desviacion_mixta" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="desviacion_mixta" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Tabla Evaluación a la Observación -->
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full border border-gray-400">
+                    <!-- Encabezado principal -->
+                    <thead>
+                        <!-- Encabezados de columnas -->
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-4/12">EVALUACIÓN A LA
+                                OBSERVACIÓN
+                            </th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">SI</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">NO</th>
+                            <th class="border border-gray-400 px-4 py-2 font-bold text-center">DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Hombros alineados -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Hombros Alineados</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="hombros_alineados" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="hombros_alineados" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                        <!-- Fila Ángulo del talo -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Ángulo del talo Alineados</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="angulo_talo" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="angulo_talo" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila EIAS Alineadas -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">EIAS Alineadas</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="eias" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="eias" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Escápulas Alineadas -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Escápulas Alineadas</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="escapulas" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="escapulas" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Tabla Evaluación a la Palpación -->
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full border border-gray-400">
+                    <!-- Encabezados de columnas -->
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-4/12">EVALUACIÓN A LA
+                                PALPACIÓN</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">SI</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">NO</th>
+                            <th class="border border-gray-400 px-4 py-2 font-bold text-center">DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Contracturas presentes -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Contracturas presentes</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="contracturas" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="contracturas" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Espasmos presentes -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Espasmos presentes</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="espasmos" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="espasmos" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Acortamientos presentes -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Acortamientos presentes</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="acortamientos" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="acortamientos" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Tono muscular normal -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Tono muscular normal</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="tono_muscular" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="tono_muscular" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Trofismo muscular normal -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Trofismo muscular normal</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="trofismo" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="trofismo" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabla Evaluación a la Exploración -->
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full border border-gray-400">
+                    <!-- Encabezados de columnas -->
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-4/12">EVALUACIÓN A LA
+                                EXPLORACIÓN</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">SI</th>
+                            <th class="border border-gray-400 px-2 py-2 font-bold text-center w-1/12">NO</th>
+                            <th class="border border-gray-400 px-4 py-2 font-bold text-center">DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila Signo de Lasègue -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Signo de Lasègue</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="lasague" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="lasague" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Maniobra de Adams -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Maniobra de Adams</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="adams" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="adams" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+
+                        <!-- Fila Test de Schober -->
+                        <tr>
+                            <td class="border border-gray-400 px-4 py-2">Test de Schober</td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="schober" value="si" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2 text-center">
+                                <input type="radio" name="schober" value="no" class="accent-red-600 h-4 w-4">
+                            </td>
+                            <td class="border border-gray-400 px-2 py-2">
+                                <input type="text" class="w-full border-none rounded focus:outline-none px-1 py-1">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border border-gray-300 rounded">
+                <div class="space-y-2">
+                    <div class="flex flex-col space-y-1">
+                        <label for="diagnostico" class="text-lg font-semibold">Diagnóstico:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="diagnostico" name="diagnostico"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <label for="recomendaciones_plan_accion" class="text-lg font-semibold">Recomendaciones y Plan de
+                            Acción:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="recomendaciones_plan_accion" name="recomendaciones_plan_accion"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <label for="conclusion" class="text-lg font-semibold">Conclusión:</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="conclusion" name="conclusion"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

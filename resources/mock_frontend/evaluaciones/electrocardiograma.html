@@ -1,72 +1,339 @@
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Selección de Área de Evaluación</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="es">
 
-    <body class="bg-gray-100 min-h-screen flex">
-        
-        <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
-            <div>
-                <div class="p-6 text-center border-b border-white">
-                    <h2 class="text-xl font-bold">Admin</h2>
-                    <p class="text-sm text-red-200">Administrador</p>
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Electrocardiograma</p>
+        </header>
+        <form class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="lg:w-1/2">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full text-center border border-black">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-1 font-bold w-3/6">Factores Antropométricos
+                                    </th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">Valor</th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">Unidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Peso -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Peso</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="peso"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">Kg.</td>
+                                </tr>
+
+                                <!-- Talla -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Talla</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="talla"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">cm.</td>
+                                </tr>
+
+                                <!-- IMC -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">IMC</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="imc"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">Kg/cm²</td>
+                                </tr>
+
+                                <!-- Perímetro Abdominal -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Perímetro Abdominal</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="perimetro_abdominal"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">cm.</td>
+                                </tr>
+
+                                <!-- Perímetro Torácico -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Perímetro Torácico</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="perimetro_toracico"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">cm.</td>
+                                </tr>
+
+                                <!-- Presión Arterial -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Presión Arterial</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="presion_arterial"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">mmHg</td>
+                                </tr>
+
+                                <!-- F.C. (Frecuencia Cardíaca) -->
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">F.C.</td>
+                                    <td class="border border-black px-2 py-1">
+                                        <input type="text" name="frecuencia_cardiaca"
+                                            class="w-full border-none text-center focus:outline-none" />
+                                    </td>
+                                    <td class="border border-black px-2 py-1">x min.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="table-auto w-full text-center border border-black">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-1 font-bold w-3/6">Factores de Riesgo
+                                        Cardiovascular</th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">Si</th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Fumador</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="fumador" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="fumador" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Sedentarismo</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sedentarismo" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sedentarismo" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Estrés</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="estres_riesgo" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="estres_riesgo" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Drogas</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="drogas" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="drogas" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <nav class="mt-6 space-y-2 px-4">
-                    <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
-                    <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
-                    <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
-                    <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
-                    <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
-                    <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
-                    <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
-                    <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
-                    <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
-                    <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
-                    <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
-                    <a href="electrocardiograma.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
-                    <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
-                    <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
-                    <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
-                    <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
-                    <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
-                    <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
-                    <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
-                    <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
-                </nav>
+                <div class="lg:w-1/2">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full text-center border border-black">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-1 font-bold w-3/6">Historia clinica
+                                    </th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">Si</th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Enf. Hipertensiva</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="enf_hipertensiva" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="enf_hipertensiva" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Dislipidemia</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="dislipidemia" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="dislipidemia" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">D. Mellitus</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="d_mellitus" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="d_mellitus" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Sind. Metabólico</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sind_metabolico" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sind_metabolico" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="table-auto w-full text-center border border-black">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-1 font-bold w-3/6">ECV o Renal Establecida
+                                    </th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">Si</th>
+                                    <th class="border border-black px-2 py-1 font-bold w-1/6">No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Sec de ECV</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sec_ecv" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="sec_ecv" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Cardiopatía</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="cardiopatia" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="cardiopatia" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Enf. Renal</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="enf_renal" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="enf_renal" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-1 text-left">Retinopatía</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="retinopatia" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="retinopatia" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="p-4 border-t border-white">
-                <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
             </div>
-        </aside>
+        </form>
+    </main>
+</body>
 
-        <main class="flex-1 p-8">
-            <header class="mb-6">
-        <h1 class="text-2xl font-bold">
-          <span class="text-gray-700">Servicios Médicos</span>
-          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
-        </h1>
-        <p class="text-gray-600 mt-1">Bienvenido a Electrocardiograma</p>
-      </header>
-        </main>
-
-        <script>
-            document.getElementById('toggleAreas').addEventListener('click', function() {
-                const menu = document.getElementById('menuAreas');
-                const arrow = document.getElementById('arrow');
-                
-                // Alternar las clases para abrir/cerrar
-                menu.classList.toggle('dropdown-open');
-                
-                // Rotar la flecha
-                if (menu.classList.contains('dropdown-open')) {
-                    arrow.classList.add('rotate-180');
-                } else {
-                    arrow.classList.remove('rotate-180');
-                }
-            });
-        </script>
-    </body>
-    </html>
+</html>
