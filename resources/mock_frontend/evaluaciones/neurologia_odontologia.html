@@ -1,72 +1,825 @@
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Selección de Área de Evaluación</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="es">
 
-    <body class="bg-gray-100 min-h-screen flex">
-        
-        <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
-            <div>
-                <div class="p-6 text-center border-b border-white">
-                    <h2 class="text-xl font-bold">Admin</h2>
-                    <p class="text-sm text-red-200">Administrador</p>
+<head>
+    <meta charset="UTF-8" />
+    <title>Examen Físico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .dropdown-open {
+            max-height: 400px;
+            opacity: 1;
+            transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-red-700">Evaluaciones</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido al Sistema de Salud Ocupacional</p>
+        </header>
+
+        <!-- Sección principal con los campos de información y selección de área -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg border border-gray-300 shadow-sm p-4">
+                <div class="flex flex-wrap items-end gap-4">
+                    <!-- Área de evaluación - Integrada en la misma fila -->
+                    <div class="relative">
+                        <label class="block text-gray-700 font-medium mb-2 text-sm">
+                            Área de Evaluación
+                        </label>
+                        <div class="flex items-center">
+                            <input type="text" id="areaSeleccionada" name="areaSeleccionada" readonly class="w-64 px-4 py-3 border border-gray-300 rounded-l-md text-gray-700 bg-gray-50 cursor-default select-none
+             focus:outline-none focus:ring-0 focus:border-gray-300" placeholder="Seleccione un área">
+
+                            <button id="toggleAreas" type="button" class="bg-red-800 text-white px-4 py-3 border border-red-800 rounded-r-md hover:bg-red-700 transition 
+             flex items-center justify-center h-[52px] min-w-[52px]">
+                                <svg id="arrowIcon" class="w-5 h-5 transform transition-transform duration-500"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Menú desplegable -->
+                        <div id="menuAreas"
+                            class="dropdown-menu absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded-md shadow-lg z-10 overflow-hidden">
+                            <div class="max-h-80 overflow-y-auto">
+                                <a href="funciones_vitales.html" data-area="Funciones Vitales"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Funciones Vitales
+                                </a>
+                                <a href="examen_fisico.html" data-area="Examen Físico"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Examen Físico
+                                </a>
+                                <a href="evaluacion_medica.html" data-area="Evaluación Médica"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Evaluación Médica
+                                </a>
+                                <a href="placa_rayos_x.html" data-area="Placa Rayos X"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Placa Rayos X
+                                </a>
+                                <a href="dermatologia.html" data-area="Dermatología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Dermatología
+                                </a>
+                                <a href="oftalmologia.html" data-area="Oftalmología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Oftalmología
+                                </a>
+                                <a href="audiometria.html" data-area="Audiometría"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Audiometría
+                                </a>
+                                <a href="espirometria.html" data-area="Espirometría"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Espirometría
+                                </a>
+                                <a href="electrocardiograma.html" data-area="Electrocardiograma"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Electrocardiograma
+                                </a>
+                                <a href="laboratorio.html" data-area="Laboratorio"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Laboratorio
+                                </a>
+                                <a href="ergonomia.html" data-area="Ergonomía"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Ergonomía
+                                </a>
+                                <a href="psicologia.html" data-area="Psicología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Psicología
+                                </a>
+                                <a href="diagnostico.html" data-area="Diagnóstico"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Diagnóstico
+                                </a>
+                                <a href="neurologia_odontologia.html" data-area="Neurología y Odontología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Neurología y Odontología
+                                </a>
+                                <a href="historia_placas.html" data-area="Historia de Placas"
+                                    class="block p-3 text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Historia de Placas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campo: Nombre completo -->
+                    <div class="flex-1 min-w-[300px]">
+                        <label for="apellidos_nombres" class="block text-gray-700 font-medium mb-2 text-sm">
+                            Apellidos y Nombres
+                        </label>
+                        <input type="text" id="apellidos_nombres" name="apellidos_nombres"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700"
+                            placeholder="Ingrese el nombre completo del paciente">
+                    </div>
+
+                    <!-- Campo: DNI -->
+                    <div class="w-48">
+                        <label for="dniPaciente" class="block text-gray-700 font-medium mb-2 text-sm">
+                            DNI
+                        </label>
+                        <input type="text" id="dniPaciente" name="dniPaciente"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700"
+                            placeholder="Nº de documento" maxlength="8"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+
+                    <!-- Campo: Ficha de evaluación -->
+                    <div class="w-56">
+                        <label for="fichaEvaluacion" class="block text-gray-700 font-medium mb-2 text-sm">
+                            Ficha de evaluación
+                        </label>
+                        <div class="relative">
+                            <input type="date" id="fichaEvaluacion" name="fichaEvaluacion"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <nav class="mt-6 space-y-2 px-4">
-                    <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
-                    <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
-                    <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
-                    <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
-                    <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
-                    <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
-                    <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
-                    <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
-                    <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
-                    <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
-                    <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
-                    <a href="electrocardiograma.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
-                    <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
-                    <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
-                    <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
-                    <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
-                    <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
-                    <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
-                    <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
-                    <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
-                </nav>
             </div>
-            <div class="p-4 border-t border-white">
-                <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </section>
+        <!-- Formulario principal -->
+        <form class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg space-y-6 p-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="space-y-6">
+                    <!-- Sección 1: ANTECEDENTES -->
+                    <div class="rounded-lg border border-gray-400 p-4">
+                        <h2 class="text-xl font-bold text-red-800 mb-4">1. ANTECEDENTES</h2>
+                        <!-- Tabla de antecedentes -->
+                        <div class="overflow-x-auto mb-6">
+                            <table class="table-auto w-full text-center border border-black">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="border border-black w-12 px-2 py-2 font-bold">N°</th>
+                                        <th class="border border-black px-2 py-2 text-left font-bold">Antecedentes</th>
+                                        <th class="border border-black w-16 font-bold">SI</th>
+                                        <th class="border border-black w-16 font-bold">NO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Fila 1 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">1</td>
+                                        <td class="border border-black px-2 py-2 text-left">Alteraciones de la
+                                            conciencia</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_conciencia" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_conciencia" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 2 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">2</td>
+                                        <td class="border border-black px-2 py-2 text-left">Comunitarios o egipcios</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="comunitarios_egipcios" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="comunitarios_egipcios" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 3 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">3</td>
+                                        <td class="border border-black px-2 py-2 text-left">Movimientos involuntarios
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="movimientos_involuntarios" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="movimientos_involuntarios" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 4 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">4</td>
+                                        <td class="border border-black px-2 py-2 text-left">Vértigos / Mareos</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="vertigos_mareos" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="vertigos_mareos" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 5 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">5</td>
+                                        <td class="border border-black px-2 py-2 text-left">Alteraciones de la visión
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_vision" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_vision" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 6 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">6</td>
+                                        <td class="border border-black px-2 py-2 text-left">Alteraciones de la marcha
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_marcha" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="alteraciones_marcha" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 7 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">7</td>
+                                        <td class="border border-black px-2 py-2 text-left">Obesidad II*</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="obesidad_ii" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="obesidad_ii" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 8 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">8</td>
+                                        <td class="border border-black px-2 py-2 text-left">Obesidad III*</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="obesidad_iii" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="obesidad_iii" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 9 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">9</td>
+                                        <td class="border border-black px-2 py-2 text-left">Depresión / Ansiedad</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="depresion_ansiedad" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="depresion_ansiedad" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 10 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">10</td>
+                                        <td class="border border-black px-2 py-2 text-left">Fobias / Ataques de pánico
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="fobias_panico" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="fobias_panico" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 11 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">11</td>
+                                        <td class="border border-black px-2 py-2 text-left">Lesiones deformantes en
+                                            columna
+                                            vertebral</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="lesiones_columna" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="lesiones_columna" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                    <!-- Fila 12 -->
+                                    <tr>
+                                        <td class="border border-black text-center align-middle">12</td>
+                                        <td class="border border-black px-2 py-2 text-left">Lesiones deformantes en
+                                            extremidades
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="lesiones_extremidades" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="lesiones_extremidades" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div>
+                            <div class="space-y-4 ">
+                                <div>
+                                    <label for="constancia_medicamentos" class="block font-medium mb-1">Consumo de
+                                        medicamentos</label>
+                                    <input type="text" id="constancia_medicamentos" name="constancia_medicamentos"
+                                        class="w-full border border-gray-500 rounded px-3 py-1" />
+                                </div>
+                                <div>
+                                    <label for="otros_antecedentes" class="block font-medium mb-1">Otros:</label>
+                                    <input type="text" id="otros_antecedentes" name="otros_antecedentes"
+                                        class="w-full border border-gray-500 rounded px-3 py-1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 2: EXPLORACIÓN FÍSICA -->
+                    <div class="bg-white rounded-lg border border-gray-400 p-4">
+                        <h2 class="text-xl font-bold text-red-800 mb-4">2. EXPLORACIÓN FÍSICA</h2>
+
+                        <!-- A) Nivel de conciencia -->
+                        <div class="mb-6">
+                            <h3 class="text-left font-bold mb-3">A) Nivel de conciencia</h3>
+
+                            <!-- Glasgow -->
+                            <div class="p-2 rounded">
+                                <!-- Glasgow -->
+                                <div class="mb-4 border-gray-300">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Glasgow - Escala:</span>
+                                            <input type="number" name="glasgow_escala" value="15"
+                                                class="w-16 border border-gray-500 rounded px-2 py-1 text-center"
+                                                min="3" max="15" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Nistagmus -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <span class="font-medium">Nistagmus (Si la respuesta es Sí detalle la
+                                            alteración)</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" name="nistagmus" value="Si"
+                                                class="accent-red-600 h-4 w-4" />
+                                            <span class="ml-2">SI</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" name="nistagmus" value="No"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                            <span class="ml-2">NO</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Campo para detalle del Nistagmus -->
+                                <div class="mt-2">
+                                    <input type="text" name="detalle_alteracion_nistagmus"
+                                        placeholder="Detalle de la alteración"
+                                        class="w-full border border-gray-500 rounded px-3 py-2" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- B) Pares craneales -->
+
+                        <h3 class="text-lg font-semibold mb-3">B) Pares craneales</h3>
+                        <div class="p-4 rounded">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span>Normal:</span>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="pares_craneales" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                        <span class="ml-2">SI</span>
+                                    </label>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="pares_craneales" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                        <span class="ml-2">NO</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-1">Si la respuesta es Sí detalle la
+                                    alteración:</label>
+                                <input type="text" name="detalle_pares_craneales"
+                                    placeholder="Especifique la alteración"
+                                    class="w-full border border-gray-500 rounded px-3 py-2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="space-y-6">
+                    <!-- Sección 3: Fuerza Muscular - Versión con checkboxes -->
+                    <div class="bg-white rounded-lg border border-gray-400 p-4">
+                        <h2 class="text-left font-bold mb-4">C) FUERZA MUSCULAR: Según escala del MRC</h2>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_0" name="fuerza_muscular[]" value="0"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_0">No contracción</label>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_1" name="fuerza_muscular[]" value="1"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_1">Contracción que no desplaza
+                                    articulación</label>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_2" name="fuerza_muscular[]" value="2"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_2">Desplazamiento articular contra
+                                    gravedad</label>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_3" name="fuerza_muscular[]" value="3"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_3">Desplazamiento articular sobre
+                                    plano</label>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_4" name="fuerza_muscular[]" value="4"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_4">Movimiento contra resistencia</label>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="fuerza_5" name="fuerza_muscular[]" value="5"
+                                    class="accent-red-600 h-4 w-4" />
+                                <label for="fuerza_5">Fuerza muscular normal</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección D: Reflejos Osteotendinosos -->
+                    <div class="bg-white rounded-lg border border-gray-400 p-4">
+
+                        <div class="overflow-x-auto">
+                            <table class="table-auto w-full text-center border border-black">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="border border-black px-2 py-2 font-bold text-left">D) Reflejos
+                                            Osteotendinosos</th>
+                                        <th class="border border-black px-2 py-2 font-bold w-24">NORMAL</th>
+                                        <th class="border border-black px-2 py-2 font-bold w-24">ANORMAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Bicipital -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Bicipital</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_bicipital" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_bicipital" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Tricipital -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Tricipital</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_tricipital" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_tricipital" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Estilo radial -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Estilo radial</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_estilo_radial" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_estilo_radial" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Cubito pronador -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Cubito pronador</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_cubito_pronador" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_cubito_pronador" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Reflejo rotuliano o patelar -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Reflejo rotuliano o patelar
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_rotuliano" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_rotuliano" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Reflejo Aquiliano -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Reflejo Aquiliano</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_aquiliano" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="reflejo_aquiliano" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Campo para otros reflejos -->
+                        <div class="mt-6">
+                            <label for="otros_reflejos" class="block font-medium mb-1">Otros reflejos:</label>
+                            <input type="text" id="otros_reflejos" name="otros_reflejos"
+                                class="w-full border border-gray-500 rounded px-3 py-1" />
+                        </div>
+                        <!-- Campo para detalla lo anormal (Hiperreflexia, hiporeflexia, arreflexia) -->
+                        <div class="mt-6">
+                            <label for="detalla_anormal" class="block font-medium mb-1">Detalla lo anormal
+                                (Hiperreflexia, hiporeflexia, arreflexia):</label>
+                            <input type="text" id="detalla_anormal" name="detalla_anormal"
+                                class="w-full border border-gray-500 rounded px-3 py-1" />
+                        </div>
+                    </div>
+                    <!-- Sección E: Coordinación y equilibrio -->
+                    <div class="bg-white rounded-lg border border-gray-400 p-4 mt-6">
+                        <div class="overflow-x-auto">
+                            <table class="table-auto w-full text-center border border-black">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="border border-black px-2 py-2 font-bold text-left">E) Coordinación y
+                                            equilibrio</th>
+                                        <th class="border border-black px-2 py-2 font-bold w-24">NORMAL</th>
+                                        <th class="border border-black px-2 py-2 font-bold w-24">ANORMAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Marcha -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Marcha</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_marcha" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_marcha" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Dedo nariz -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Dedo nariz</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_dedo_nariz" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_dedo_nariz" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Diadococinesia -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Diadococinesia</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_diadococinesia" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_diadococinesia" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Talón rodilla -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Talón rodilla</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_talon_rodilla" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_talon_rodilla" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                    <!-- Romberg -->
+                                    <tr>
+                                        <td class="border border-black px-2 py-2 text-left">Romberg</td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_romberg" value="normal"
+                                                class="accent-red-600 h-4 w-4" checked />
+                                        </td>
+                                        <td class="border border-black align-middle">
+                                            <input type="radio" name="coordinacion_romberg" value="anormal"
+                                                class="accent-red-600 h-4 w-4" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Campo para otros -->
+                        <div class="mt-4">
+                            <label for="coordinacion_otros" class="block font-medium mb-1">Otros:</label>
+                            <input type="text" id="coordinacion_otros" name="coordinacion_otros"
+                                class="w-full border border-gray-500 rounded px-3 py-1" />
+                        </div>
+                        <div class="mt-4">
+                            <label for="desarrollar_anormal_positivo" class="block font-medium mb-1">Desarrollar lo
+                                anormal o positivo:</label>
+                            <input type="text" id="desarrollar_anormal_positivo" name="desarrollar_anormal_positivo"
+                                class="w-full border border-gray-500 rounded px-3 py-1" />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </aside>
+            <div class="mt-6 border border-gray-400 p-4">
+                <label for="conclusiones_recomendaciones_restricciones" class="block font-medium mb-1">Conclusiones,
+                    recomendaciones y restricciones</label>
+                <input type="text" id="conclusiones_recomendaciones_restricciones"
+                    name="conclusiones_recomendaciones_restricciones"
+                    class="w-full border border-gray-500 rounded px-3 py-1 mb-4" />
 
-        <main class="flex-1 p-8">
-            <header class="mb-6">
-        <h1 class="text-2xl font-bold">
-          <span class="text-gray-700">Servicios Médicos</span>
-          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
-        </h1>
-        <p class="text-gray-600 mt-1">Bienvenido a Neurología y Odontología</p>
-      </header>
-        </main>
+                <!-- Selección APTO / NO APTO -->
+                <div class="flex items-center gap-4">
+                    <span class="font-medium">Evaluación final:</span>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="apto" value="apto" class="accent-red-600 h-4 w-4" checked />
+                        <span class="ml-2">APTO</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="apto" value="no_apto" class="accent-red-600 h-4 w-4" />
+                        <span class="ml-2">NO APTO</span>
+                    </label>
+                </div>
+            </div>
 
-        <script>
-            document.getElementById('toggleAreas').addEventListener('click', function() {
-                const menu = document.getElementById('menuAreas');
-                const arrow = document.getElementById('arrow');
-                
-                // Alternar las clases para abrir/cerrar
-                menu.classList.toggle('dropdown-open');
-                
-                // Rotar la flecha
-                if (menu.classList.contains('dropdown-open')) {
-                    arrow.classList.add('rotate-180');
-                } else {
-                    arrow.classList.remove('rotate-180');
+            <!-- Botón de guardar -->
+            <div class="mt-8 flex justify-end space-x-4">
+                <!-- Botón de Odontograma -->
+                <button type="button"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded shadow-md">
+                    <span>Odontograma</span>
+                </button>
+
+                <!-- Botón de guardar -->
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elementos del dropdown de áreas
+            const toggleButton = document.getElementById('toggleAreas');
+            const menu = document.getElementById('menuAreas');
+            const arrowIcon = document.getElementById('arrowIcon');
+            const areaInput = document.getElementById('areaSeleccionada');
+            const areaLinks = document.querySelectorAll('#menuAreas a[data-area]');
+
+            // Fecha actual
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('fichaEvaluacion').value = today;
+
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('#toggleAreas') && !event.target.closest('#menuAreas')) {
+                    menu.classList.remove('dropdown-open');
+                    arrowIcon.classList.remove('rotate-180');
                 }
             });
-        </script>
-    </body>
-    </html>
+
+            // Abrir/cerrar menú
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    menu.classList.toggle('dropdown-open');
+                    arrowIcon.classList.toggle('rotate-180');
+                });
+            }
+
+            // Seleccionar área
+            areaLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const selectedArea = this.getAttribute('data-area');
+                    const href = this.getAttribute('href');
+
+                    if (areaInput) {
+                        areaInput.value = selectedArea;
+                    }
+
+                    menu.classList.remove('dropdown-open');
+                    arrowIcon.classList.remove('rotate-180');
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+
+            // MOSTRAR ÁREA ACTUAL (SOLO ESTO ES NECESARIO)
+            const currentPage = window.location.pathname.split('/').pop();
+
+            areaLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                const linkPage = href.split('/').pop();
+
+                if (linkPage === currentPage) {
+                    const areaName = link.getAttribute('data-area');
+                    if (areaInput) {
+                        areaInput.value = areaName;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

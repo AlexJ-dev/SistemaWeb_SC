@@ -3,11 +3,26 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Selección de Área de Evaluación</title>
+    <title>Examen Físico</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .dropdown-open {
+            max-height: 400px;
+            opacity: 1;
+            transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 min-h-screen flex">
+
     <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
         <div>
             <div class="p-6 text-center border-b border-white">
@@ -16,37 +31,8 @@
             </div>
             <nav class="mt-6 space-y-2 px-4">
                 <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
-                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
-                    Ocupacional</a>
-                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
-                <a href="funciones_vitales.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
-                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
-                    Físico</a>
-                <a href="evaluacion_medica.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
-                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
-                    X</a>
-                <a href="dermatologia.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
-                <a href="oftalmologia.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
-                <a href="audiometria.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
-                <a href="espirometria.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
-                <a href="electrocardiograma.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
-                <a href="laboratorio.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
-                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
-                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
-                <a href="diagnostico.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
-                <a href="neurologia_odontologia.html"
-                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
-                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
-                    de Placas</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-red-700">Evaluaciones</a>
                 <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
                 <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
             </nav>
@@ -62,146 +48,346 @@
                 <span class="text-gray-700">Servicios Médicos</span>
                 <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
             </h1>
-            <p class="text-gray-600 mt-1">Bienvenido a Funciones Vitales</p>
+            <p class="text-gray-600 mt-1">Bienvenido al Sistema de Salud Ocupacional</p>
         </header>
+
+        <!-- Sección principal con los campos de información y selección de área -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg border border-gray-300 shadow-sm p-4">
+                <div class="flex flex-wrap items-end gap-4">
+                    <!-- Área de evaluación - Integrada en la misma fila -->
+                    <div class="relative">
+                        <label class="block text-gray-700 font-medium mb-2 text-sm">
+                            Área de Evaluación
+                        </label>
+                        <div class="flex items-center">
+                            <input type="text" id="areaSeleccionada" name="areaSeleccionada" readonly class="w-64 px-4 py-3 border border-gray-300 rounded-l-md text-gray-700 bg-gray-50 cursor-default select-none
+             focus:outline-none focus:ring-0 focus:border-gray-300" placeholder="Seleccione un área">
+
+                            <button id="toggleAreas" type="button" class="bg-red-800 text-white px-4 py-3 border border-red-800 rounded-r-md hover:bg-red-700 transition 
+             flex items-center justify-center h-[52px] min-w-[52px]">
+                                <svg id="arrowIcon" class="w-5 h-5 transform transition-transform duration-500"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Menú desplegable -->
+                        <div id="menuAreas"
+                            class="dropdown-menu absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded-md shadow-lg z-10 overflow-hidden">
+                            <div class="max-h-80 overflow-y-auto">
+                                <a href="funciones_vitales.html" data-area="Funciones Vitales"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Funciones Vitales
+                                </a>
+                                <a href="examen_fisico.html" data-area="Examen Físico"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Examen Físico
+                                </a>
+                                <a href="evaluacion_medica.html" data-area="Evaluación Médica"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Evaluación Médica
+                                </a>
+                                <a href="placa_rayos_x.html" data-area="Placa Rayos X"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Placa Rayos X
+                                </a>
+                                <a href="dermatologia.html" data-area="Dermatología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Dermatología
+                                </a>
+                                <a href="oftalmologia.html" data-area="Oftalmología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Oftalmología
+                                </a>
+                                <a href="audiometria.html" data-area="Audiometría"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Audiometría
+                                </a>
+                                <a href="espirometria.html" data-area="Espirometría"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Espirometría
+                                </a>
+                                <a href="electrocardiograma.html" data-area="Electrocardiograma"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Electrocardiograma
+                                </a>
+                                <a href="laboratorio.html" data-area="Laboratorio"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Laboratorio
+                                </a>
+                                <a href="ergonomia.html" data-area="Ergonomía"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Ergonomía
+                                </a>
+                                <a href="psicologia.html" data-area="Psicología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Psicología
+                                </a>
+                                <a href="diagnostico.html" data-area="Diagnóstico"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Diagnóstico
+                                </a>
+                                <a href="neurologia_odontologia.html" data-area="Neurología y Odontología"
+                                    class="block p-3 border-b text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Neurología y Odontología
+                                </a>
+                                <a href="historia_placas.html" data-area="Historia de Placas"
+                                    class="block p-3 text-gray-700 hover:bg-gray-100 transition font-normal">
+                                    Historia de Placas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campo: Nombre completo -->
+                    <div class="flex-1 min-w-[300px]">
+                        <label for="apellidos_nombres" class="block text-gray-700 font-medium mb-2 text-sm">
+                            Apellidos y Nombres
+                        </label>
+                        <input type="text" id="apellidos_nombres" name="apellidos_nombres"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700"
+                            placeholder="Ingrese el nombre completo del paciente">
+                    </div>
+
+                    <!-- Campo: DNI -->
+                    <div class="w-48">
+                        <label for="dniPaciente" class="block text-gray-700 font-medium mb-2 text-sm">
+                            DNI
+                        </label>
+                        <input type="text" id="dniPaciente" name="dniPaciente"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700"
+                            placeholder="Nº de documento" maxlength="8"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+
+                    <!-- Campo: Ficha de evaluación -->
+                    <div class="w-56">
+                        <label for="fichaEvaluacion" class="block text-gray-700 font-medium mb-2 text-sm">
+                            Ficha de evaluación
+                        </label>
+                        <div class="relative">
+                            <input type="date" id="fichaEvaluacion" name="fichaEvaluacion"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition text-gray-700">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <form class="max-w-5xl mx-auto bg-white p-4 rounded-lg shadow-lg">
             <div class="flex flex-col lg:flex-row gap-4">
                 <div class="space-y-3 p-4 border border-gray-300 rounded">
                     <h2 class="text-xl font-bold text-red-800 mb-6">
                         1. Funciones Vitales y Medidas
-                        </h2>
+                    </h2>
 
-                        <div class="space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <label for="talla" class="w-44">Talla:</label>
-                                <input type="number" id="talla" name="talla"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">cm.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="peso" class="w-44">Peso:</label>
-                                <input type="number" id="peso" name="peso"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">Kg.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="imc" class="w-44">Índice de Masa Corporal:</label>
-                                <input type="number" id="imc" name="imc" step="0.1"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">Kg/cm²</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="frec_respiratoria" class="w-44">Frecuencia Respiratoria:</label>
-                                <input type="number" id="frec_respiratoria" name="frec_respiratoria"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">x min.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="frec_cardiaca" class="w-44">Frecuencia Cardíaca:</label>
-                                <input type="number" id="frec_cardiaca" name="frec_cardiaca"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">x min.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="saturacion" class="w-44">Saturación de Oxígeno:</label>
-                                <input type="number" id="saturacion" name="saturacion"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">%</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="presion_arterial" class="w-44">Presión Arterial:</label>
-                                <input type="text" id="presion_arterial" name="presion_arterial"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">mmHg</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="temperatura" class="w-44">Temperatura:</label>
-                                <input type="number" id="temperatura" name="temperatura" step="0.1"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">°C</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="perimetro_toracico" class="w-44">Perímetro Torácico:</label>
-                                <input type="number" id="perimetro_toracico" name="perimetro_toracico"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">cm.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="perimetro_abdominal" class="w-44">Perímetro Abdominal:</label>
-                                <input type="number" id="perimetro_abdominal" name="perimetro_abdominal"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">cm.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="cintura" class="w-44">Cintura:</label>
-                                <input type="number" id="cintura" name="cintura"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">cm.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="cadera" class="w-44">Cadera:</label>
-                                <input type="number" id="cadera" name="cadera"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                                <span class="text-gray-500">cm.</span>
-                            </div>
-
-                            <div class="flex items-center space-x-2">
-                                <label for="icc" class="w-44">Índice Cintura Cadera:</label>
-                                <input type="number" id="icc" name="icc" step="0.01"
-                                    class="max-w-36 border border-gray-500 p-1 rounded-md" />
-                            </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <label for="talla" class="w-44">Talla:</label>
+                            <input type="number" id="talla" name="talla"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">cm.</span>
                         </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="peso" class="w-44">Peso:</label>
+                            <input type="number" id="peso" name="peso"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">Kg.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="imc" class="w-44">Índice de Masa Corporal:</label>
+                            <input type="number" id="imc" name="imc" step="0.1"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">Kg/cm²</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="frec_respiratoria" class="w-44">Frecuencia Respiratoria:</label>
+                            <input type="number" id="frec_respiratoria" name="frec_respiratoria"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">x min.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="frec_cardiaca" class="w-44">Frecuencia Cardíaca:</label>
+                            <input type="number" id="frec_cardiaca" name="frec_cardiaca"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">x min.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="saturacion" class="w-44">Saturación de Oxígeno:</label>
+                            <input type="number" id="saturacion" name="saturacion"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">%</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="presion_arterial" class="w-44">Presión Arterial:</label>
+                            <input type="text" id="presion_arterial" name="presion_arterial"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">mmHg</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="temperatura" class="w-44">Temperatura:</label>
+                            <input type="number" id="temperatura" name="temperatura" step="0.1"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">°C</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="perimetro_toracico" class="w-44">Perímetro Torácico:</label>
+                            <input type="number" id="perimetro_toracico" name="perimetro_toracico"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">cm.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="perimetro_abdominal" class="w-44">Perímetro Abdominal:</label>
+                            <input type="number" id="perimetro_abdominal" name="perimetro_abdominal"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">cm.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="cintura" class="w-44">Cintura:</label>
+                            <input type="number" id="cintura" name="cintura"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">cm.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="cadera" class="w-44">Cadera:</label>
+                            <input type="number" id="cadera" name="cadera"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                            <span class="text-gray-500">cm.</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <label for="icc" class="w-44">Índice Cintura Cadera:</label>
+                            <input type="number" id="icc" name="icc" step="0.01"
+                                class="max-w-36 border border-gray-500 p-1 rounded-md" />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="w-full space-y-6 p-4 border border-gray-300 rounded">
                     <h2 class="text-xl font-bold text-red-800 mb-6">
                         2. Exámen Clínico
-                        </h2>
+                    </h2>
 
-                        <div class="space-y-4">
-                            <div class="flex flex-col space-y-1">
-                                <label for="anamnesis">Anamnesis:</label>
-                                <textarea id="anamnesis" name="anamnesis" rows="1"
-                                    class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
-                                    oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
-                            </div>
-
-                            <div class="flex flex-col space-y-1">
-                                <label for="ectoscopia">Ectoscopia:</label>
-                                <textarea id="ectoscopia" name="ectoscopia" rows="1"
-                                    class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
-                                    oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
-                            </div>
-
-                            <div class="flex flex-col space-y-1">
-                                <label for="estado_mental">Estado Mental:</label>
-                                <textarea id="estado_mental" name="estado_mental" rows="1"
-                                    class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
-                                    oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
-                            </div>
+                    <div class="space-y-4">
+                        <div class="flex flex-col space-y-1">
+                            <label for="anamnesis">Anamnesis:</label>
+                            <textarea id="anamnesis" name="anamnesis" rows="1"
+                                class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
+                                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
                         </div>
 
-                        <div class="mt-8 flex justify-end">
-                            <button type="submit"
-                                class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
-                                <span>Guardar</span>
-                            </button>
+                        <div class="flex flex-col space-y-1">
+                            <label for="ectoscopia">Ectoscopia:</label>
+                            <textarea id="ectoscopia" name="ectoscopia" rows="1"
+                                class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
+                                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
                         </div>
+
+                        <div class="flex flex-col space-y-1">
+                            <label for="estado_mental">Estado Mental:</label>
+                            <textarea id="estado_mental" name="estado_mental" rows="1"
+                                class="w-full border border-gray-500 p-2 rounded-md resize-none overflow-hidden"
+                                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex justify-end">
+                        <button type="submit"
+                            class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                            <span>Guardar</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elementos del dropdown de áreas
+            const toggleButton = document.getElementById('toggleAreas');
+            const menu = document.getElementById('menuAreas');
+            const arrowIcon = document.getElementById('arrowIcon');
+            const areaInput = document.getElementById('areaSeleccionada');
+            const areaLinks = document.querySelectorAll('#menuAreas a[data-area]');
+
+            // Fecha actual
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('fichaEvaluacion').value = today;
+
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('#toggleAreas') && !event.target.closest('#menuAreas')) {
+                    menu.classList.remove('dropdown-open');
+                    arrowIcon.classList.remove('rotate-180');
+                }
+            });
+
+            // Abrir/cerrar menú
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    menu.classList.toggle('dropdown-open');
+                    arrowIcon.classList.toggle('rotate-180');
+                });
+            }
+
+            // Seleccionar área
+            areaLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const selectedArea = this.getAttribute('data-area');
+                    const href = this.getAttribute('href');
+
+                    if (areaInput) {
+                        areaInput.value = selectedArea;
+                    }
+
+                    menu.classList.remove('dropdown-open');
+                    arrowIcon.classList.remove('rotate-180');
+
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+
+            // MOSTRAR ÁREA ACTUAL (SOLO ESTO ES NECESARIO)
+            const currentPage = window.location.pathname.split('/').pop();
+
+            areaLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                const linkPage = href.split('/').pop();
+
+                if (linkPage === currentPage) {
+                    const areaName = link.getAttribute('data-area');
+                    if (areaInput) {
+                        areaInput.value = areaName;
+                    }
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
