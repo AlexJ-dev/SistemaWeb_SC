@@ -104,12 +104,25 @@ class EvaluacionController extends Controller
     }
     public function iniciarEvaluacion($id)
     {
+        // Verificar si el usuario ya tiene una evaluación activa
+        $evaluacionActiva = Evaluacion::where('user_id', Auth::id())
+            ->whereNotNull('hora_ingreso')
+            ->whereNull('hora_salida')
+            ->first();
+
+        if ($evaluacionActiva) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Ya tienes una evaluación activa. Finalízala antes de iniciar otra.'
+            ], 400);
+        }
+
         $evaluacion = Evaluacion::findOrFail($id);
 
         if (!$evaluacion->hora_ingreso) {
             $evaluacion->hora_ingreso = now();
             $evaluacion->user_id = Auth::id();
-            $evaluacion->estado = 'iniciada'; // 🔹 en vez de 'pendiente'
+            $evaluacion->estado = 'iniciada';
             $evaluacion->save();
         }
 
@@ -118,6 +131,7 @@ class EvaluacionController extends Controller
             'hora_ingreso' => $evaluacion->hora_ingreso->format('H:i:s'),
         ]);
     }
+
 
     public function finalizarEvaluacion($id)
     {
@@ -130,9 +144,7 @@ class EvaluacionController extends Controller
             $evaluacion->save();
         }
 
-        // ==============================
-        //  🔥 NUEVO: VERIFICAR SI YA TERMINÓ TODA LA RUTA
-        // ==============================
+
         $ruta = $evaluacion->rutaMedica;
 
         $pendientes = Evaluacion::where('ruta_medica_id', $ruta->id)
@@ -154,31 +166,86 @@ class EvaluacionController extends Controller
     }
 
     public function continuar($rutaId)
-{
-    $ruta = RutaMedica::findOrFail($rutaId);
+    {
+        $ruta = RutaMedica::findOrFail($rutaId);
 
-    // traer solo evaluaciones pendientes de esa ruta
-    $areas = AreaOcupacional::with(['evaluaciones' => function ($q) use ($rutaId) {
-        $q->where('ruta_medica_id', $rutaId)
-            ->where('no_aplica', false)
-            ->whereNull('hora_salida') // 🔥 solo pendientes
-            ->with(['rutaMedica', 'areaOcupacional'])
-            ->select(
-                'id',
-                'ruta_medica_id',
-                'area_ocupacional_id',
-                'hora_ingreso',
-                'hora_salida',
-                'estado',
-                'no_aplica'
-            );
-    }])->get();
+        // traer solo evaluaciones pendientes de esa ruta
+        $areas = AreaOcupacional::with(['evaluaciones' => function ($q) use ($rutaId) {
+            $q->where('ruta_medica_id', $rutaId)
+                ->where('no_aplica', false)
+                ->whereNull('hora_salida') //  solo pendientes
+                ->with(['rutaMedica', 'areaOcupacional'])
+                ->select(
+                    'id',
+                    'ruta_medica_id',
+                    'area_ocupacional_id',
+                    'hora_ingreso',
+                    'hora_salida',
+                    'estado',
+                    'no_aplica'
+                );
+        }])->get();
 
-    return view('ocupacional.evaluaciones', [
-        'areas' => $areas,
-        'areaSeleccionada' => null,
-        'rutaSeleccionada' => $ruta
-    ]);
-}
+        return view('ocupacional.evaluaciones', [
+            'areas' => $areas,
+            'areaSeleccionada' => null,
+            'rutaSeleccionada' => $ruta
+        ]);
+    }
 
+    public function show($id)
+    {
+        $eval = Evaluacion::with(['rutaMedica', 'rutaMedica.fichaOcupacional'])
+            ->findOrFail($id);
+
+        return view('evaluaciones.show', [
+            'evaluacion' => $eval,
+            'area' => $eval->area_ocupacional_id,
+        ]);
+    }
+    public function reiniciarEvaluacion($id)
+    {
+        $evaluacion = Evaluacion::findOrFail($id);
+
+        // Solo permitir reinicio si está iniciada pero no finalizada
+        if ($evaluacion->hora_ingreso && !$evaluacion->hora_salida) {
+            $evaluacion->hora_ingreso = null;
+            $evaluacion->user_id = null;
+            $evaluacion->estado = 'pendiente'; // o el estado inicial que uses
+            $evaluacion->save();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Evaluación reiniciada correctamente'
+        ]);
+    }
+
+    public function editar($id)
+    {
+        $evaluacion = Evaluacion::with('areaOcupacional')->findOrFail($id);
+
+        switch ($evaluacion->area_ocupacional_id) {
+            case 3: // TRIAJE
+                return redirect()->route('triaje.edit', $evaluacion->id);
+
+            case 5: // OFTALMOLOGIA
+                return redirect()->route('evaluaciones.oftalmologia.edit', $evaluacion->id);
+
+            case 6: // AUDIOMETRIA
+                return redirect()->route('evaluaciones.audiometria.edit', $evaluacion->id);
+
+            case 7: // ESPIROMETRIA
+                return redirect()->route('evaluaciones.espirometria.edit', $evaluacion->id);
+
+            case 8: // RADIOGRAFIA
+                return redirect()->route('evaluaciones.radiografia.edit', $evaluacion->id);
+
+            case 9: // PSICOLOGIA
+                return redirect()->route('evaluaciones.psicologia.edit', $evaluacion->id);
+
+            default:
+                return redirect()->back()->with('error', 'Área ocupacional no reconocida o aún no implementada.');
+        }
+    }
 }

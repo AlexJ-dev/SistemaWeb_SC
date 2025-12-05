@@ -120,7 +120,7 @@ class FichaOcupacionalController extends Controller
             'numero_ficha' => $nuevoNumero,
         ]);
 
-        return redirect()->route('inicio')
+        return redirect()->route('evaluaciones')
             ->with('success', 'Ficha Ocupacional registrada correctamente.');
     }
     public function editar($id)
@@ -168,7 +168,7 @@ class FichaOcupacionalController extends Controller
 
         // Redirección con mensaje
         return redirect()
-            ->route('inicio')
+            ->back()
             ->with('success', 'Ficha ocupacional actualizada correctamente.');
     }
 }

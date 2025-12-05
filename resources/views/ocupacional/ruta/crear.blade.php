@@ -21,7 +21,7 @@
 
                     <button type="button"
                         onclick="abrirModalEmpresa('empresa')"
-                        class="px-3 h-[42px] bg-[#9C1C2A] text-white rounded shadow mt-1">
+                        class="px-3 h-[42px] bg-gray-300 text-[#4C4C4C] rounded hover:bg-gray-400 transition shadow mt-1">
                         Seleccionar
                     </button>
                 </div>

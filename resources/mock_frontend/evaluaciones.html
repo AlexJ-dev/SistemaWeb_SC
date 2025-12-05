@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .dropdown-open {
+            max-height: 500px;
+            /* Suficiente para mostrar toda la lista */
+            transition: max-height 0.5s ease-in;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+                <a href="evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-red-700">Evaluaciones</a>
+                <a href="evaluaciones/funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="evaluaciones/examen_fisico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
+                <a href="evaluaciones/evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="evaluaciones/placa_rayos_x.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
+                <a href="evaluaciones/dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="evaluaciones/oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="evaluaciones/audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="evaluaciones/espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="evaluaciones/electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="evaluaciones/laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="evaluaciones/ergonomia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="evaluaciones/psicologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="evaluaciones/diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="evaluaciones/neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="evaluaciones/historia_placas.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de Placas</a>
+                <a href="empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido al Sistema de Salud Ocupacional</p>
+        </header>
+        <div class="max-w-xl bg-white shadow-xl rounded-lg p-6">
+            <section>
+                <div class="border border-gray-300 rounded-lg overflow-hidden">
+
+                    <button id="toggleAreas"
+                        class="w-full text-left bg-red-800 text-white p-4 text-xl font-semibold hover:bg-red-700 transition flex justify-between items-center">
+                        Elegir Área de Evaluación <span id="arrow"
+                            class="transform transition-transform duration-300">▼</span>
+                    </button>
+
+                    <nav id="menuAreas" class="dropdown-menu">
+                        <a href="evaluacion_area.html?area=Laboratorio"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            🔬 Laboratorio
+                        </a>
+                        <a href="evaluacion_area.html?area=Oftalmologia"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            👁️ Oftalmología
+                        </a>
+                        <a href="evaluacion_area.html?area=Radiografia"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            🦴 Radiografía
+                        </a>
+                        <a href="evaluacion_area.html?area=Medicina"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            🩺 Medicina Ocupacional
+                        </a>
+                        <a href="evaluacion_area.html?area=Psicologia"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            🧠 Psicología
+                        </a>
+                        <a href="evaluacion_area.html?area=Otras_Evaluaciones"
+                            class="block p-3 border-t text-gray-700 hover:bg-gray-100 transition">
+                            ➕ Otras Evaluaciones
+                        </a>
+                    </nav>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleAreas').addEventListener('click', function () {
+            const menu = document.getElementById('menuAreas');
+            const arrow = document.getElementById('arrow');
+
+            // Alternar las clases para abrir/cerrar
+            menu.classList.toggle('dropdown-open');
+
+            // Rotar la flecha
+            if (menu.classList.contains('dropdown-open')) {
+                arrow.classList.add('rotate-180');
+            } else {
+                arrow.classList.remove('rotate-180');
+            }
+        });
+    </script>
+</body>
+
+</html>

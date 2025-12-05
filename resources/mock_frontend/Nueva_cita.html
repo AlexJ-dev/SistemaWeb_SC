@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hoja de Ruta - Nueva Cita</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
   <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-8">
     
-    <!-- ENCABEZADO VISUAL DE HOJA DE RUTA -->
+    <!-- ENCABEZADO VISUAL -->
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center">
-        <img src="Logo/Logotipo de Sagrado Corazón.jpeg" alt="Logo" class="w-20 h-20 object-contain" />
+        <img src="Logo/Logo_Sagrado_Corazon.jpeg" alt="Logo" class="w-20 h-20 object-contain" />
         <div class="ml-4">
-          <h1 class="text-xl font-bold text-red-800">Servicios Médicos SAGRADO CORAZÓN</h1>
-          <h2 class="text-lg font-semibold text-gray-700">HOJA DE RUTA</h2>
+          <h1 class="text-2xl font-bold">
+          <span class="text-gray-700">Servicios Médicos</span>
+          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+        </h1>
         </div>
       </div>
-      <div class="text-right space-y-2">
+      <div class="text-center space-y-2">
         <div>
-          <label class="block text-sm font-medium text-gray-600">Hora de Ingreso</label>
-          <input type="time" name="horaIngresoGeneral" id="horaIngresoGeneral" class="border px-3 py-1 rounded w-40" />
+          <label class="block text-center font-medium text-gray-800">Hora de Ingreso</label>
+          <input type="datetime-local" id="horaIngresoGeneral" class="border px-3 py-1 rounded" />
         </div>
         <div class="flex items-center space-x-4 mt-2">
           <label class="flex items-center space-x-1 text-sm text-gray-700">
@@ -39,7 +41,7 @@
       </div>
     </div>
 
-    <!--  FORMULARIO DE DATOS DEL PACIENTE -->
+    <!-- FORMULARIO -->
     <h1 class="text-2xl font-bold text-red-800 mb-4">Registro de Paciente</h1>
     <form id="formRuta" class="grid grid-cols-2 gap-4 mb-6">
       <input type="text" name="nombre" placeholder="Nombres y Apellidos" class="border px-4 py-2 rounded" required />
@@ -48,11 +50,12 @@
       <input type="text" name="documento" placeholder="N° Documento" class="border px-4 py-2 rounded" required />
     </form>
 
-    <!--  TABLA DE HOJA DE RUTA -->
-    <h2 class="text-lg font-semibold text-gray-700 mb-4">Hoja de Ruta</h2>
+    <!-- TABLA -->
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Hoja de ruta</h1>
     <table class="w-full border border-gray-300 text-sm mb-6">
       <thead class="bg-gray-100 text-gray-700 uppercase">
         <tr>
+          <th class="border px-2 py-2 text-center">Aplica</th>
           <th class="border px-2 py-2">Evaluaciones</th>
           <th class="border px-2 py-2">Lugar</th>
           <th class="border px-2 py-2">Hora Ingreso</th>
@@ -64,40 +67,59 @@
       <tbody id="tablaRuta"></tbody>
     </table>
 
-    <!-- BOTONES FUERA DEL FORMULARIO -->
-    <div class="col-span-2 flex justify-end space-x-4 mt-4">
+    <!-- BOTONES -->
+    <div class="flex justify-end space-x-4 mt-4">
       <button id="guardarBtn" class="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition">Guardar</button>
-      <a href="inicio.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
+      <a href="pacientes.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
     </div>
   </div>
 
-  <!-- FUNCIONES -->
   <script>
     const evaluaciones = [
       ["ADMISIÓN LLENADO DE DATOS", "3ER PISO"], ["TRAJE", "3ER PISO"], ["LABORATORIO", "4TO PISO"],
       ["OFTALMOLOGÍA", "4TO PISO"], ["AUDIOMETRÍA", "5TO PISO"], ["ESPIROMETRÍA", "4TO PISO"],
       ["RADIOGRAFÍA", "SÓTANO"], ["PSICOLOGÍA", "3ER PISO"], ["ERGONOMÍA", "3ER PISO"],
-      ["REVISIÓN MÉDICA", "3ER PISO"], ["PSICOESONOMÉTRICO", "3ER PISO"], ["ELECTROCARDIOGRAMA", "4TO PISO"],
+      ["REVISIÓN MÉDICA", "3ER PISO"], ["PSICOSENSOMÉTRICO", "3ER PISO"], ["ELECTROCARDIOGRAMA", "4TO PISO"],
       ["ODONTOGRAMA", "2DO PISO"], ["PRUEBA DE ESFUERZO", "3ER PISO"], ["ADMISIÓN FINAL DE LA PRUEBA DE EMO", "3ER PISO"]
     ];
 
     const tabla = document.getElementById("tablaRuta");
     evaluaciones.forEach(([area, piso]) => {
       tabla.innerHTML += `
-        <tr>
+        <tr class="fila-evaluacion">
+          <td class="border px-2 py-2 text-center">
+            <input type="checkbox" checked class="chk-aplica accent-red-700" />
+          </td>
           <td class="border px-2 py-2">${area}</td>
           <td class="border px-2 py-2">${piso}</td>
-          <td class="border px-2 py-2"><input type="time" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="time" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" class="w-full border rounded px-2" /></td>
-        </tr>
-      `;
+          <td class="border px-2 py-2"><input type="time" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="time" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="text" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="text" class="w-full px-2 outline-none" /></td>
+        </tr>`;
     });
 
+    // ✅ Listener de aplicar/no aplicar
+    tabla.addEventListener("change", e => {
+      if (e.target.classList.contains("chk-aplica")) {
+        const fila = e.target.closest("tr");
+        const disabled = !e.target.checked;
+        fila.classList.toggle("line-through", disabled);
+        fila.classList.toggle("bg-gray-100", disabled);
+        fila.querySelectorAll("input[type='text'], input[type='time']").forEach(inp => inp.disabled = disabled);
+      }
+    });
+
+    // ✅ Guardar hoja de ruta
     document.getElementById("guardarBtn").addEventListener("click", function () {
       const form = document.getElementById("formRuta");
-      const dni = form.documento.value;
+      const dni = form.documento.value.trim();
+      const rutas = JSON.parse(localStorage.getItem("rutas") || "{}");
+
+      if (rutas[dni]) {
+        alert("⚠️ El paciente con el N° de DNI " + dni + " ya está registrado.");
+        return;
+      }
 
       const hojaRuta = {
         dni,
@@ -108,16 +130,16 @@
         horaIngresoGeneral: document.getElementById("horaIngresoGeneral").value,
         tipoEvaluacion: Array.from(document.querySelectorAll("input[name='tipoEvaluacion']:checked")).map(el => el.value),
         evaluaciones: Array.from(document.querySelectorAll("#tablaRuta tr")).map(tr => ({
-          area: tr.children[0].textContent,
-          piso: tr.children[1].textContent,
-          horaIngreso: tr.children[2].querySelector("input").value,
-          horaSalida: tr.children[3].querySelector("input").value,
-          encargado: tr.children[4].querySelector("input").value,
-          observaciones: tr.children[5].querySelector("input").value
+          aplica: tr.children[0].querySelector("input").checked,
+          area: tr.children[1].textContent,
+          piso: tr.children[2].textContent,
+          horaIngreso: tr.children[3].querySelector("input").value,
+          horaSalida: tr.children[4].querySelector("input").value,
+          encargado: tr.children[5].querySelector("input").value,
+          observaciones: tr.children[6].querySelector("input").value
         }))
       };
 
-      const rutas = JSON.parse(localStorage.getItem("rutas") || "{}");
       rutas[dni] = hojaRuta;
       localStorage.setItem("rutas", JSON.stringify(rutas));
 
@@ -125,8 +147,8 @@
       citas.push({ dni, nombre: hojaRuta.nombre, cargo: hojaRuta.cargo, empresa: hojaRuta.empresa, historia: hojaRuta.historia });
       localStorage.setItem("citas", JSON.stringify(citas));
 
-      alert(" Hoja de ruta guardada correctamente");
-      window.location.href = "inicio.html";
+      alert("Hoja de ruta guardada correctamente");
+      window.location.href = "pacientes.html";
     });
   </script>
 </body>

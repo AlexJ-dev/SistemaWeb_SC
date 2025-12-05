@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Oftalmología</p>
+        </header>
+        <form class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="lg:w-1/2 p-4 border border-gray-300 rounded">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full text-center border border-black">
+                            <!-- Primera sección: CRITERIOS DE EXCLUSIÓN -->
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-2 text-left font-bold">ANTECEDENTES
+                                        PATOLÓGICOS</th>
+                                    <th class="border border-black w-16 font-bold">SI</th>
+                                    <th class="border border-black w-16 font-bold">NO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">HTA</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="hta" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="hta" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Diabetes Mellitus</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="diabetes" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="diabetes" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Glaucoma</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="glaucoma" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="glaucoma" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Estrabismo</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="estrabismo" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="estrabismo" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Conjuntivitis</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="conjuntivitis" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="conjuntivitis" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+
+                                <!-- Segunda sección: ENFERMEDAD EN EL HOSPITAL -->
+                                <tr class="bg-gray-200">
+                                    <td class="border border-black px-2 py-2 text-left font-bold"></td>
+                                    <td class="border border-black"></td>
+                                    <td class="border border-black"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Traumatismo</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="traumatismo" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="traumatismo" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Radiaciones</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="radiaciones" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="radiaciones" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Químicos</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="quimicos" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="quimicos" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Exposición a computadoras</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="exposicion_a_computadoras" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="exposicion_a_computadoras" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Otros</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="otros" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="otros" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+
+                                <tr class="bg-gray-200">
+                                    <td class="border border-black px-2 py-2 text-left font-bold"></td>
+                                    <td class="border border-black"></td>
+                                    <td class="border border-black"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Prurito</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="prurito" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="prurito" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Visión borrosa</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="vision_borrosa" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="vision_borrosa" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Cafalea</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="cafalea" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="cafalea" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+
+                                <tr class="bg-gray-200">
+                                    <td class="border border-black px-2 py-2 text-left font-bold"></td>
+                                    <td class="border border-black"></td>
+                                    <td class="border border-black"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">¿Usa lentes?</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="lentes" value="Si" class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="lentes" value="No" class="accent-red-600 h-4 w-4"
+                                            checked />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-4 border border-gray-300 rounded">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full text-center border border-black">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border border-black px-2 py-2 text-left font-bold">EXÁMEN</th>
+                                    <th class="border border-black w-20 font-bold">Normal</th>
+                                    <th class="border border-black w-20 font-bold">Anormal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Parpados y anexos</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="parpados_a" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="parpados_anexos" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Polo anterior</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="polo_anterior" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="polo_anterior" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-black px-2 py-2 text-left">Reflejo pupilar</td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="reflejo_pupilar" value="Si"
+                                            class="accent-red-600 h-4 w-4" />
+                                    </td>
+                                    <td class="border border-black align-middle">
+                                        <input type="radio" name="reflejo_pupilar" value="No"
+                                            class="accent-red-600 h-4 w-4" checked />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4">
+                        <div class="space-y-2">
+                            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 items-center">
+                                <label for="test_de_ishihara">Test de Ishihara :</label>
+                                <input type="text" id="test_de_ishihara" name="test_de_ishihara"
+                                    class="w-full border border-gray-500 p-1 rounded-md" value="Normal" />
+
+                                <label for="vision_nocturna">Visión Nocturna :</label>
+                                <input type="text" id="vision_nocturna" name="vision_nocturna"
+                                    class="w-full border border-gray-500 p-1 rounded-md" value="Normal" />
+
+                                <label for="vision_profundidad">Visión de profundidad :</label>
+                                <input type="text" id="vision_profundidad" name="vision_profundidad"
+                                    class="w-full border border-gray-500 p-1 rounded-md" value="" />
+
+                                <label>Visión de colores :</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-2">
+                                        <input type="radio" id="vision-colores-si" name="vision_colores" value="si"
+                                            class="accent-red-600 h-4 w-4" />Normal
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="radio" id="vision-colores-no" name="vision_colores" value="no"
+                                            class="accent-red-600 h-4 w-4" />Anormal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agudeza Visual -->
+                    <div class="mt-6">
+                        <h3 class="text-lg font-bold text-center">AGUDEZA VISUAL</h3>
+
+                        <!-- Tabla SIN CORRECTOR -->
+                        <div class="mb-2">
+                            <h4 class="font-semibold mb-2">SIN CORRECTOR</h4>
+                            <table class="table-auto w-full text-center border border-black">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="border border-black px-2 py-1 font-bold w-1/3">Visión</th>
+                                        <th class="border border-black px-2 py-1 font-bold">OD</th>
+                                        <th class="border border-black px-2 py-1 font-bold">OI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-black px-2 py-1">Lejos</td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="sin_corrector_lejos_od"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="sin_corrector_lejos_oi"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-black px-2 py-1">Cerca</td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="sin_corrector_cerca_od"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="sin_corrector_cerca_oi"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tabla CON CORRECTOR -->
+                        <div>
+                            <h4 class="font-semibold mb-2">CON CORRECTOR</h4>
+                            <table class="table-auto w-full text-center border border-black">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="border border-black px-2 py-1 font-bold w-1/3">Visión</th>
+                                        <th class="border border-black px-2 py-1 font-bold">OD</th>
+                                        <th class="border border-black px-2 py-1 font-bold">OI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-black px-2 py-1">Lejos</td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="con_corrector_lejos_od"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="con_corrector_lejos_oi"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-black px-2 py-1">Cerca</td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="con_corrector_cerca_od"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                        <td class="border border-black px-2 py-1">
+                                            <input type="text" name="con_corrector_cerca_oi"
+                                                class="w-full border-none text-center focus:outline-none" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="mt-6">
+                        <div class="flex items-center space-x-2">
+                            <label for="t_protocolo" class="w-60">Sensibilidad mucosa :</label>
+                            <input type="text" id="t_protocolo" name="t_protocolo"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border border-gray-300 rounded">
+                <h2 class="text-xl font-bold text-red-800 mb-6">
+                    EXAMEN LUMBAR FRONTAL Y LATERAL</h2>
+                <div class="space-y-2">
+                    <div class="flex flex-col space-y-1">
+                        <label for="diagnostico" class="font-medium">Diagnóstico</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="diagnostico" name="diagnostico"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <label for="recomendaciones" class="font-medium">Recomendaciones</label>
+                        <!--Agregar funcion para crear mas input-->
+                        <input type="text" id="recomendaciones" name="recomendaciones"
+                            class="w-full border border-gray-500 p-1 rounded-md" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

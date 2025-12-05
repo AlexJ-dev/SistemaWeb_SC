@@ -22,14 +22,14 @@
         <table class="w-full table-auto border-collapse">
             <thead class="bg-[#9C1C2A] text-white">
                 <tr>
-                    <th class="px-4 py-2 text-left">#</th>
-                    <th class="px-4 py-2 text-left">DNI</th>
-                    <th class="px-4 py-2 text-left">Apellidos y Nombres</th>
-                    <th class="px-4 py-2 text-left">Cargo</th>
-                    <th class="px-4 py-2 text-left">Empresa</th>
-                    <th class="px-4 py-2 text-left">Hoja de Ruta</th>
-                    <th class="px-4 py-2 text-left">Ficha Ocupacional</th>
-                    <th class="px-4 py-2 text-left">Progreso</th>
+                    <th class="px-4 py-2 text-center">#</th>
+                    <th class="px-4 py-2 text-center">DNI</th>
+                    <th class="px-4 py-2 text-center">Apellidos y Nombres</th>
+                    <th class="px-4 py-2 text-center">Cargo</th>
+                    <th class="px-4 py-2 text-center">Empresa</th>
+                    <th class="px-4 py-2 text-center">Hoja de Ruta</th>
+                    <!--<th class="px-4 py-2 text-left">Ficha Ocupacional</th>-->
+                    <th class="px-4 py-2 text-center">Progreso</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,15 +55,15 @@
                     <td class="px-4 py-2">{{ $ruta->cargo }}</td>
                     <td class="px-4 py-2">{{ $ruta->empresa }}</td>
                     <td class="px-4 py-2 text-center">
-                        <a href="{{ route('ruta.ver', $ruta->id) }}" class="text-[#9C1C2A] hover:underline">Ver Ruta</a>
+                        <a href="{{ route('ruta.ver',['id' => $ruta->id, 'from' => 'inicio']) }}" class="text-[#9C1C2A] hover:underline">Ver Ruta</a>
                     </td>
-                    <td class="px-4 py-2 text-center">
+                   <!-- <td class="px-4 py-2 text-center">
                         @if ($ruta->fichaOcupacional)
-                        <a href="{{ route('ocupacional.fichas.editar', $ruta->fichaOcupacional->id) }}" class="text-[#9C1C2A] hover:underline hover:text-[#b91c1c]">Editar Ficha</a>
+                        <a href="{{ route('ocupacional.fichas.editar', ['id' => $ruta->fichaOcupacional->id, 'from' => 'inicio']) }}" class="text-[#9C1C2A] hover:underline hover:text-[#b91c1c]">Editar Ficha</a>
                         @else
-                        <a href="{{ route('ocupacional.fichas.crear', ['id' => $ruta->id]) }}" class="text-[#4C4C4C] hover:underline hover:text-[#b91c1c]">Crear Ficha</a>
+                        <a href="{{ route('ocupacional.fichas.crear', ['id' => $ruta->id, 'from' => 'inicio']) }}" class="text-[#4C4C4C] hover:underline hover:text-[#b91c1c]">Crear Ficha</a>
                         @endif
-                    </td>
+                    </td> -->
                     <td id="progreso-{{ $ruta->id }}">
                         <div class="w-full bg-gray-200 rounded-full h-4">
                             <div id="barra-progreso-{{ $ruta->id }}"

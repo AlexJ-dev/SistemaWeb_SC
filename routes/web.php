@@ -19,11 +19,19 @@ use App\Http\Controllers\FichaOcupacionalController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\EmpresaController;
 use App\Models\Personal;
+use App\Http\Controllers\AdmisionController;
+use App\Http\Controllers\TriajeController;
+use App\Http\Controllers\HistoriaOcupacionalController;
+use App\Http\Controllers\OftalmologiaController;
+use App\Http\Controllers\AudiometriaController;
+use App\Http\Controllers\EspirometriaController;
+use App\Http\Controllers\PsicologiaController;
+use App\Http\Controllers\RadiografiaController;
+use App\Http\Controllers\FichaDetalleController;
+/*Redirección inicial
 
-/*
-|--------------------------------------------------------------------------
-| Redirección inicial
-|--------------------------------------------------------------------------
+
+
 */
 
 Route::get('/', function () {
@@ -102,7 +110,12 @@ Route::middleware('auth')->group(function () {
         ->name('evaluaciones.finalizar');
 
     Route::get('/evaluaciones/continuar/{ruta}', [EvaluacionController::class, 'continuar'])
-    ->name('evaluaciones.continuar');
+        ->name('evaluaciones.continuar');
+
+    Route::get('/evaluaciones/{id}/area', [EvaluacionController::class, 'show'])->name('evaluaciones.show');
+
+    Route::post('/evaluaciones/{id}/reiniciar', [EvaluacionController::class, 'reiniciarEvaluacion'])
+        ->name('evaluaciones.reiniciar');
 
     /*
 
@@ -134,22 +147,110 @@ Route::middleware('auth')->group(function () {
         ->name('historiaClinica.actualizar');
 
 
-    /*
-
-    | Vista Fichas + Correos
-
-    */
+    /* Vista Fichas + Correos */
     Route::get('/ocupacional/fichas', [FichaOcupacionalController::class, 'index'])
         ->name('ficha_ocupacional');
 
     Route::view('/correos', 'ocupacional.correos')->name('correos');
 
 
-    /*
 
-    | EMPRESAS — SOLO ADMINISTRADOR y RECEPCIÓN
+    //DETALLE/INFROMACION DE LA FICHA OCUPACIONAL
 
-    */
+    Route::get('/fichas/{ficha}/detalle', [FichaDetalleController::class, 'show'])
+        ->name('fichas.detalle');
+
+
+
+    // HISTORIAL OCUPACIONAL
+    Route::prefix('historia')->name('historia.')->group(function () {
+
+        // Mostrar todo el historial de un paciente
+        Route::get('/{paciente_id}', [HistoriaOcupacionalController::class, 'index'])
+            ->name('index');
+
+        // Crear nuevo registro del historial
+        Route::get('/{paciente_id}/crear', [HistoriaOcupacionalController::class, 'crear'])
+            ->name('crear');
+
+        Route::post('/{paciente_id}', [HistoriaOcupacionalController::class, 'store'])
+            ->name('store');
+
+        // Editar un historial
+        Route::get('/edit/{id}', [HistoriaOcupacionalController::class, 'edit'])
+            ->name('edit');
+
+        Route::put('/update/{id}', [HistoriaOcupacionalController::class, 'update'])
+            ->name('update');
+
+        // Eliminar un historial
+        Route::delete('/delete/{id}', [HistoriaOcupacionalController::class, 'destroy'])
+            ->name('destroy');
+    });
+
+
+
+    /* EVALUACIONES POR AREA*/
+    Route::get('/evaluaciones/{id}/editar', [EvaluacionController::class, 'editar'])
+        ->name('evaluaciones.editar');
+
+
+    /*AREA ADMISION LLEFDO DE DATOS */
+    // Mostrar formulario de admisión (con datos cargados si existen)
+    Route::get('/evaluaciones/{evaluacion}/admision', [AdmisionController::class, 'edit'])
+        ->name('admision.edit');
+
+    // Guardar o actualizar datos de admisión
+    Route::put('/evaluaciones/{evaluacion}/admision', [AdmisionController::class, 'update'])
+        ->name('admision.update');
+
+
+
+    // TRIAJE
+    Route::get('/evaluaciones/{evaluacion}/triaje/editar', [TriajeController::class, 'edit'])
+        ->name('triaje.edit');
+    Route::post('/evaluaciones/{evaluacion}/triaje', [TriajeController::class, 'store'])
+        ->name('triaje.store');
+
+    // OFTALMOLOGIA
+    Route::get('/evaluaciones/{evaluacion}/oftalmologia/editar', [OftalmologiaController::class, 'edit'])
+        ->name('evaluaciones.oftalmologia.edit');
+    Route::post('/evaluaciones/{evaluacion}/oftalmologia', [OftalmologiaController::class, 'store'])
+        ->name('evaluaciones.oftalmologia.store');
+
+    // AUDIOMETRIA
+    Route::get('/evaluaciones/{evaluacion}/audiometria/editar', [AudiometriaController::class, 'edit'])
+        ->name('evaluaciones.audiometria.edit');
+    Route::post('/evaluaciones/{evaluacion}/audiometria', [AudiometriaController::class, 'store'])
+        ->name('evaluaciones.audiometria.store');
+
+    // ESPIROMETRIA
+    Route::get('/evaluaciones/{evaluacion}/espirometria/editar', [EspirometriaController::class, 'edit'])
+        ->name('evaluaciones.espirometria.edit');
+    Route::post('/evaluaciones/{evaluacion}/espirometria', [EspirometriaController::class, 'store'])
+        ->name('evaluaciones.espirometria.store');
+
+    // PSICOLOGIA
+    Route::get('/evaluaciones/{evaluacion}/psicologia/editar', [PsicologiaController::class, 'edit'])
+        ->name('evaluaciones.psicologia.edit');
+    Route::post('/evaluaciones/{evaluacion}/psicologia', [PsicologiaController::class, 'store'])
+        ->name('evaluaciones.psicologia.store');
+
+    // RADIOGRAFIA
+    Route::get('/evaluaciones/{evaluacion}/radiografia/editar', [RadiografiaController::class, 'edit'])
+        ->name('evaluaciones.radiografia.edit');
+    Route::post('/evaluaciones/{evaluacion}/radiografia', [RadiografiaController::class, 'store'])
+        ->name('evaluaciones.radiografia.store');
+    // PDF RADIOGRAFIA
+    Route::get(
+        '/evaluacion/{evaluacion}/radiografia/pdf',
+        [RadiografiaController::class, 'pdf']
+    )->name('radiografia.pdf');
+
+
+
+
+    /* EMPRESAS — SOLO ADMINISTRADOR y RECEPCIÓN */
     Route::middleware('role:ADMINISTRADOR,RECEPCION')->group(function () {
 
         Route::get('/empresa', [EmpresaController::class, 'index'])->name('empresa');
@@ -243,8 +344,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/verificar-dni-editar/{dni}/{id}', [PersonalController::class, 'verificarDniEditar']);
     Route::get('/verificar-usuario/{name}/{password}', [UsuariosController::class, 'verificarUsuario']);
 
-    
-
+    Route::get('/en-construccion', function () {
+        return view('pagina_en_construccion');
+    })->name('en.construccion');
 });
 
 

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Selección de Área de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+    <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+        <div>
+            <div class="p-6 text-center border-b border-white">
+                <h2 class="text-xl font-bold">Admin</h2>
+                <p class="text-sm text-red-200">Administrador</p>
+            </div>
+            <nav class="mt-6 space-y-2 px-4">
+                <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+                <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha
+                    Ocupacional</a>
+                <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+                <a href="funciones_vitales.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones Vitales</a>
+                <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen
+                    Físico</a>
+                <a href="evaluacion_medica.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación Médica</a>
+                <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos
+                    X</a>
+                <a href="dermatologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+                <a href="oftalmologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+                <a href="audiometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+                <a href="espirometria.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+                <a href="electrocardiograma.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+                <a href="laboratorio.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+                <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+                <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+                <a href="diagnostico.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+                <a href="neurologia_odontologia.html"
+                    class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología y Odontología</a>
+                <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia
+                    de Placas</a>
+                <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+                <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white">
+            <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold">
+                <span class="text-gray-700">Servicios Médicos</span>
+                <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+            </h1>
+            <p class="text-gray-600 mt-1">Bienvenido a Psicología</p>
+        </header>
+        <form class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <!-- Columna Izquierda: Observación de Conductas -->
+                <div class="lg:w-1/2 p-4 border border-gray-300 rounded bg-white">
+                    <h2 class="text-xl font-bold text-red-800 mb-6">
+                        OBSERVACIÓN DE CONDUCTAS
+                    </h2>
+
+                    <!-- Presentación y Postura -->
+                    <div class="mb-4">
+
+                        <!-- Grid de 4 columnas -->
+                        <div class="grid grid-cols-4 gap-x-2 gap-y-2 items-center">
+                            <!-- Fila 1: Presentación -->
+                            <h3 class="text-gray-700 font-medium">Presentación :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" id="presentacion_adecuado" name="presentacion" value="adecuado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Adecuado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" id="presentacion_inadecuado" name="presentacion" value="inadecuado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Inadecuado
+                            </label>
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+
+                            <!-- Fila 2: Postura -->
+                            <h3 class="text-gray-700 font-medium">Postura :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" id="postura_adecuado" name="postura" value="adecuado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Adecuado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" id="postura_inadecuado" name="postura" value="inadecuado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Inadecuado
+                            </label>
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+                        </div>
+                    </div>
+
+                    <!-- Discurso -->
+                    <div class="mb-4">
+                        <h3 class="text-gray-700 font-medium">Discurso</h3>
+
+                        <!-- Grid de 4 columnas -->
+                        <div class="grid grid-cols-4 gap-x-2 gap-y-2 items-center">
+                            <!-- Fila 1: Ritmo -->
+                            <h3 class="ml-2">- Ritmo :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="ritmo" value="adecuado" class="accent-red-600 h-4 w-4" />
+                                Adecuado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="ritmo" value="inadecuado" class="accent-red-600 h-4 w-4" />
+                                Inadecuado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="ritmo" value="fluido" class="accent-blue-600 h-4 w-4" />
+                                Fluido
+                            </label>
+
+                            <!-- Fila 2: Tono -->
+                            <h3 class="ml-2">- Tono :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="tono" value="bajo" class="accent-yellow-600 h-4 w-4" />
+                                Bajo
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="tono" value="moderado" class="accent-orange-600 h-4 w-4" />
+                                Moderado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="tono" value="alto" class="accent-red-600 h-4 w-4" />
+                                Alto
+                            </label>
+
+                            <!-- Fila 3: Articulación -->
+                            <h3 class="ml-2">- Articulación :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="articulacion" value="con_dificultad"
+                                    class="accent-red-600 h-4 w-4" />
+                                Con dificultad
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="articulacion" value="sin_dificultad"
+                                    class="accent-red-600 h-4 w-4" />
+                                Sin dificultad
+                            </label>
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+                        </div>
+                    </div>
+
+
+                    <!-- Orientación -->
+                    <div class="mb-4">
+                        <h3 class="text-gray-700 font-medium">Orientación</h3>
+
+                        <!-- Grid de 4 columnas -->
+                        <div class="grid grid-cols-4 gap-x-2 gap-y-2 items-center">
+                            <!-- Fila 1: Tiempo -->
+                            <h3 class="ml-2">- Tiempo :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="tiempo" value="orientado" class="accent-red-600 h-4 w-4" />
+                                Orientado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="tiempo" value="desorientado" class="accent-red-600 h-4 w-4" />
+                                Desorientado
+                            </label>
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+
+                            <!-- Fila 2: Espacio -->
+                            <h3 class="ml-2">- Espacio :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="espacio" value="orientado" class="accent-red-600 h-4 w-4" />
+                                Orientado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="espacio" value="desorientado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Desorientado
+                            </label>
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+
+                            <!-- Fila 3: Persona -->
+                            <h3 class="ml-2">- Persona :</h3>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="persona" value="orientado" class="accent-red-600 h-4 w-4" />
+                                Orientado
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="persona" value="desorientado"
+                                    class="accent-red-600 h-4 w-4" />
+                                Desorientado
+                            </label>
+
+                            <div></div> <!-- Celda vacía para mantener la cuadrícula -->
+
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold">
+                            CONCLUSIONES
+                        </h2>
+                        <div class="flex items-center space-y-2">
+                            <label for="area_cognitiva" class="w-40">Área Cognitiva :</label>
+                            <input type="text" id="area_cognitiva" name="area_cognitiva"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
+
+                        <div class="flex items-center space-y-2">
+                            <label for="area_emocional" class="w-40">Área Emocional :</label>
+                            <input type="text" id="area_emocional" name="area_emocional"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex flex-col space-y-1">
+                            <label for="recomendaciones" class="text-lg font-semibold">RECOMENDACIONES</label>
+                            <!--Agregar funcion para crear mas input-->
+                            <input type="text" id="recomendaciones" name="recomendaciones"
+                                class="w-full border border-gray-500 p-1 rounded-md" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Resultado de Evaluación -->
+                <div class="lg:w-1/2 space-y-2 p-4 border border-gray-300 rounded">
+                    <h2 class="text-xl font-bold text-red-800 mb-6">
+                        RESULTADO DE EVALUACIÓN
+                    </h2>
+
+                    <div class="space-y-2">
+                        <!-- Nivel Intelectual -->
+                        <div class="flex items-center space-x-2">
+                            <label for="nivel_intelectual" class="w-72">Nivel Intelectual :</label>
+                            <input type="text" id="nivel_intelectual" name="nivel_intelectual"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Coordinación Visomotriz -->
+                        <div class="flex items-center space-x-2">
+                            <label for="coordinacion_visomotriz" class="w-72">Coordinación Visomotriz :</label>
+                            <input type="text" id="coordinacion_visomotriz" name="coordinacion_visomotriz"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Nivel de Memoria -->
+                        <div class="flex items-center space-x-2">
+                            <label for="nivel_memoria" class="w-72">Nivel de Memoria :</label>
+                            <input type="text" id="nivel_memoria" name="nivel_memoria"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Personalidad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="personalidad" class="w-72">Personalidad :</label>
+                            <input type="text" id="personalidad" name="personalidad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Medividad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="medividad" class="w-72">Medividad :</label>
+                            <input type="text" id="medividad" name="medividad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Altura -->
+                        <div class="flex items-center space-x-2">
+                            <label for="altura" class="w-72">Altura :</label>
+                            <input type="text" id="altura" name="altura"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Estrés -->
+                        <div class="flex items-center space-x-2">
+                            <label for="estres" class="w-72">Estrés :</label>
+                            <input type="text" id="estres" name="estres"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Ansiedad -->
+                        <div class="flex items-center space-x-2">
+                            <label for="ansiedad" class="w-72">Ansiedad :</label>
+                            <input type="text" id="ansiedad" name="ansiedad"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Depresión -->
+                        <div class="flex items-center space-x-2">
+                            <label for="depresion" class="w-72">Depresión :</label>
+                            <input type="text" id="depresion" name="depresion"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Fatiga -->
+                        <div class="flex items-center space-x-2">
+                            <label for="fatiga" class="w-72">Fatiga :</label>
+                            <input type="text" id="fatiga" name="fatiga"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Somnolencia -->
+                        <div class="flex items-center space-x-2">
+                            <label for="somnolencia" class="w-72">Somnolencia :</label>
+                            <input type="text" id="somnolencia" name="somnolencia"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Espacios Confinados -->
+                        <div class="flex items-center space-x-2">
+                            <label for="espacios_confinados" class="w-72">Espacios Confinados :</label>
+                            <input type="text" id="espacios_confinados" name="espacios_confinados"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Fobias -->
+                        <div class="flex items-center space-x-2">
+                            <label for="fobias" class="w-72">Fobias :</label>
+                            <input type="text" id="fobias" name="fobias"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Minisiquiatrico -->
+                        <div class="flex items-center space-x-2">
+                            <label for="minisiquiatrico" class="w-72">Minisiquiatrico :</label>
+                            <input type="text" id="minisiquiatrico" name="minisiquiatrico"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+
+                        <!-- Audit -->
+                        <div class="flex items-center space-x-2">
+                            <label for="audit" class="w-72">Audit :</label>
+                            <input type="text" id="audit" name="audit"
+                                class="w-full border border-gray-500 p-1 rounded-md" value="No corresponde" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

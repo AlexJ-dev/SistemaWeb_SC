@@ -17,8 +17,8 @@ class RutaMedica extends Model
         'cargo',
         'tipo_evaluacion',
         'registrado_por',
-        'estado',        
-        'fecha_salida',  
+        'estado',
+        'fecha_salida',
     ];
     protected $casts = [
         'registrado_en' => 'datetime',
@@ -30,8 +30,9 @@ class RutaMedica extends Model
     }
     public function paciente()
     {
-        return $this->belongsTo(Paciente::class, 'documento');
+        return $this->belongsTo(Paciente::class, 'documento', 'documento');
     }
+
     public function actualizarEstado()
     {
         $totalEvaluaciones = $this->evaluaciones()->count();

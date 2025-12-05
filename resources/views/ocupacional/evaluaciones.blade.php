@@ -36,7 +36,7 @@
             </ul>
         </nav>
 
-        <div class="p-6">
+        <div class="py-4">
             @foreach ($areas as $area)
             <div id="area-{{ $area->id }}" class="{{ $areaSeleccionada == $area->id ? '' : 'hidden' }}">
 
@@ -47,41 +47,53 @@
                 <table class="w-full border-collapse bg-white shadow rounded-lg">
                     <thead class="bg-[#9C1C2A] text-white">
                         <tr>
-                            <th class="px-4 py-2">Paciente</th>
-                            <th class="px-4 py-2">Documento</th>
-                            <th class="px-4 py-2">Tipo Evaluación</th>
-                            <th class="px-4 py-2">Empresa</th>
-                            <th class="px-4 py-2">N° Ficha</th>
-                            <th class="px-4 py-2">Acciones</th>
+                            <th class="px-2 py-2">Paciente</th>
+                            <th class="px-2 py-2">Documento</th>
+                            <th class="px-2 py-2">Tipo Evaluación</th>
+                            <th class="px-2 py-2">Empresa</th>
+                            <th class="px-2 py-2">N° Ficha</th>
+                            <th class="px-2 py-2">Acciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($area->evaluaciones->take(3) as $eval)
                         <tr class="border-b hover:bg-gray-100">
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->nombres }} {{ $eval->rutaMedica->apellidos }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->documento }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->tipo_evaluacion }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->empresa ?? 'Sin empresa' }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->fichaOcupacional->numero_ficha ?? '—' }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->nombres }} {{ $eval->rutaMedica->apellidos }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->documento }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->tipo_evaluacion }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->empresa ?? 'Sin empresa' }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->fichaOcupacional->numero_ficha ?? '—' }}</td>
 
-                            <td class="px-4 py-2 flex items-center space-x-2">
+                            <td class="px-2 py-2 text-center flex items-center space-x-2">
 
+                                {{-- Botón Iniciar --}}
                                 <button
-                                    onclick="iniciarEvaluacion({{ $eval->id }})"
+                                    onclick="iniciarEvaluacion('{{ strtolower($area->nombre) }}', {{ $eval->id }})"
                                     id="btn-iniciar-{{ $eval->id }}"
                                     class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm"
                                     {{ $eval->hora_ingreso ? 'disabled' : '' }}>
                                     {{ $eval->hora_ingreso ? 'Iniciada' : 'Iniciar' }}
                                 </button>
 
+                                {{-- Botón Finalizar --}}
                                 <button
-                                    onclick="finalizarEvaluacion({{ $eval->id }}, {{ $area->id }})"
+                                    onclick="finalizarEvaluacion({{ $eval->id }}, '{{ strtolower($area->nombre) }}')"
                                     id="btn-finalizar-{{ $eval->id }}"
                                     class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-sm"
                                     {{ !$eval->hora_ingreso || $eval->hora_salida ? 'disabled' : '' }}>
                                     {{ $eval->hora_salida ? 'Finalizada' : 'Finalizar' }}
                                 </button>
+                                {{-- Botón Reiniciar dentro de la vista --}}
+                                @if ($eval->hora_ingreso && !$eval->hora_salida)
+                                <button
+                                    onclick="reiniciarEvaluacion({{ $eval->id }}, '{{ strtolower($area->nombre) }}')"
+                                    id="btn-reiniciar-{{ $eval->id }}"
+                                    class="bg-yellow-600 text-white px-3 py-1 rounded hover:bg-yellow-700 text-sm">
+                                    Reiniciar
+                                </button>
+                                @endif
+
 
                             </td>
                         </tr>
@@ -93,28 +105,40 @@
                     <tbody id="extra-{{ $area->id }}" class="hidden">
                         @foreach ($area->evaluaciones->skip(3) as $eval)
                         <tr class="border-b hover:bg-gray-100">
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->nombres }} {{ $eval->rutaMedica->apellidos }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->documento }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->tipo_evaluacion }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->empresa }}</td>
-                            <td class="px-4 py-2">{{ $eval->rutaMedica->fichaOcupacional->numero_ficha ?? '—' }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->nombres }} {{ $eval->rutaMedica->apellidos }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->documento }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->tipo_evaluacion }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->empresa }}</td>
+                            <td class="px-2 py-2 text-center">{{ $eval->rutaMedica->fichaOcupacional->numero_ficha ?? '—' }}</td>
 
-                            <td class="px-4 py-2 flex items-center space-x-2">
+                            <td class="px-2 py-2 text-center flex items-center space-x-2 ">
+                                {{-- Botón Iniciar --}}
                                 <button
-                                    onclick="iniciarEvaluacion({{ $eval->id }})"
+                                    onclick="iniciarEvaluacion('{{ strtolower($area->nombre) }}', {{ $eval->id }})"
                                     id="btn-iniciar-{{ $eval->id }}"
                                     class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm"
                                     {{ $eval->hora_ingreso ? 'disabled' : '' }}>
                                     {{ $eval->hora_ingreso ? 'Iniciada' : 'Iniciar' }}
                                 </button>
 
+                                {{-- Botón Finalizar --}}
                                 <button
-                                    onclick="finalizarEvaluacion({{ $eval->id }}, {{ $area->id }})"
+                                    onclick="finalizarEvaluacion({{ $eval->id }}, '{{ strtolower($area->nombre) }}')"
                                     id="btn-finalizar-{{ $eval->id }}"
                                     class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-sm"
                                     {{ !$eval->hora_ingreso || $eval->hora_salida ? 'disabled' : '' }}>
                                     {{ $eval->hora_salida ? 'Finalizada' : 'Finalizar' }}
                                 </button>
+                                {{-- Botón Reiniciar dentro de la vista --}}
+                                @if ($eval->hora_ingreso && !$eval->hora_salida)
+                                <button
+                                    onclick="reiniciarEvaluacion({{ $eval->id }}, '{{ strtolower($area->nombre) }}')"
+                                    id="btn-reiniciar-{{ $eval->id }}"
+                                    class="bg-yellow-600 text-white px-3 py-1 rounded hover:bg-yellow-700 text-sm">
+                                    Reiniciar
+                                </button>
+                                @endif
+
                             </td>
                         </tr>
                         @endforeach
@@ -123,7 +147,7 @@
                 </table>
 
                 <div class="mt-2 text-start">
-                    <span class="text-lg font-semibold text-[#4C4C4C]">{{ $area->nombre }}</span>
+                    <span class="text-lg font-bold text-[#9C1C2A]">{{ $area->nombre }}</span>
 
                     <div class="text-end">
                         @if ($area->evaluaciones->count() > 3)
@@ -137,6 +161,167 @@
                     </div>
 
                 </div>
+
+                @if (strtolower($area->nombre) === 'admision llenado de datos')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="admision_llenado_de_datos-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.admision', ['evaluacion' => $eval])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'triaje')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="triaje-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.triaje', ['evaluacion' => $eval, 'triaje' => $eval->triaje ?? null])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'oftalmologia')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="oftalmologia-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.oftalmologia', ['evaluacion' => $eval,'oftalmologia' => $eval->oftalmologia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'audiometria')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="audiometria-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.audiometria', [
+                    'evaluacion' => $eval,
+                    'audiometria' => $eval->audiometria ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+                
+                @if (strtolower($area->nombre) === 'espirometria')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="espirometria-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.espirometria', [
+                    'evaluacion' => $eval,
+                    'espirometria' => $eval->espirometria ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'psicologia')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="psicologia-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.psicologia', [
+                    'evaluacion' => $eval,
+                    'psicologia' => $eval->psicologia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'radiografia')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="radiografia-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                <!--EVALUACIONES FALTANTES-->
+                @if (strtolower($area->nombre) === 'ergonomia')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="ergonomia-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'revision medica')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="revision_medica-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'psicosensometrico')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="psicosensometrico-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'electrocardiograma')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="electrocardiograma-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'odontograma')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="odontograma-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'prueba de esfuerzo')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="prueba_de_esfuerzo-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
+
+                @if (strtolower($area->nombre) === 'admision final de la prueba emo')
+                @foreach ($area->evaluaciones as $eval)
+                <div id="admision_final_de_la_prueba_emo-{{ $eval->id }}"
+                    class="{{ $eval->hora_ingreso && !$eval->hora_salida ? '' : 'hidden' }} mt-4">
+                    @include('ocupacional.evaluaciones.radiografia', [
+                    'evaluacion' => $eval,
+                    'radiografia' => $eval->radiografia ?? null
+                    ])
+                </div>
+                @endforeach
+                @endif
 
                 @endif
             </div>
@@ -172,7 +357,7 @@
 
 
     <script>
-        function iniciarEvaluacion(id) {
+        function iniciarEvaluacion(area, id) {
             fetch(`/evaluaciones/${id}/iniciar`, {
                     method: "POST",
                     headers: {
@@ -188,7 +373,37 @@
                         btnIniciar.disabled = true;
 
                         const btnFinalizar = document.getElementById(`btn-finalizar-${id}`);
-                        btnFinalizar.disabled = false;
+                        if (btnFinalizar) btnFinalizar.disabled = false;
+
+                        const areaKey = area.toLowerCase().replace(/\s+/g, '_');
+                        document.querySelectorAll(`[id^="${areaKey}-"]`)
+                            .forEach(div => div.classList.add('hidden'));
+
+                        const vista = document.getElementById(`${areaKey}-${id}`);
+                        if (vista) vista.classList.remove('hidden');
+
+                        //  Deshabilitar todos los demás botones "Iniciar"
+                        document.querySelectorAll('[id^="btn-iniciar-"]').forEach(btn => {
+                            if (btn.id !== `btn-iniciar-${id}`) {
+                                btn.disabled = true;
+                            }
+                        });
+
+                        //  Crear dinámicamente el botón Reiniciar si no existe
+                        if (!document.getElementById(`btn-reiniciar-${id}`)) {
+                            const btnReiniciar = document.createElement("button");
+                            btnReiniciar.id = `btn-reiniciar-${id}`;
+                            btnReiniciar.textContent = "Reiniciar";
+                            btnReiniciar.className = "bg-yellow-600 text-white px-3 py-1 rounded hover:bg-yellow-700 text-sm";
+                            btnReiniciar.onclick = () => reiniciarEvaluacion(id, area);
+
+                            // Insertar el botón justo después del botón Finalizar
+                            if (btnFinalizar && btnFinalizar.parentNode) {
+                                btnFinalizar.parentNode.appendChild(btnReiniciar);
+                            }
+                        }
+                    } else {
+                        alert(data.message); // Mostrar mensaje si ya hay una evaluación activa
                     }
                 })
                 .catch(err => console.error(err));
@@ -207,7 +422,6 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-
                         const btnFinalizar = document.getElementById(`btn-finalizar-${id}`);
                         btnFinalizar.textContent = `Finalizada (${data.hora_salida})`;
                         btnFinalizar.disabled = true;
@@ -215,10 +429,19 @@
                         const fila = btnFinalizar.closest("tr");
                         fila.classList.add("opacity-50");
 
+                        const areaKey = areaId.toLowerCase().replace(/\s+/g, '_');
+                        const vista = document.getElementById(`${areaKey}-${id}`);
+                        if (vista) vista.classList.add('hidden');
+
                         setTimeout(() => {
                             fila.remove();
                             moverSiguientePaciente(areaId);
                         }, 300);
+
+                        //  Rehabilitar todos los botones "Iniciar"
+                        document.querySelectorAll('[id^="btn-iniciar-"]').forEach(btn => {
+                            btn.disabled = false;
+                        });
                     }
                 })
                 .catch(err => console.error(err));
@@ -299,6 +522,54 @@
                 }
             }
         });
+    </script>
+    <script>
+        function reiniciarEvaluacion(id, areaId) {
+            fetch(`/evaluaciones/${id}/reiniciar`, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                        "Accept": "application/json"
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        // Reactivar botón Iniciar
+                        const btnIniciar = document.getElementById(`btn-iniciar-${id}`);
+                        if (btnIniciar) {
+                            btnIniciar.textContent = 'Iniciar';
+                            btnIniciar.disabled = false;
+                        }
+
+                        // Deshabilitar botón Finalizar
+                        const btnFinalizar = document.getElementById(`btn-finalizar-${id}`);
+                        if (btnFinalizar) {
+                            btnFinalizar.textContent = 'Finalizar';
+                            btnFinalizar.disabled = true;
+                        }
+
+                        // Ocultar la vista del paciente
+                        const areaKey = areaId.toLowerCase().replace(/\s+/g, '_');
+                        const vista = document.getElementById(`${areaKey}-${id}`);
+                        if (vista) vista.classList.add('hidden');
+
+                        // 🔹 Rehabilitar todos los demás botones "Iniciar"
+                        document.querySelectorAll('[id^="btn-iniciar-"]').forEach(btn => {
+                            btn.disabled = false;
+                        });
+
+                        // 🔹 Ocultar/eliminar el botón Reiniciar
+                        const btnReiniciar = document.getElementById(`btn-reiniciar-${id}`);
+                        if (btnReiniciar) {
+                            btnReiniciar.remove(); // lo elimina del DOM
+                        }
+
+                        //alert(data.message);
+                    }
+                })
+                .catch(err => console.error(err));
+        }
     </script>
 
 

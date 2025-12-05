@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Historia Clínica - Sagrado Corazón</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <div class="flex items-center justify-between mb-6 border-b pb-4">
+      <h1 class="text-3xl font-extrabold text-gray-700">HISTORIA CLÍNICA</h1>
+      <div class="text-right">
+        <p class="text-sm">
+          <strong class="text-red-800">N° HISTORIA:</strong>
+          <span id="nroHistoria">PENDIENTE</span>
+        </p>
+        <p class="text-sm">
+          <strong class="text-red-800">PACIENTE:</strong>
+          <span id="nombrePaciente"></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <div class="flex border-b border-gray-300">
+        <button
+          class="tab-button px-6 py-2 -mb-px text-sm font-medium text-gray-600 border border-transparent rounded-t-lg transition hover:bg-gray-50"
+          data-tab="datosPersonales">
+          DATOS PERSONALES
+        </button>
+        <button
+          class="tab-button px-6 py-2 -mb-px text-sm font-medium text-gray-600 border border-transparent rounded-t-lg transition hover:bg-gray-50"
+          data-tab="antMedicos">
+          ANTECEDENTES MÉDICOS
+        </button>
+        <button
+          class="tab-button px-6 py-2 -mb-px text-sm font-medium text-gray-600 border border-transparent rounded-t-lg transition hover:bg-gray-50"
+          data-tab="antFamiliares">
+          ANTECEDENTES FAMILIARES
+        </button>
+      </div>
+
+      <div class="p-6 border border-gray-300 rounded-b-lg rounded-tr-lg relative">
+        <form id="historiaForm">
+          <div id="datosPersonales" class="tab-content space-y-4">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">
+              DATOS PERSONALES
+            </h2>
+
+            <div class="grid grid-cols-4 gap-4 items-center">
+              <label>TIPO DE DOCUMENTO:</label>
+              <div class="col-span-3 space-x-4">
+                <label><input type="radio" name="tipoDocmto" value="DNI" class="accent-red-700" />
+                  D.N.I.</label>
+                <label><input type="radio" name="tipoDocmto" value="C.Extranjeria" class="accent-red-700" />
+                  Carnet de Extranjeria</label>
+                <label><input type="radio" name="tipoDocmto" value="Pasaporte" class="accent-red-700" />
+                  Pasaporte</label>
+              </div>
+
+              <label>N° DE DOCUMENTO:</label>
+              <input type="text" name="nroDocmto" class="border px-3 py-1 rounded" readonly />
+              <label>SEXO (M/F):</label>
+              <input type="text" name="sexo" class="border px-3 py-1 rounded w-[150px]" />
+
+              <label>APELLIDOS Y NOMBRES:</label>
+              <input type="text" name="apellidosNombres" class="border px-3 py-1 rounded" readonly />
+              <label>FECHA DE NACIMIENTO:</label>
+              <input type="date" name="fecNac" class="border px-3 py-1 rounded w-[150px]" />
+
+              <label>LUGAR NACIMIENTO:</label>
+              <input type="text" name="lugarNacimiento" class="border px-3 py-1 rounded" />
+              <label>EDAD:</label>
+              <input type="number" name="edad" class="border px-3 py-1 rounded w-[150px]" />
+            </div>
+
+            <div class="grid grid-cols-4 gap-4 items-center">
+              <label>DEPARTAMENTO:</label>
+              <input type="text" name="departamento" class="border px-3 py-1 rounded" />
+              <label>PROVINCIA:</label>
+              <input type="text" name="provincia" class="border px-3 py-1 rounded" />
+              <label>DISTRITO:</label>
+              <input type="text" name="distrito" class="border px-3 py-1 rounded" />
+
+              <label>TELÉFONO:</label>
+              <input type="text" name="telefono" class="border px-3 py-1 rounded" />
+
+              <label>DOMICILIO:</label>
+              <input type="text" name="domicilio" class="border px-3 py-1 rounded col-span-3" />
+
+              <label>ESTADO CIVIL:</label>
+              <div class="col-span-2 space-x-3">
+                <label><input type="radio" name="estadoCivil" value="Soltero" class="accent-red-700" />
+                  Soltero</label>
+                <label><input type="radio" name="estadoCivil" value="Casado" class="accent-red-700" />
+                  Casado</label>
+                <label><input type="radio" name="estadoCivil" value="Conviviente" class="accent-red-700" />
+                  Conv.</label>
+                <label><input type="radio" name="estadoCivil" value="Viudo" class="accent-red-700" />
+                  Viudo</label>
+                <label><input type="radio" name="estadoCivil" value="Divorciado" class="accent-red-700" />
+                  Divorciado</label>
+              </div>
+              <br>
+              <label>GRADO INSTRUCCIÓN:</label>
+              <div class="col-span-3 flex flex-wrap gap-x-4">
+                <label><input type="radio" name="gradoInstruccion" value="Analfabeto" class="accent-red-700" />
+                  Analfabeto</label>
+                <label><input type="radio" name="gradoInstruccion" value="Prim.Completa" class="accent-red-700" />
+                  Prim.Completa</label>
+                <label><input type="radio" name="gradoInstruccion" value="Prim.Incompleta" class="accent-red-700" />
+                  Prim.Incompleta</label>
+                <label><input type="radio" name="gradoInstruccion" value="Sec.Completa" class="accent-red-700" />
+                  Sec.Completa</label>
+                <label><input type="radio" name="gradoInstruccion" value="Sec.Incompleta" class="accent-red-700" />
+                  Sec.Incompleta</label>
+                <label><input type="radio" name="gradoInstruccion" value="Técnica" class="accent-red-700" />
+                  Técnica</label>
+                <label><input type="radio" name="gradoInstruccion" value="Universitaria" class="accent-red-700" />
+                  Universitaria</label>
+              </div>
+              <label>CORREO ELECTRÓNICO:</label>
+              <input type="email" name="correo" class="border px-3 py-1 rounded" />
+              <label>LIC. CONDUCIR:</label>
+              <input type="text" name="licConducir" class="border px-3 py-1 rounded" />
+
+              <label>OCUPACIÓN:</label>
+              <input type="text" name="ocupacion" class="border px-3 py-1 rounded" />
+              <label>RELIGIÓN:</label>
+              <input type="text" name="religion" class="border px-3 py-1 rounded" />
+              <label>SEGURO:</label>
+              <input type="text" name="seguro" class="border px-3 py-1 rounded" />
+
+              <label>PERSONA EN CASO DE EMERGENCIA:</label>
+              <input type="text" name="emergenciaNombre" class="border px-3 py-1 rounded" />
+              <label>PARENTESCO:</label>
+              <input type="text" name="emergenciaParentesco" class="border px-3 py-1 rounded" />
+              <label>TELÉFONO:</label>
+              <input type="text" name="emergenciaTelefono" class="border px-3 py-1 rounded" />
+
+            </div>
+          </div>
+
+          <div id="antMedicos" class="tab-content space-y-4">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">
+              Antecedentes Patológicos Personales
+            </h2>
+
+            <div class="grid grid-cols-5 gap-4">
+              <label><input type="checkbox" name="alergias" class="accent-red-700" />
+                Alergias</label>
+              <label><input type="checkbox" name="bronquitis" class="accent-red-700" />
+                Bronquitis</label>
+              <label><input type="checkbox" name="ets" class="accent-red-700" />
+                ETS</label>
+              <label><input type="checkbox" name="infarto" class="accent-red-700" />
+                Infarto</label>
+              <label><input type="checkbox" name="litiasis" class="accent-red-700" />
+                Litiasis</label>
+              <label><input type="checkbox" name="quemaduras" class="accent-red-700" />
+                Quemaduras</label>
+              <label><input type="checkbox" name="tuberculosis" class="accent-red-700" />
+                Tuberculosis</label>
+
+              <label><input type="checkbox" name="asma" class="accent-red-700" />
+                Asma</label>
+              <label><input type="checkbox" name="convulsiones" class="accent-red-700" />
+                Convulsiones</label>
+              <label><input type="checkbox" name="hepatitisB" class="accent-red-700" />
+                Hepatitis B</label>
+              <label><input type="checkbox" name="intoxicaciones" class="accent-red-700" />
+                Intoxicaciones</label>
+              <label><input type="checkbox" name="lumbalgia" class="accent-red-700" />
+                Lumbalgia</label>
+              <label><input type="checkbox" name="tifoidea" class="accent-red-700" />
+                Tifoidea</label>
+              <label><input type="checkbox" name="ulceragastrica" class="accent-red-700" />
+                Úlcera Gástrica</label>
+
+              <label><input type="checkbox" name="acv" class="accent-red-700" />
+                ACV</label>
+              <label><input type="checkbox" name="diabetes" class="accent-red-700" />
+                Diabetes</label>
+              <label><input type="checkbox" name="hta" class="accent-red-700" />
+                HTA</label>
+              <label><input type="checkbox" name="its" class="accent-red-700" />
+                ITS</label>
+              <label><input type="checkbox" name="neoplasias" class="accent-red-700" />
+                Neoplasias</label>
+              <label><input type="checkbox" name="trSanguinea" class="accent-red-700" />
+                Tr. Sanguínea</label>
+              <label><input type="checkbox" name="varices" class="accent-red-700" />
+                Varices</label>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block mb-1 text-sm font-medium">Cirugías:</label>
+                <textarea name="cirugias" rows="1" class="w-full border px-3 py-1 rounded"></textarea>
+              </div>
+              <div>
+                <label class="block mb-1 text-sm font-medium">Hospitalizaciones:</label>
+                <textarea name="hospitalizaciones" rows="1" class="w-full border px-3 py-1 rounded"></textarea>
+              </div>
+              <div>
+                <label class="block mb-1 text-sm font-medium">Intoxicaciones:</label>
+                <input type="text" name="intoxicacionesTx" class="w-full border px-3 py-1 rounded" />
+              </div>
+              <div>
+                <label class="block mb-1 text-sm font-medium">Medicamentos:</label>
+                <input type="text" name="medicamentos" class="w-full border px-3 py-1 rounded" />
+              </div>
+              <div>
+                <label class="block mb-1 text-sm font-medium">Alergias (Txt):</label>
+                <input type="text" name="alergiasTx" class="w-full border px-3 py-1 rounded" />
+              </div>
+              <div>
+                <label class="block mb-1 text-sm font-medium">Inmunizaciones:</label>
+                <input type="text" name="inmunizaciones" class="w-full border px-3 py-1 rounded" />
+              </div>
+            </div>
+
+            <label class="block mb-1 text-sm font-medium">Observaciones:</label>
+            <textarea name="observacionesMedicas" rows="1" class="w-full border px-3 py-1 rounded"></textarea>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="border border-gray-300 p-3 rounded">
+                <h3 class="font-medium mb-2">Hábitos</h3>
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="text-center text-gray-700">
+                      <th class="font-semibold text-left"></th>
+                      <th class="font-semibold">Tabaco</th>
+                      <th class="font-semibold">Alcohol</th>
+                      <th class="font-semibold">Drogas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-center">
+                      <td class="text-left py-1">Nada</td>
+                      <td>
+                        <input type="radio" name="tabaco" value="Nada" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="alcohol" value="Nada" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="drogas" value="Nada" class="accent-red-700" />
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td class="text-left py-1">Poco</td>
+                      <td>
+                        <input type="radio" name="tabaco" value="Poco" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="alcohol" value="Poco" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="drogas" value="Poco" class="accent-red-700" />
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td class="text-left py-1">Habitual</td>
+                      <td>
+                        <input type="radio" name="tabaco" value="Habitual" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="alcohol" value="Habitual" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="drogas" value="Habitual" class="accent-red-700" />
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td class="text-left py-1">Excesivo</td>
+                      <td>
+                        <input type="radio" name="tabaco" value="Excesivo" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="alcohol" value="Excesivo" class="accent-red-700" />
+                      </td>
+                      <td>
+                        <input type="radio" name="drogas" value="Excesivo" class="accent-red-700" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="space-y-3 p-3 border border-gray-300 rounded">
+                <h3 class="font-medium mb-2">Grupo Sanguíneo</h3>
+                <div class="space-x-4">
+                  <label><input type="radio" name="grupoSanguineo" value="O" class="accent-red-700" />
+                    O</label>
+                  <label><input type="radio" name="grupoSanguineo" value="A" class="accent-red-700" />
+                    A</label>
+                  <label><input type="radio" name="grupoSanguineo" value="B" class="accent-red-700" />
+                    B</label>
+                  <label><input type="radio" name="grupoSanguineo" value="AB" class="accent-red-700" />
+                    AB</label>
+                </div>
+                <h3 class="font-medium mb-2">Factor RH</h3>
+                <div class="space-x-4">
+                  <label><input type="radio" name="factorRH" value="(+)" class="accent-red-700" />
+                    (+)</label>
+                  <label><input type="radio" name="factorRH" value="(-)" class="accent-red-700" />
+                    (-)</label>
+                </div>
+                <input type="text" name="gsObservacion" placeholder="Referencia o texto libre (Ej: Refiere O+)"
+                  class="w-full border px-3 py-1 rounded mt-2" />
+              </div>
+            </div>
+          </div>
+
+          <div id="antFamiliares" class="tab-content space-y-4">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">
+              ANTECEDENTES FAMILIARES
+            </h2>
+
+            <div class="flex space-x-8 mb-4">
+              <label>
+                <span class="block mb-1">NUMERO DE HIJOS VIVOS:</span>
+                <input type="number" name="hijosVivos" class="border px-3 py-1 rounded w-20" value="0" />
+              </label>
+              <label>
+                <span class="block mb-1">NUMERO DE HIJOS MUERTOS:</span>
+                <input type="number" name="hijosMuertos" class="border px-3 py-1 rounded w-20" value="0" />
+              </label>
+            </div>
+
+            <h3 class="font-medium mb-2">SITUACIÓN DE SALUD</h3>
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gray-100 text-left">
+                  <th class="border px-3 py-2 w-1/4">Parentesco</th>
+                  <th class="border px-3 py-2 w-1/4">
+                    Estado
+                  </th>
+                  <th class="border px-3 py-2 w-1/2">
+                    OBSERVACIÓN
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border px-3 py-2">Padre</td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="padreEstado" value="" class="w-full outline-none" />
+                  </td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="padreObs" value="" class="w-full outline-none" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border px-3 py-2">Madre</td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="madreEstado" value="" class="w-full outline-none" />
+                  </td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="madreObs" value="" class="w-full outline-none" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border px-3 py-2">Esposa</td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="esposaEstado" value="" class="w-full outline-none" />
+                  </td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="esposaObs" value="" class="w-full outline-none" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border px-3 py-2">Hijos</td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="hijosEstado" value="" class="w-full outline-none" />
+                  </td>
+                  <td class="border px-3 py-2">
+                    <input type="text" name="hijosObs" value="" class="w-full outline-none" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <label>
+              <span class="block mb-1">N° DEPENDIENTES:</span>
+              <input type="number" name="nDependientes" class="border px-3 py-1 rounded w-20" value="1" />
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="flex justify-end space-x-4 mt-8">
+      <button id="guardarBtn" class="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition">
+        Guardar
+      </button>
+      <a href="pacientes.html"
+        class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
+    </div>
+  </div>
+
+  <script>
+    // --- Lógica del Sistema de Pestañas ---
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+    const tabKey = "tab-active"; // Clase Tailwind para la pestaña activa
+
+    function activateTab(tabId) {
+      tabButtons.forEach((btn) => {
+        btn.classList.remove(
+          tabKey,
+          "bg-white",
+          "border-t-2",
+          "border-x",
+          "border-b-white",
+          "border-gray-300",
+          "text-red-800",
+          "z-10",
+          "relative"
+        );
+        btn.classList.add("border-transparent");
+      });
+      tabContents.forEach((content) => {
+        content.style.display = "none";
+      });
+
+      const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+      activeBtn.classList.add(
+        tabKey,
+        "bg-white",
+        "border-t-2",
+        "border-x",
+        "border-b-white",
+        "border-gray-300",
+        "text-red-800",
+        "z-10",
+        "relative"
+      );
+      activeBtn.classList.remove("border-transparent");
+      document.getElementById(tabId).style.display = "block";
+    }
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activateTab(btn.dataset.tab);
+      });
+    });
+
+    // Activar la primera pestaña por defecto
+    activateTab("datosPersonales");
+
+    // --- Lógica de Carga y Guardado de Datos ---
+
+    const form = document.getElementById("historiaForm");
+    const dni = new URLSearchParams(location.search).get("dni");
+    const citas = JSON.parse(localStorage.getItem("citas") || "[]");
+    const pacienteCita = citas.find((c) => c.dni === dni);
+    const hcKey = "historias_clinicas";
+    const historias = JSON.parse(localStorage.getItem(hcKey) || "{}");
+    let historiaActual = historias[dni] || {};
+
+    if (!dni || !pacienteCita) {
+      document.body.innerHTML =
+        "<p class='text-center text-red-600 font-bold'>Paciente no encontrado o DNI no especificado.</p>";
+    } else {
+      // Cargar datos de la cita
+      document.getElementById("nombrePaciente").textContent =
+        pacienteCita.nombre;
+      form.nroDocmto.value = dni;
+      form.apellidosNombres.value = pacienteCita.nombre;
+    }
+
+    // Función para obtener todos los datos del formulario
+    function getFormData() {
+      const data = {};
+      const elements = form.querySelectorAll("input, textarea, select");
+      elements.forEach((el) => {
+        if (el.type === "radio") {
+          if (el.checked) {
+            data[el.name] = el.value;
+          }
+        } else if (el.type === "checkbox") {
+          data[el.name] = el.checked;
+        } else {
+          data[el.name] = el.value;
+        }
+      });
+
+      // Asegurar que los campos de radio sin selección tengan un valor vacío o null
+      [
+        "tipoDocmto",
+        "estadoCivil",
+        "gradoInstruccion",
+        "tabaco",
+        "alcohol",
+        "drogas",
+        "grupoSanguineo",
+        "factorRH",
+      ].forEach((name) => {
+        if (!data[name]) {
+          data[name] = "";
+        }
+      });
+
+      return data;
+    }
+
+    // Función para cargar los datos en el formulario
+    function loadFormData(data) {
+      const elements = form.querySelectorAll("input, textarea, select");
+      elements.forEach((el) => {
+        const value = data[el.name];
+        if (value !== undefined) {
+          if (el.type === "radio") {
+            if (el.value === value) {
+              el.checked = true;
+            }
+          } else if (el.type === "checkbox") {
+            el.checked = value === true;
+          } else {
+            el.value = value;
+          }
+        }
+      });
+    }
+    // Cargar datos al iniciar la página
+    loadFormData(historiaActual);
+
+    // Guardar Historia Clínica
+    document
+      .getElementById("guardarBtn")
+      .addEventListener("click", function () {
+        const nuevaHistoria = getFormData();
+        historias[dni] = nuevaHistoria;
+        localStorage.setItem(hcKey, JSON.stringify(historias));
+
+        // Actualizar el estado de la HC en la lista de citas (opcional, pero buena práctica)
+        let citasActualizadas = JSON.parse(
+          localStorage.getItem("citas") || "[]"
+        );
+        const citaIndex = citasActualizadas.findIndex((c) => c.dni === dni);
+        if (citaIndex !== -1) {
+          citasActualizadas[citaIndex].historia = "Ver";
+          localStorage.setItem("citas", JSON.stringify(citasActualizadas));
+        }
+
+        alert("✅ Historia Clínica guardada correctamente.");
+      });
+  </script>
+</body>
+
+</html>

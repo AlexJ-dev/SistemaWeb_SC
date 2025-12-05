@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <div class=" flex items-center justify-center">
+        <div class="bg-white shadow-lg   rounded-lg p-8 w-full max-w-md">
 
             <!-- Logo + Título -->
             <div class="flex flex-col items-center mb-6">
@@ -40,7 +40,7 @@
                 <div class="mb-4">
                     <x-input-label for="name" :value="__('Usuario')" class="text-[#4C4C4C]" />
                     <x-text-input id="name" type="text" name="name"
-                        :value="old('name')" required autofocus
+                        :value="old('name')" required autofocus autocomplete="new-name"
                         class="w-full px-4 py-2 border border-gray-300 rounded text-[#4C4C4C] focus:outline-none focus:ring-2 focus:ring-[#9C1C2A]" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
@@ -54,14 +54,14 @@
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-                <!-- Recordarme -->
+                <!-- Recordarme 
                 <div class="block mb-4">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox" name="remember"
                             class="rounded border-gray-300 text-[#9C1C2A] shadow-sm focus:ring-[#9C1C2A]" />
                         <span class="ms-2 text-sm text-[#4C4C4C]">Recordarme</span>
                     </label>
-                </div>
+                </div>-->
 
                 <!-- Botón y recuperación -->
                 <!-- Botón -->
@@ -70,7 +70,7 @@
                         {{ __('Login') }}
                     </x-primary-button>
                 </div>
-                <!-- Recuperación de contraseña -->
+                <!-- Recuperación de contraseña 
                 @if (Route::has('password.request'))
                 <div class="mb-4 text-center">
                     <a href="{{ route('password.request') }}"
@@ -78,7 +78,7 @@
                         ¿Olvidó su contraseña?
                     </a>
                 </div>
-                @endif
+                @endif-->
 
 
 

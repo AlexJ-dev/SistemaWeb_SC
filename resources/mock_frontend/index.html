@@ -3,27 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <title>Inicio de Sesión - Sagrado Corazón</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="Logo/Logo_Sagrado_Corazon.jpeg" />
   </head>
 
   <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <!-- Contenedor principal -->
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-
+      
       <!-- Sección del logo -->
       <div class="flex flex-col items-center mb-6">
         <div class="w-32 h-32 mb-4 bg-white flex items-center justify-center">
           <img
-            src="Logo/Logotipo de Sagrado Corazón.jpeg"
+            src="Logo/Logo_Sagrado_Corazon.jpeg"
             alt="Logo Sagrado Corazón"
             class="w-full h-full object-contain"
           />
+          
         </div>
+        <h1 class="text-2xl font-bold text-center leading-tight">
+          <span class="block text-gray-700">Servicios Médicos</span>
+          <span class="block text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+        </h1>
+
       </div>
 
       <!-- Formulario de inicio de sesión -->
-      <form action="inicio.html" method="get">
+      <form action="pacientes.html" method="get">
         <h2 class="text-xl font-semibold text-gray-700 mb-6 text-center">
           Inicio de Sesión
         </h2>
@@ -55,7 +61,10 @@
         <!-- Botón Login -->
         <button
           type="submit"
-          class="w-full bg-red-800 text-white py-2 rounded hover:bg-red-700 transition">Login</button>
+          class="w-full bg-red-800 text-white py-2 rounded hover:bg-red-700 transition"
+        >
+          Login
+        </button>
 
         <!-- Enlace de recuperación -->
         <div class="mt-4 text-center">

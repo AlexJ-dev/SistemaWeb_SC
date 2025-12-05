@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hoja de Ruta del Paciente</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
   <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-8">
-    <h1 class="text-2xl font-bold text-red-800 mb-4">Hoja de Ruta del Paciente</h1>
+    
+    <!-- ENCABEZADO VISUAL -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center">
+        <img src="Logo/Logo_Sagrado_Corazon.jpeg" alt="Logo" class="w-20 h-20 object-contain" />
+        <div class="ml-4">
+          <h1 class="text-2xl font-bold">
+          <span class="text-gray-700">Servicios Médicos</span>
+          <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+        </h1>
+        </div>
+      </div>
+    </div>
 
-    <!-- DATOS DEL PACIENTE -->
-    <div id="datosPaciente" class="mb-6 text-gray-700"></div>
-
-    <!-- TABLA DE EVALUACIONES -->
+    <div id="datosPaciente" class="grid grid-cols-2 gap-4 mb-6"></div>
     <table class="w-full border border-gray-300 text-sm mb-6">
       <thead class="bg-gray-100 text-gray-700 uppercase">
         <tr>
+          <th class="border px-2 py-2 text-center">Aplica</th>
           <th class="border px-2 py-2">Evaluaciones</th>
           <th class="border px-2 py-2">Lugar</th>
           <th class="border px-2 py-2">Hora Ingreso</th>
@@ -27,16 +37,14 @@
       <tbody id="tablaEvaluaciones"></tbody>
     </table>
 
-    <!-- BOTONES -->
     <div class="flex justify-end space-x-4">
       <button id="guardarBtn" class="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition">
         Guardar Cambios
       </button>
-      <a href="inicio.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
+      <a href="pacientes.html" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400 transition">Salir</a>
     </div>
   </div>
 
-  <!-- SCRIPT -->
   <script>
     const dni = new URLSearchParams(location.search).get("dni");
     const rutas = JSON.parse(localStorage.getItem("rutas") || "{}");
@@ -45,7 +53,6 @@
     if (!hoja) {
       document.body.innerHTML = "<p class='text-center text-red-600 font-bold'>Hoja de ruta no encontrada.</p>";
     } else {
-      // Mostrar datos del paciente + hora + tipo de evaluación
       document.getElementById("datosPaciente").innerHTML = `
         <p><strong>Nombre Completo:</strong> ${hoja.nombre}</p>
         <p><strong>DNI:</strong> ${hoja.dni}</p>
@@ -55,18 +62,28 @@
         <p><strong>Tipo de Evaluación:</strong> ${hoja.tipoEvaluacion?.length ? hoja.tipoEvaluacion.join(", ").toUpperCase() : "No marcada"}</p>
       `;
 
-      // Mostrar tabla editable
       const tbody = document.getElementById("tablaEvaluaciones");
-      hoja.evaluaciones.forEach((eval, i) => {
+      hoja.evaluaciones.forEach(eval => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
+          <td class="border px-2 py-2 text-center">
+            <input type="checkbox" class="chk-aplica accent-red-700" ${eval.aplica !== false ? 'checked' : ''} />
+          </td>
           <td class="border px-2 py-2">${eval.area}</td>
           <td class="border px-2 py-2">${eval.piso}</td>
-          <td class="border px-2 py-2"><input type="time" value="${eval.horaIngreso || ''}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="time" value="${eval.horaSalida || ''}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" value="${eval.encargado || ''}" class="w-full border rounded px-2" /></td>
-          <td class="border px-2 py-2"><input type="text" value="${eval.observaciones || ''}" class="w-full border rounded px-2" /></td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaIngreso || ''}" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="time" value="${eval.horaSalida || ''}" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.encargado || ''}" class="w-full px-2 outline-none" /></td>
+          <td class="border px-2 py-2"><input type="text" value="${eval.observaciones || ''}" class="w-full px-2 outline-none" /></td>
         `;
+        if (eval.aplica === false) {
+  fila.classList.add("line-through", "bg-gray-100");
+  fila.querySelectorAll("input[type='text'], input[type='time']").forEach(inp => {
+    inp.disabled = true;
+    inp.classList.add("text-gray-500"); // tono intermedio, no tan pálido
+  });
+}
+
         tbody.appendChild(fila);
       });
 
@@ -74,19 +91,30 @@
       document.getElementById("guardarBtn").addEventListener("click", () => {
         const filas = document.querySelectorAll("#tablaEvaluaciones tr");
         hoja.evaluaciones = Array.from(filas).map(tr => ({
-          area: tr.children[0].textContent,
-          piso: tr.children[1].textContent,
-          horaIngreso: tr.children[2].querySelector("input").value,
-          horaSalida: tr.children[3].querySelector("input").value,
-          encargado: tr.children[4].querySelector("input").value,
-          observaciones: tr.children[5].querySelector("input").value
+          aplica: tr.children[0].querySelector("input").checked,
+          area: tr.children[1].textContent,
+          piso: tr.children[2].textContent,
+          horaIngreso: tr.children[3].querySelector("input").value,
+          horaSalida: tr.children[4].querySelector("input").value,
+          encargado: tr.children[5].querySelector("input").value,
+          observaciones: tr.children[6].querySelector("input").value
         }));
-
         rutas[dni] = hoja;
         localStorage.setItem("rutas", JSON.stringify(rutas));
         alert("✅ Cambios guardados correctamente");
       });
     }
+
+    // Listener para aplicar/no aplicar
+    document.getElementById("tablaEvaluaciones").addEventListener("change", e => {
+      if (e.target.classList.contains("chk-aplica")) {
+        const fila = e.target.closest("tr");
+        const disabled = !e.target.checked;
+        fila.classList.toggle("line-through", disabled);
+        fila.classList.toggle("bg-gray-100", disabled);
+        fila.querySelectorAll("input[type='text'], input[type='time']").forEach(inp => inp.disabled = disabled);
+      }
+    });
   </script>
 </body>
 </html>

@@ -58,15 +58,22 @@
                     @include('ocupacional.historia.partials.antecedentes-familiares')
                 </div>
 
+
+                @php
+                $from = request('from');
+                @endphp
+
+
                 <div class="mt-6 flex justify-end space-x-4">
                     <!-- Botón cancelar dinámico -->
-                    <a href="{{ $from === 'inicio' ? route('inicio') : route('pacientes') }}"
+                    <a href="{{ $from === 'evaluaciones' ? route('evaluaciones') : route('fichas.detalle', request()->query('ficha')) }}"
                         class="bg-gray-300 text-[#4C4C4C] px-6 py-2 rounded shadow hover:bg-gray-500">
-                        Cancelar
+                        Salir
                     </a>
 
+
                     <button type="submit" class="bg-[#9C1C2A] text-white px-6 py-2 rounded shadow hover:bg-[#7C1A24]">
-                        Guardar todo
+                        Guardar
                     </button>
 
 

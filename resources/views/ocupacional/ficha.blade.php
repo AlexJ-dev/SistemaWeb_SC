@@ -120,15 +120,15 @@
             <table class="w-full table-auto border-collapse">
                 <thead class="bg-[#9C1C2A] text-white">
                     <tr>
-                        <th class="px-1 py-2 text-left">Apellidos y Nombres</th>
-                        <th class="px-1 py-2 text-left">N° Documento</th>
-                        <th class="px-1 py-2 text-left">N° Historia</th>
-                        <th class="px-1 py-2 text-left">N° Ficha</th>
-                        <th class="px-1 py-2 text-left">Empresa</th>
-                        <th class="px-1 py-2 text-left">Tipo Evaluación</th>
-                        <th class="px-1 py-2 text-left">Fecha</th>
-                        <th class="px-1 py-2 text-left">Estado Ruta</th>
-                        <th class="px-1 py-2 text-center">Acciones</th>
+                        <th class="px-2 py-2 text-center">Apellidos y Nombres</th>
+                        <th class="px-2 py-2 text-center">N° Documento</th>
+                        <th class="px-2 py-2 text-center">N° Historia</th>
+                        <th class="px-2 py-2 text-cneter">N° Ficha</th>
+                        <th class="px-2 py-2 text-center">Empresa</th>
+                        <th class="px-2 py-2 text-center">Tipo Evaluación</th>
+                        <th class="px-2 py-2 text-center">Fecha</th>
+                        <th class="px-2 py-2 text-center">Estado Ruta</th>
+                        <th class="px-2 py-2 text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -149,7 +149,7 @@
                             <span class="text-green-600 font-semibold">Finalizado</span>
 
                             @else
-                            {{-- 🔹 "Pendiente" ahora es un enlace clickeable --}}
+                            {{--  "Pendiente" ahora es un enlace clickeable --}}
                             <a href="{{ route('evaluaciones.continuar', $ficha->rutaMedica->id) }}"
                                 title="Continuar evaluación"
                                 class="text-yellow-600 font-semibold hover:text-yellow-700 hover:underline">
@@ -165,8 +165,9 @@
 
 
                         <td class="px-1 py-2 text-center">
-                            <a href="{{ route('ocupacional.fichas.editar', $ficha->id) }}" class="text-[#9C1C2A] hover:text-[#b91c1c]">
-                                Editar
+                            <a href="{{ route('fichas.detalle', $ficha->id) }}"
+                                class="text-[#9C1C2A] hover:text-[#b91c1c]">
+                                Ver Ficha
                             </a>
                         </td>
                     </tr>

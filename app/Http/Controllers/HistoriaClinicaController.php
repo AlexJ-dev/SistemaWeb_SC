@@ -119,7 +119,7 @@ class HistoriaClinicaController extends Controller
         }
 
         return redirect()
-            ->route('historiaClinica.editar', ['dni' => $historia->paciente->documento])
+            ->back()
             ->with('success', 'Historia clínica y antecedentes actualizados correctamente.');
     }
 }

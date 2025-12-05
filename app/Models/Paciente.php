@@ -21,7 +21,7 @@ class Paciente extends Model
         'registrado_en',
     ];
 
-   
+
     public function fichaOcupacional()
     {
         return $this->hasOne(FichaOcupacional::class);
@@ -30,5 +30,9 @@ class Paciente extends Model
     public function historiaClinica()
     {
         return $this->hasOne(HistoriaClinica::class);
+    }
+    public function historiaOcupacional()
+    {
+        return $this->hasOne(HistoriaOcupacional::class, 'paciente_id');
     }
 }

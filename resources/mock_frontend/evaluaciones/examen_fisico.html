@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Selección de Área de Evaluación</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+  <aside class="w-64 bg-red-800 text-white flex flex-col justify-between">
+    <div>
+      <div class="p-6 text-center border-b border-white">
+        <h2 class="text-xl font-bold">Admin</h2>
+        <p class=" text-red-200">Administrador</p>
+      </div>
+      <nav class="mt-6 space-y-2 px-4">
+        <a href="../pacientes.html" class="block py-2 px-4 rounded hover:bg-red-700">Pacientes</a>
+        <a href="../ficha_ocupacional.html" class="block py-2 px-4 rounded hover:bg-red-700">Ficha Ocupacional</a>
+        <a href="../evaluaciones.html" class="block py-2 px-4 rounded hover:bg-red-700">Evaluaciones</a>
+        <a href="funciones_vitales.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Funciones
+          Vitales</a>
+        <a href="examen_fisico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Examen Físico</a>
+        <a href="evaluacion_medica.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Evaluación
+          Médica</a>
+        <a href="placa_rayos_x.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Placa Rayos X</a>
+        <a href="dermatologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Dermatología</a>
+        <a href="oftalmologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Oftalmología</a>
+        <a href="audiometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Audiometría</a>
+        <a href="espirometria.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Espirometría</a>
+        <a href="electrocardiograma.html"
+          class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Electrocardiograma</a>
+        <a href="laboratorio.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Laboratorio</a>
+        <a href="ergonomia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Ergonomía</a>
+        <a href="psicologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Psicología</a>
+        <a href="diagnostico.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Diagnóstico</a>
+        <a href="neurologia_odontologia.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Neurología
+          y Odontología</a>
+        <a href="historia_placas.html" class="block py-2 px-4 rounded hover:bg-red-700 bg-orange-700">Historia de
+          Placas</a>
+        <a href="../empresas.html" class="block py-2 px-4 rounded hover:bg-red-700">Empresas</a>
+        <a href="../correos.html" class="block py-2 px-4 rounded hover:bg-red-700">Correos</a>
+      </nav>
+    </div>
+    <div class="p-4 border-t border-white">
+      <a href="index.html" class="block py-2 px-4 rounded hover:bg-red-700 text-center">Cerrar Sesión</a>
+    </div>
+  </aside>
+
+  <main class="flex-1 p-8">
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold">
+        <span class="text-gray-700">Servicios Médicos</span>
+        <span class="text-[#9C1C2A]">SAGRADO CORAZÓN</span>
+      </h1>
+      <p class="text-gray-600 mt-1">Bienvenido a Examen Físico</p>
+    </header>
+    <form class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg space-y-4 p-4">
+      <div class="flex flex-col lg:flex-row gap-4">
+        <div class="lg:w-1/2 p-4 border border-gray-300 rounded">
+          <h2 class="text-xl font-bold text-red-800 mb-6">
+            EVALUACIONES:
+          </h2>
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2">
+              <label for="t_protocolo" class="w-44">T. de protocolo:</label>
+              <input type="text" id="t_protocolo" name="t_protocolo"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="psicologica" class="w-44">Psicológica:</label>
+              <input type="text" id="psicologica" name="psicologica"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="radiologica" class="w-44">Radiológica:</label>
+              <input type="text" id="radiologica" name="radiologica"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="h_patologicos" class="w-44">H.patológicos:</label>
+              <input type="text" id="h_patologicos" name="h_patologicos"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="optometrica" class="w-44">Optométrica:</label>
+              <input type="text" id="optometrica" name="optometrica"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="audiometria" class="w-44">Audiometría:</label>
+              <input type="text" id="audiometria" name="audiometria"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="espirometria" class="w-44">Espirometría:</label>
+              <input type="text" id="espirometria" name="espirometria"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="clin_ocupacional" class="w-44">Clin.ocupacional:</label>
+              <input type="text" id="clin_ocupacional" name="clin_ocupacional"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="musc_esquelet" class="w-44">Musc.esquelet:</label>
+              <input type="text" id="musc_esquelet" name="musc_esquelet"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="odontologico" class="w-44">Odontológico:</label>
+              <input type="text" id="odontologico" name="odontologico"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="p_de_esfuerzo" class="w-44">P. de esfuerzo:</label>
+              <input type="text" id="p_de_esfuerzo" name="p_de_esfuerzo"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="e_cardiologica" class="w-44">E. cardiológica:</label>
+              <input type="text" id="e_cardiologica" name="e_cardiologica"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="electrocard" class="w-44">Electrocard:</label>
+              <input type="text" id="electrocard" name="electrocard"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="psicosensomet" class="w-44">Psicosensomet:</label>
+              <input type="text" id="psicosensomet" name="psicosensomet"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="psicotecnico" class="w-44">Psicotécnico:</label>
+              <input type="text" id="psicotecnico" name="psicotecnico"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="nutricional" class="w-44">Nutricional:</label>
+              <input type="text" id="nutricional" name="nutricional"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="ecografia" class="w-44">Ecografía:</label>
+              <input type="text" id="ecografia" name="ecografia" class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="anexos_y_otros" class="w-44">Anexos y otros:</label>
+              <input type="text" id="anexos_y_otros" name="anexos_y_otros"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="riesgo_coronario" class="w-44">Riesgo Coronario:</label>
+              <input type="text" id="riesgo_coronario" name="riesgo_coronario"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <label for="otros_solo_alterados" class="w-44">Otros(solo alterados):</label>
+              <input type="text" id="otros_solo_alterados" name="otros_solo_alterados"
+                class="w-full border border-gray-500 p-1 rounded-md" />
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2 space-y-2 p-4 border border-gray-300 rounded">
+          <h2 class="text-xl font-bold text-red-800 mb-6">
+            2do Bloque::
+          </h2>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="piel_check" name="piel_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="piel_check" class="w-80">Piel</label>
+            <input type="text" id="piel_input" name="piel_input" class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="cabello_check" name="cabello_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="cabello_check" class="w-80">Cabello</label>
+            <input type="text" id="cabello_input" name="cabello_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="oidos_check" name="oidos_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="oidos_check" class="w-80">Oídos (incluye otoscopia)</label>
+            <input type="text" id="oidos_input" name="oidos_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="nariz_check" name="nariz_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="nariz_check" class="w-80">Nariz</label>
+            <input type="text" id="nariz_input" name="nariz_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="boca_check" name="boca_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="boca_check" class="w-80">Boca</label>
+            <input type="text" id="boca_input" name="boca_input" class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="faringe_check" name="faringe_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="faringe_check" class="w-80">Faringe</label>
+            <input type="text" id="faringe_input" name="faringe_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="cuello_check" name="cuello_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="cuello_check" class="w-80">Cuello</label>
+            <input type="text" id="cuello_input" name="cuello_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_respiratorio_check" name="aparato_respiratorio_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_respiratorio_check" class="w-80">Aparato respiratorio</label>
+            <input type="text" id="aparato_respiratorio_input" name="aparato_respiratorio_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_cardiovascular_check" name="aparato_cardiovascular_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_cardiovascular_check" class="w-80">Aparato cardiovascular</label>
+            <input type="text" id="aparato_cardiovascular_input" name="aparato_cardiovascular_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_digestivo_check" name="aparato_digestivo_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_digestivo_check" class="w-80">Aparato digestivo</label>
+            <input type="text" id="aparato_digestivo_input" name="aparato_digestivo_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_genitourinario_check" name="aparato_genitourinario_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_genitourinario_check" class="w-80">Aparato genitourinario</label>
+            <input type="text" id="aparato_genitourinario_input" name="aparato_genitourinario_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_locomotor_check" name="aparato_locomotor_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_locomotor_check" class="w-80">Aparato locomotor</label>
+            <input type="text" id="aparato_locomotor_input" name="aparato_locomotor_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="marcha_check" name="marcha_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="marcha_check" class="w-80">Marcha</label>
+            <input type="text" id="marcha_input" name="marcha_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="columna_check" name="columna_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="columna_check" class="w-80">Columna</label>
+            <input type="text" id="columna_input" name="columna_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="miembros_superiores_check" name="miembros_superiores_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="miembros_superiores_check" class="w-80">Miembros superiores</label>
+            <input type="text" id="miembros_superiores_input" name="miembros_superiores_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="miembros_inferiores_check" name="miembros_inferiores_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="miembros_inferiores_check" class="w-80">Miembros inferiores</label>
+            <input type="text" id="miembros_inferiores_input" name="miembros_inferiores_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_linfatico_check" name="aparato_linfatico_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_linfatico_check" class="w-80">Aparato linfático</label>
+            <input type="text" id="aparato_linfatico_input" name="aparato_linfatico_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="aparato_nervioso_check" name="aparato_nervioso_check"
+              class="accent-red-600 h-4 w-4 rounded border-gray-300" />
+            <label for="aparato_nervioso_check" class="w-80">Aparato nervioso</label>
+            <input type="text" id="aparato_nervioso_input" name="aparato_nervioso_input"
+              class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+        </div>
+      </div>
+      <div class="space-y-2 p-4 border border-gray-300 rounded">
+        <h2 class="text-xl font-bold text-red-800 mb-6">
+          3er Bloque:
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded">
+          <div>
+            <!-- Fila con label Pulmones y radios -->
+            <div class="flex items-center gap-4 mb-1">
+              <!-- Label independiente con ancho fijo -->
+              <label class="w-20">Pulmones:</label>
+
+              <!-- Radios alineados a la derecha del label -->
+              <label class="flex items-center gap-1">
+                <input type="radio" id="pulmones_normal" name="pulmones" value="normal"
+                  class="accent-red-600 h-4 w-4" />Normal
+              </label>
+              <label class="flex items-center gap-1">
+                <input type="radio" id="pulmones_anormal" name="pulmones" value="anormal"
+                  class="accent-red-600 h-4 w-4" />Anormal
+              </label>
+            </div>
+
+            <!-- Input de descripción debajo -->
+            <input type="text" name="pulmones_descripcion" class="w-full border border-gray-500 p-1 rounded-md" />
+          </div>
+
+          <div>
+            <label for="cabeza" class="block  mb-1">Cabeza:</label>
+            <input type="text" id="cabeza" name="cabeza" class="w-full border border-gray-500 p-1 rounded-md " />
+          </div>
+
+          <div>
+            <label for="reflejos" class="block  mb-1">Reflejos Ósteo-Tendinosos:</label>
+            <input type="text" id="reflejos" name="reflejos" class="w-full border border-gray-500 p-1 rounded-md " />
+          </div>
+
+          <div>
+            <label for="boca_amigdalas" class="block  mb-1">Boca, Amígdalas, Taringe, Laringe:</label>
+            <input type="text" id="boca_amigdalas" name="boca_amigdalas"
+              class="w-full border border-gray-500 p-1 rounded-md " />
+          </div>
+
+          <div>
+            <label for="abdomen" class="block  mb-1">Abdomen:</label>
+            <input type="text" id="abdomen" name="abdomen" class="w-full border border-gray-500 p-1 rounded-md " />
+          </div>
+
+          <div>
+            <label for="ojos_y_anexos" class="block  mb-1">Ojos y Anexos:</label>
+            <input type="text" id="ojos_y_anexos" name="ojos_y_anexos"
+              class="w-full border border-gray-500 p-1 rounded-md " />
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-2">
+              <label for="piezas_mal_estado" class=" whitespace-nowrap">Piezas en mal estado:</label>
+              <input type="number" id="piezas_mal_estado" name="piezas_mal_estado" value="0" min="0"
+                class="w-10 text-center border border-gray-500 p-1 rounded-md " />
+            </div>
+
+            <div class="flex items-center gap-2">
+              <label for="piezas_que_faltan" class=" whitespace-nowrap">Piezas que faltan:</label>
+              <input type="number" id="piezas_que_faltan" name="piezas_que_faltan" value="0" min="0"
+                class="w-10 text-center border border-gray-500 p-1 rounded-md " />
+            </div>
+
+            <div class="flex items-center gap-2">
+              <label for="rx_torax_oit" class=" whitespace-nowrap">Rx Tórax según OIT:</label>
+              <input type="text" id="rx_torax_oit" name="rx_torax_oit"
+                class="min-w-[200px] border border-gray-500 p-1 rounded-md " />
+            </div>
+          </div>
+          <div class="mt-8 flex justify-end">
+            <button type="submit"
+              class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md transition duration-150 ease-in-out flex items-center space-x-2">
+              <span>Guardar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+
+</html>

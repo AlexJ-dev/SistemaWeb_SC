@@ -126,20 +126,45 @@ class RutaMedicaController extends Controller
     }
 
     public function ver($id)
-    {
-        $ruta = RutaMedica::find($id);
-        $areasOcupacionales = AreaOcupacional::all();
+{
+    $ruta = RutaMedica::find($id);
 
-        if (!$ruta) {
-            return redirect()->back()->with('error', 'No se encontró la hoja de ruta.');
-        }
-
-        $evaluaciones = Evaluacion::with('areaOcupacional')
-            ->where('ruta_medica_id', $ruta->id)
-            ->get();
-
-        return view('ocupacional.ruta.ver', compact('ruta', 'evaluaciones', 'areasOcupacionales'));
+    if (!$ruta) {
+        return redirect()->back()->with('error', 'No se encontró la hoja de ruta.');
     }
+
+    // Todas las áreas disponibles
+    $areas = AreaOcupacional::all();
+
+    // Obtener las evaluaciones existentes de la ruta
+    $evaluaciones = Evaluacion::where('ruta_medica_id', $ruta->id)->get();
+
+    // Crear evaluaciones faltantes para nuevas áreas
+    foreach ($areas as $area) {
+        $existe = $evaluaciones->firstWhere('area_ocupacional_id', $area->id);
+
+        if (!$existe) {
+            Evaluacion::create([
+                'ruta_medica_id'      => $ruta->id,
+                'area_ocupacional_id' => $area->id,
+                'user_id'             => Auth::id(),
+                'hora_ingreso'        => null,
+                'hora_salida'         => null,
+                'observaciones'       => null,
+                'estado'              => 'pendiente',
+                'no_aplica'           => false,
+            ]);
+        }
+    }
+
+    // Volver a cargar evaluaciones, ahora incluyendo las nuevas
+    $evaluaciones = Evaluacion::with('areaOcupacional')
+        ->where('ruta_medica_id', $ruta->id)
+        ->orderBy('area_ocupacional_id')
+        ->get();
+
+    return view('ocupacional.ruta.ver', compact('ruta', 'evaluaciones'));
+}
 
     public function verificarPaciente($dni)
     {

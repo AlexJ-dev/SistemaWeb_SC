@@ -36,4 +36,55 @@ class Evaluacion extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
+    public function fichaOcupacional()
+    {
+        return $this->hasOne(FichaOcupacional::class, 'ruta_medica_id', 'ruta_medica_id');
+    }
+
+    public function historiaClinica()
+    {
+        return $this->hasOneThrough(
+            HistoriaClinica::class,     // Modelo destino
+            FichaOcupacional::class,    // Modelo intermedio
+            'ruta_medica_id',           // FK en ficha_ocupacional que apunta a ruta_medica
+            'id',                       // PK en historia_clinica
+            'ruta_medica_id',           // FK en evaluacion que apunta a ruta_medica
+            'historia_clinica_id'       // FK en ficha_ocupacional que apunta a historia_clinica
+        );
+    }
+
+
+
+
+    //Evaluaciones
+    public function admision()
+    {
+        return $this->hasOne(EvaluacionAdmisionDatos::class);
+    }
+    public function triaje()
+    {
+        return $this->hasOne(EvaluacionTriaje::class, 'evaluacion_id');
+    }
+    public function oftalmologia()
+    {
+        return $this->hasOne(EvaluacionOftalmologia::class, 'evaluacion_id');
+    }
+    public function audiometria()
+    {
+        return $this->hasOne(EvaluacionAudiometria::class, 'evaluacion_id');
+    }
+    public function espirometria()
+    {
+        return $this->hasOne(EvaluacionEspirometria::class, 'evaluacion_id');
+    }
+    public function psicologia()
+    {
+        return $this->hasOne(EvaluacionPsicologia::class);
+    }
+    public function radiografia()
+    {
+        return $this->hasOne(EvaluacionRadiografia::class, 'evaluacion_id');
+    }
 }

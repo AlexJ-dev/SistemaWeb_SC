@@ -52,7 +52,7 @@
                     {{-- EMPRESA --}}
                     <div class="flex gap-2 items-center ">
                         <x-input-clinico label="Empresa" name="empresa" id="empresa"
-                            :value="$rutaMedica?->empresa"  />
+                            :value="$rutaMedica?->empresa" />
 
                         <button type="button"
                             onclick="abrirModalEmpresa('empresa')"
@@ -63,7 +63,7 @@
 
                     {{-- CONTRATISTA --}}
                     <div class="flex gap-2 items-center">
-                        <x-input-clinico label="Contratista" name="contratista" id="contratista"  />
+                        <x-input-clinico label="Contratista" name="contratista" id="contratista" />
 
                         <button type="button"
                             onclick="abrirModalEmpresa('contratista')"
@@ -119,17 +119,20 @@
                         @endforeach
                     </div>
                 </div>
+                @php
+                $from = request('from');
+                @endphp
 
                 {{-- Botones --}}
                 <div class="flex justify-end space-x-4 mt-6">
-                    <a href="{{ route('inicio') }}"
+                    <a href="{{ $from === 'inicio' ? route('inicio') : route('evaluaciones') }}"
                         class="px-4 py-2 bg-gray-300 text-[#4C4C4C] rounded hover:bg-gray-400 transition">
-                        Cancelar
+                        Salir
                     </a>
 
                     <button type="submit"
                         class="px-4 py-2 bg-[#9C1C2A] text-white rounded hover:bg-[#b91c1c] transition">
-                        Guardar Ficha
+                        Guardar
                     </button>
                 </div>
             </form>
